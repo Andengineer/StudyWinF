@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Curso } from '../../../models/Curso';
 import { CursoService } from '../../../services/curso.service';
@@ -10,7 +10,7 @@ import { CursoService } from '../../../services/curso.service';
   templateUrl: './listar-curso.component.html',
   styleUrl: './listar-curso.component.css'
 })
-export class ListarCursoComponent {
+export class ListarCursoComponent implements OnInit{
   dataSource:MatTableDataSource<Curso>= new MatTableDataSource()
   displayedColumns:string[]=['c1','c2','c3','c4']
 

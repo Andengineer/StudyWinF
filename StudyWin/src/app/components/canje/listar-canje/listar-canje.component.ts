@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Canje } from '../../../models/Canje';
 import { CanjeService } from '../../../services/canje.service';
@@ -10,7 +10,7 @@ import { CanjeService } from '../../../services/canje.service';
   templateUrl: './listar-canje.component.html',
   styleUrl: './listar-canje.component.css'
 })
-export class ListarCanjeComponent {
+export class ListarCanjeComponent implements OnInit {
   dataSource:MatTableDataSource<Canje>= new MatTableDataSource()
   displayedColumns:string[]=['c1','c2','c3','c4','c5']
 
