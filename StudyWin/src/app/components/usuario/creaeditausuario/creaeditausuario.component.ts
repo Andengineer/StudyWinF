@@ -21,7 +21,6 @@ export class CreaeditausuarioComponent implements OnInit{
   usuario:Usuario=new Usuario();
   hidePassword = true;
   listaInstituciones:{ value:string, viewValue:string}[]=[
-    {value:'Universidad Peruana de Ciencias Aplicadas',viewValue:'Universidad Peruana de Ciencias Aplicadas'},
     { value: 'Universidad Peruana de Ciencias Aplicadas', viewValue: 'Universidad Peruana de Ciencias Aplicadas' },
     { value: 'Pontificia Universidad Católica del Perú', viewValue: 'Pontificia Universidad Católica del Perú' },
     { value: 'Universidad Nacional Mayor de San Marcos', viewValue: 'Universidad Nacional Mayor de San Marcos' },

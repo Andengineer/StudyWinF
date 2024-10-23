@@ -16,8 +16,10 @@ export class ListarCanjeComponent implements OnInit {
 
   constructor(private cS:CanjeService){}
   ngOnInit(): void {
+    
       this.cS.list().subscribe(data=>{
         this.dataSource=new MatTableDataSource(data)
+        console.log(data)
       });
       this.cS.getList().subscribe(data=>{
         this.dataSource=new MatTableDataSource(data);
