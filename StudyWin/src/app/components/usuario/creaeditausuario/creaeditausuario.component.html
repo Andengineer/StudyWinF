@@ -1,1 +1,47 @@
-<p>creaeditausuario works!</p>
+<div>
+    <div>Registro Usuario</div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombres</mat-label>
+                <input matInput formControlName="hnombre">
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width">
+                <mat-label>Apellidos</mat-label>
+                <input matInput  formControlName="hapellidos">
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width">
+                <mat-label>DNI</mat-label>
+                <input matInput  formControlName="hdni">
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="abcd123@gmail.com" formControlName="hemail">
+              </mat-form-field>
+              <br>
+              <!-- Campo para la contraseña con opción de mostrar/ocultar -->
+              <mat-form-field class="example-full-width">
+                <mat-label>Contraseña</mat-label>
+                <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="hpassword">
+                <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+                    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+              </mat-form-field>
+          <br>
+              <mat-form-field>
+                <mat-label>Institución</mat-label>
+                <mat-select formControlName="hinstitucion">
+                  @for (food of listaInstituciones; track food) {
+                    <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+              <div>
+                <button mat-flat-button>Registrar</button>
+              </div>
+        </form>
+    </div>
+</div>

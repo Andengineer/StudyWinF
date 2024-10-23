@@ -1,1 +1,23 @@
-<p>creaeditacanje works!</p>
+<div>
+    <div>Registro Canje</div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field class="example-full-width">
+                <mat-label>Ambiente</mat-label>
+                <input matInput placeholder="Ejm. Sala" formControlName="hambiente">
+              </mat-form-field>
+              <br>
+              <mat-form-field>
+                <mat-label>Ubicacion</mat-label>
+                <mat-select formControlName="hubicacion">
+                  @for (food of listaUbicaciones; track food) {
+                    <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+              <div>
+                <button mat-flat-button>Registrar</button>
+              </div>
+        </form>
+    </div>
+</div>
