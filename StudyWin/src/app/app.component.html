@@ -1,1 +1,12 @@
-<app-usuario></app-usuario>
+<mat-toolbar  >
+    <mat-icon >menu</mat-icon>
+    <div>
+    <button mat-button [matMenuTriggerFor]="menuEjemplo"  >Menu</button>
+    </div>
+   </mat-toolbar>
+   
+   <mat-menu #menuEjemplo="matMenu">
+    <button mat-menu-item routerLink="/usuario" >Listar Usuario</button>
+    <button mat-menu-item routerLink="/usuario/nuevo">Registrar Usuario</button>
+   </mat-menu>
+   <router-outlet></router-outlet>

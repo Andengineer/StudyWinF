@@ -19,5 +19,8 @@ export class ListarUsuarioComponent {
       this.uS.list().subscribe(data=>{
         this.dataSource=new MatTableDataSource(data)
       });
+      this.uS.getList().subscribe(data=>{
+        this.dataSource=new MatTableDataSource(data);
+      });
   }
 }

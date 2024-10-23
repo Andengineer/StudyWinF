@@ -19,5 +19,8 @@ export class ListarCanjeComponent {
       this.cS.list().subscribe(data=>{
         this.dataSource=new MatTableDataSource(data)
       });
+      this.cS.getList().subscribe(data=>{
+        this.dataSource=new MatTableDataSource(data);
+      });
   }
 }
