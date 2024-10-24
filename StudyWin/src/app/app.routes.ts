@@ -25,4 +25,6 @@ export const routes: Routes = [
             { path: 'nuevo', component: CreaeditacursoComponent } // Ruta para crear/editar un canje
         ]
     }
-];
+]
+;
+

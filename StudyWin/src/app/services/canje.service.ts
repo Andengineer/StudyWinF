@@ -24,4 +24,13 @@ export class CanjeService {
   getList(){
     return this.listaCambio.asObservable();
   }
+  delete(id:number){
+    return this.http.delete(`${this.url}/${id}`)
+  }
+  listId(id:number){
+    return this.http.get<Canje>(`${this.url}/${id}`)
+  }
+  update(r:Canje){
+    return this.http.put(this.url,r)
+  }
 }

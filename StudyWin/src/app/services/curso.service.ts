@@ -24,4 +24,14 @@ export class CursoService {
   getList(){
     return this.listaCambio.asObservable();
   }
+  delete(id:number){
+    return this.http.delete(`${this.url}/${id}`)
+  }
+  listId(id:number){
+    return this.http.get<Curso>(`${this.url}/${id}`)
+  }
+  update(r:Curso){
+    return this.http.put(this.url,r)
+  }
+  
 }

@@ -1,16 +1,21 @@
-<mat-toolbar  >
-    <mat-icon >menu</mat-icon>
-    <div>
-    <button mat-button [matMenuTriggerFor]="menuEjemplo"  >Menu</button>
-    </div>
-   </mat-toolbar>
-   
-   <mat-menu #menuEjemplo="matMenu">
-    <button mat-menu-item routerLink="/usuario" >Listar Usuario</button>
-    <button mat-menu-item routerLink="/usuario/nuevo">Registrar Usuario</button>
-    <button mat-menu-item routerLink="/canje" >Listar Canje</button>
-    <button mat-menu-item routerLink="/canje/nuevo">Registrar Canje</button>
-    <button mat-menu-item routerLink="/curso" >Listar Curso</button>
-    <button mat-menu-item routerLink="/curso/nuevo">Registrar Curso</button>
-   </mat-menu>
-   <router-outlet></router-outlet>
+<nav class="navbar">
+  <div class="navbar-brand">
+    <img src="images/StudywinLogo.png" alt="StudyWin Logo" class="logo">
+  </div>
+  <ul class="navbar-menu">
+    <li><a routerLink="/curso">Curso</a></li>
+    <li><a routerLink="/recompensas">Recompensas</a></li>
+    <li><a routerLink="/progreso">Mi Progreso</a></li>
+    <li><a routerLink="/canje">Canje</a></li>
+    <li><a routerLink="/usuario/nuevo">Sign in</a></li>
+  </ul>
+  <div class="navbar-profile">
+    <a href="/usuario"><mat-icon style="color: white;">account_circle</mat-icon></a>
+  </div>
+</nav>
+
+<!-- Aquí debe ir el router-outlet para que el contenido cargue en la parte blanca -->
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>
+

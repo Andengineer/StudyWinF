@@ -2,10 +2,6 @@
     <h1></h1>
     <div class="contenedortabla">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-            <!--- Note that these columns can be defined in any order.
-                  The actual rendered columns are set as a property on the row definition" -->
-          
             <!-- Position Column -->
             <ng-container matColumnDef="c1">
               <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -56,8 +52,6 @@
                   
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-          
-          
+          </table>        
     </div>
 </div>
