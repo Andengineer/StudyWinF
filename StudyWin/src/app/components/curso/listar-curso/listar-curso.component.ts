@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Curso } from '../../../models/Curso';
 import { CursoService } from '../../../services/curso.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listar-curso',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule,CommonModule],
   templateUrl: './listar-curso.component.html',
   styleUrl: './listar-curso.component.css'
 })

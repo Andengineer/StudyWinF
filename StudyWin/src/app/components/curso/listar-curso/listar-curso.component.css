@@ -1,51 +1,42 @@
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-  }
+/* Estilo general para el contenedor de ítems */
+.contenedor-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Cambia el tamaño mínimo si lo deseas */
+  gap: 15px; /* Espaciado entre ítems */
+  padding: 20px; /* Espaciado interno */
+}
+
+/* Estilo de cada ítem (tarjeta) */
+.item {
+  background-color: #f9f9f9; /* Color de fondo */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  padding: 15px; /* Espaciado interno */
+  text-align: center; /* Centrar el texto */
+}
+
+/* Imagen dentro del ítem */
+.item-imagen {
+  width: 100%; /* Ancho completo */
+  height: auto; /* Mantener la relación de aspecto */
+  border-radius: 5px; /* Bordes redondeados en la imagen */
+}
+
+/* Estilo para el contenido dentro de cada ítem */
+.item-contenido {
+  margin-top: 10px; /* Espaciado superior */
+}
+
+/* Estilo para el título del curso */
+.item-contenido h2 {
+  font-size: 1.5em; /* Tamaño del título */
+  margin: 0; /* Sin margen */
+}
+
+/* Estilo para párrafos */
+.item-contenido p {
+  margin: 5px 0; /* Margen vertical para los párrafos */
+}
+.Titulo{
   
-  th {
-    color: black;
-    font-weight: bold;
-    padding: 12px;
-    text-align: left;
-  }
-  
-  td {
-    padding: 12px;
-    text-align: left;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  tr:hover {
-    background-color: #ddd;
-  }
-  
-  .mat-elevation-z8 {
-    box-shadow: 10px 4px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-  
-  table, th, td {
-    border: 1px solid #ddd;
-  }
-  
-  table th, table td {
-    padding: 10px;
-  }
-  
-  .mat-header-cell {
-    text-transform: uppercase;
-  }
-  
-  .contenedortabla {
-    width: 90%;
-    margin: 0 auto;
-    padding: 80px;
-  }
-  
+}

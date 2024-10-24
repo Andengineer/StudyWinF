@@ -1,0 +1,35 @@
+/* Estilo general del contenedor */
+form {
+    max-width: 300px; /* Limita el ancho del formulario */
+    margin:  auto; /* Centra el formulario vertical y horizontalmente */
+    padding: 30px; /* Agrega espacio interno */
+    padding-left: 60px;
+    background-color: #f7f7f7; /* Fondo ligero */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor del formulario */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #ddd; /* Borde sutil */
+  }
+  /* Efecto hover en el botón */
+  button[mat-flat-button]:hover {
+    background-color: #303f9f;
+  }
+  .boton{
+    align-items: center;
+  }
+  .example-full-width {
+    width: 280px; /* Ajusta este valor según lo que necesites */
+  }
+  .TReg {
+    text-align: center; /* Centra el texto horizontalmente */
+    font-size: 34px; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Texto en negrita */
+    color: #333; /* Color del texto */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    padding-top: 50px;
+    
+    
+
+  }
+  
+  
+  

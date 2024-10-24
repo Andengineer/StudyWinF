@@ -1,5 +1,5 @@
 <div>
-    <div>Registro Usuario</div>
+    <div class="TReg">Registro Usuario</div>
     <div>
         <form [formGroup]="form" (submit)="aceptar()">
             <mat-form-field class="example-full-width">
@@ -31,7 +31,7 @@
                 </button>
               </mat-form-field>
           <br>
-              <mat-form-field>
+              <mat-form-field class="example-full-width">
                 <mat-label>Institución</mat-label>
                 <mat-select formControlName="hinstitucion">
                   @for (food of listaInstituciones; track food) {
@@ -39,7 +39,7 @@
                   }
                 </mat-select>
               </mat-form-field>
-              <div>
+              <div class="boton">
                 <button mat-flat-button>Registrar</button>
               </div>
         </form>

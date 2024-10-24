@@ -1,21 +1,24 @@
 <nav class="navbar">
-  <div class="navbar-brand">
-    <img src="images/StudywinLogo.png" alt="StudyWin Logo" class="logo">
+  <div class="navbar-content">
+    <div class="navbar-brand">
+      <img src="images/StudywinLogo.png" alt="StudyWin Logo" class="logo">
+      <span>StudyWin</span>
+    </div>
+    <ul class="navbar-menu">
+      <li><a routerLink="/curso">Curso</a></li>
+      <li><a routerLink="/recompensas">Recompensas</a></li>
+      <li><a routerLink="/progreso">Mi Progreso</a></li>
+      <li><a routerLink="/canje">Canje</a></li>
+    </ul>
   </div>
-  <ul class="navbar-menu">
-    <li><a routerLink="/curso">Curso</a></li>
-    <li><a routerLink="/recompensas">Recompensas</a></li>
-    <li><a routerLink="/progreso">Mi Progreso</a></li>
-    <li><a routerLink="/canje">Canje</a></li>
-    <li><a routerLink="/usuario/nuevo">Sign in</a></li>
-  </ul>
   <div class="navbar-profile">
+    <a routerLink="/usuario/nuevo" class="sign-in-link">Sign up</a>
     <a href="/usuario"><mat-icon style="color: white;">account_circle</mat-icon></a>
   </div>
 </nav>
 
-<!-- Aquí debe ir el router-outlet para que el contenido cargue en la parte blanca -->
 <div class="main-content">
   <router-outlet></router-outlet>
 </div>
+
 

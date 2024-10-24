@@ -10,6 +10,8 @@ body {
 .navbar {
   display: flex;
   justify-content: space-between;
+  position: sticky; /* Hace que la barra sea "pegajosa" al hacer scroll */
+  top: 0; /* Se adhiere en la parte superior cuando llega a este punto */
   align-items: center;
   background-color:   #34048c;
   padding: 15px 30px;
@@ -26,17 +28,18 @@ body {
 }
 
 .logo {
-  width: 50px;
+  width: 55px;
   height: 50px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 /* Menú de navegación */
 .navbar-menu {
-  list-style: none;
   display: flex;
   gap: 30px;
   margin: 0;
+  margin: 0; /* Elimina el margen */
+  padding: 0; /* Elimina el padding si es necesario */
 }
 
 .navbar-menu li {
@@ -50,7 +53,7 @@ body {
 }
 
 .navbar-menu a:hover {
-  color: #FFD700;
+  color: #cd62ff;
 }
 
 /* Perfil de usuario */
@@ -77,4 +80,19 @@ body {
     flex-direction: column;
     gap: 15px;
   }
+}
+.sign-in-link {
+  color: white;
+  margin-right: 10px;
+  text-decoration: none;
+  
+}
+
+.sign-in-link:hover {
+  text-decoration: none;
+}
+.navbar-content {
+  display: flex; /* Mantiene el contenido en fila */
+  align-items: center; /* Alinea verticalmente */
+  gap: 40px; /* Ajusta este valor según sea necesario */
 }
