@@ -46,6 +46,15 @@ body {
   display: inline;
 }
 
+.navbar-menu ul {
+  display: none;
+  position: absolute;
+}
+
+.navbar-menu li:hover > ul {
+  display: block;
+}
+
 .navbar-menu a {
   color: white;
   text-decoration: none;
