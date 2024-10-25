@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 /* Barra de navegación */
@@ -36,7 +37,7 @@ body {
 /* Menú de navegación */
 .navbar-menu {
   display: flex;
-  gap: 30px;
+  gap: 15px;
   margin: 0;
   margin: 0; /* Elimina el margen */
   padding: 0; /* Elimina el padding si es necesario */
@@ -104,4 +105,8 @@ body {
   display: flex; /* Mantiene el contenido en fila */
   align-items: center; /* Alinea verticalmente */
   gap: 40px; /* Ajusta este valor según sea necesario */
+}
+.main-content {
+  background: linear-gradient(90deg, #34008C 0%, #301C42 100%);
+  min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
 }

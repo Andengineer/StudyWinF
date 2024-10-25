@@ -37,6 +37,15 @@
 .item-contenido p {
   margin: 5px 0; /* Margen vertical para los párrafos */
 }
-.Titulo{
-  
+.Titulo {
+  color: #ffffff; /* Color del texto */
+  text-align: center; /* Centrar el texto */
+  padding-top: 10px;
 }
+.Titulos{
+  font-size: 3em; /* Tamaño de fuente */
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-weight: bold; /* Negrita */
+}
+
+
