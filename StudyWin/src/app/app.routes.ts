@@ -5,6 +5,7 @@ import { CanjeComponent } from './components/canje/canje.component';
 import { CreaeditacanjeComponent } from './components/canje/creaeditacanje/creaeditacanje.component';
 import { CursoComponent } from './components/curso/curso.component';
 import { CreaeditacursoComponent } from './components/curso/creaeditacurso/creaeditacurso.component';
+import { AsociadoComponent } from './components/asociado/asociado.component';
 
 export const routes: Routes = [
     {
@@ -24,6 +25,9 @@ export const routes: Routes = [
         children: [
             { path: 'nuevo', component: CreaeditacursoComponent } // Ruta para crear/editar un canje
         ]
+    },
+    {
+        path: 'asociado', component:AsociadoComponent, // Ruta para listar los asociados
     }
 ]
 ;
