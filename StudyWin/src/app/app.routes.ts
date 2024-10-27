@@ -6,6 +6,8 @@ import { CreaeditacanjeComponent } from './components/canje/creaeditacanje/creae
 import { CursoComponent } from './components/curso/curso.component';
 import { CreaeditacursoComponent } from './components/curso/creaeditacurso/creaeditacurso.component';
 import { AsociadoComponent } from './components/asociado/asociado.component';
+import { PagemainComponent } from './components/mainpage/pagemain/pagemain.component';
+import { CuestionarioacademicoComponent } from './components/cuestionarioacademico/cuestionarioacademico.component';
 
 export const routes: Routes = [
     {
@@ -23,11 +25,15 @@ export const routes: Routes = [
     {
         path: 'curso', component: CursoComponent, // Ruta para listar los canjes
         children: [
-            { path: 'nuevo', component: CreaeditacursoComponent } // Ruta para crear/editar un canje
+            { path: 'nuevo', component: CreaeditacursoComponent },
+            { path: 'cuestionario-academico', component: CuestionarioacademicoComponent }
         ]
-    },
+            },
     {
         path: 'asociado', component:AsociadoComponent, // Ruta para listar los asociados
+    },
+    {
+        path: '', component:PagemainComponent, // Ruta para listar los asociados
     }
 ]
 ;
