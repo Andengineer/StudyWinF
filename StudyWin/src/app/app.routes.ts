@@ -28,7 +28,7 @@ export const routes: Routes = [
             { path: 'nuevo', component: CreaeditacursoComponent },
             { path: 'cuestionario-academico', component: CuestionarioacademicoComponent }
         ]
-            },
+    },
     {
         path: 'asociado', component:AsociadoComponent, // Ruta para listar los asociados
     },
