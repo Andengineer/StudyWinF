@@ -1,0 +1,13 @@
+<div class="todo-recompensa">
+    <div class="Titulo"><h1  class="Titulos"> Recompensas</h1></div>
+    <div class="contenedor-items">
+        <div class="item" *ngFor="let element of dataSource.data"> <!-- Accede a la propiedad data -->
+            <img src="{{element.imagen}}" alt="Recompensas Imagen" class="item-imagen">
+            <div class="item-contenido">
+                <h2>{{element.nombre}}</h2>
+                <p><strong>Puntos:</strong> {{element.puntos}}</p>
+                <p><strong>Stock:</strong> {{element.stock}}</p>
+            </div>
+        </div>
+    </div>
+</div>
