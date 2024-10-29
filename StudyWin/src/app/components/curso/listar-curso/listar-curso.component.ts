@@ -4,6 +4,7 @@ import { Curso } from '../../../models/Curso';
 import { CursoService } from '../../../services/curso.service';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-listar-curso',
   standalone: true,
@@ -12,9 +13,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './listar-curso.component.css'
 })
 export class ListarCursoComponent implements OnInit{
-  dataSource:MatTableDataSource<Curso>= new MatTableDataSource()
-  displayedColumns:string[]=['c1','c2','c3','c4']
-
+  dataSource:MatTableDataSource<Curso>= new MatTableDataSource();
+  
   constructor(private cS:CursoService){}
   ngOnInit(): void {
       this.cS.list().subscribe(data=>{
