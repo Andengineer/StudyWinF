@@ -1,0 +1,41 @@
+<div>
+    <div class="TReg">Registro Detalle Canje</div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+          
+          <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>Codigo</mat-label>
+            <input matInput placeholder="Ejm. 1" formControlName="hcodigo" readonly>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Recompensa</mat-label>
+            <mat-select formControlName="hrecompensa">
+              @for (food of listaRecompensas; track food) {
+                <mat-option [value]="food.id_recompensa">{{food.nombre}}</mat-option>
+              }
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Usuario</mat-label>
+            <mat-select formControlName="hcanje">
+              @for (food of listaCanjes; track food) {
+                <mat-option [value]="food.id_canje">{{food.usuario.email}}</mat-option>
+              }
+          </mat-select>
+        </mat-form-field>
+        <br>
+          
+            <mat-form-field class="example-full-width">
+                <mat-label>Cantidad de Producto</mat-label>
+                <input matInput formControlName="hcantidad">
+              </mat-form-field>
+             
+              <div class="boton">
+                <button  mat-flat-button [disabled]="form.invalid">Registrar</button>
+              </div>
+        </form>
+    </div>
+</div>
+

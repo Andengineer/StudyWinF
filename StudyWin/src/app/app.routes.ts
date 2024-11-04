@@ -13,6 +13,8 @@ import { ListarCursoadminComponent } from './components/curso/listar-cursoadmin/
 import { ListarCursoComponent } from './components/curso/listar-curso/listar-curso.component';
 import { UsuarioxcursoComponent } from './components/usuarioxcurso/usuarioxcurso.component';
 import { CreaeditausuarioxcursoComponent } from './components/usuarioxcurso/creaeditausuarioxcurso/creaeditausuarioxcurso.component';
+import { DetallexcanjeComponent } from './components/detallexcanje/detallexcanje.component';
+import { CreaeditaDetallexcanjeComponent } from './components/detallexcanje/creaedita-detallexcanje/creaedita-detallexcanje.component';
 
 export const routes: Routes = [
     {
@@ -57,6 +59,14 @@ export const routes: Routes = [
             path:'nuevo',component:CreaeditausuarioxcursoComponent},
         {
             path:'ediciones/:id',component:CreaeditausuarioxcursoComponent
+        }]
+    },
+    {
+        path: 'detalle-canje',component:DetallexcanjeComponent,
+        children:[{
+            path:'nuevo',component:CreaeditaDetallexcanjeComponent},
+        {
+            path:'ediciones/:id',component:CreaeditaDetallexcanjeComponent
         }]
     }
 ]
