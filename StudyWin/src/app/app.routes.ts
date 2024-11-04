@@ -9,6 +9,7 @@ import { AsociadoComponent } from './components/asociado/asociado.component';
 import { PagemainComponent } from './components/mainpage/pagemain/pagemain.component';
 import { CuestionarioacademicoComponent } from './components/cuestionarioacademico/cuestionarioacademico.component';
 import { RecompensaComponent } from './components/recompensa/recompensa.component';
+import { ListarCursoadminComponent } from './components/curso/listar-cursoadmin/listar-cursoadmin.component';
 
 export const routes: Routes = [
     {
@@ -42,6 +43,9 @@ export const routes: Routes = [
     },
     {
         path: '', component:PagemainComponent, // Ruta para listar los asociados
+    },
+    {
+        path: 'cursoadmin', component:ListarCursoadminComponent, // Ruta para listar los asociados
     }
 ]
 ;
