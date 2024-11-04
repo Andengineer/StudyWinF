@@ -14,14 +14,18 @@ export const routes: Routes = [
     {
         path: 'usuario',component:UsuarioComponent,
         children:[{
-            path:'nuevo',component:CreaeditausuarioComponent
+            path:'nuevo',component:CreaeditausuarioComponent},
+        {
+            path:'ediciones/:id',component:CreaeditausuarioComponent
         }]
     },
     {
         path: 'canje', component: CanjeComponent, // Ruta para listar los canjes
         children: [
-            { path: 'nuevo', component: CreaeditacanjeComponent } // Ruta para crear/editar un canje
-        ]
+            { path: 'nuevo', component: CreaeditacanjeComponent },// Ruta para crear/editar un canje
+            {
+                path:'ediciones/:id',component:CreaeditacanjeComponent
+            }]
     },
     {
         path: 'curso', component: CursoComponent, // Ruta para listar los canjes

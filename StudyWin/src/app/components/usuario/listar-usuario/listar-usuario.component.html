@@ -29,11 +29,6 @@
                 <td mat-cell *matCellDef="let element"> {{element.email}} </td>
               </ng-container>
               <!-- Weight Column -->
-            <ng-container matColumnDef="c6">
-                <th mat-header-cell *matHeaderCellDef> contrasena</th>
-                <td mat-cell *matCellDef="let element"> {{element.contrasena}} </td>
-              </ng-container>
-              <!-- Weight Column -->
             <ng-container matColumnDef="c7">
                 <th mat-header-cell *matHeaderCellDef> puntos_usuario</th>
                 <td mat-cell *matCellDef="let element"> {{element.puntos_usuario}} </td>
@@ -43,10 +38,20 @@
                 <th mat-header-cell *matHeaderCellDef> institucion_educativa</th>
                 <td mat-cell *matCellDef="let element"> {{element.institucion_educativa}} </td>
               </ng-container>
-              <!-- Weight Column -->
-            <ng-container matColumnDef="c9">
-                <th mat-header-cell *matHeaderCellDef> enabled</th>
-                <td mat-cell *matCellDef="let element"> {{element.enabled}} </td>
+
+              <ng-container matColumnDef="eliminar">
+                <th mat-header-cell *matHeaderCellDef> Eliminar</th>
+                <td mat-cell *matCellDef="let element" (click)='eliminar(element.id_usuario)'>
+                  <mat-icon style="color: red;">delete_outline</mat-icon> </td>
+              </ng-container>
+              
+              <ng-container matColumnDef="actualizar">
+                <th mat-header-cell *matHeaderCellDef> Actualizar</th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-raised-button [routerLink]="['ediciones',element.id_usuario]">
+                    <mat-icon>edit</mat-icon> 
+                  </button>
+                </td>
               </ng-container>
                   
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

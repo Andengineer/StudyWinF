@@ -5,5 +5,5 @@ export class Canje{
     fecha: Date=new Date(Date.now());
     departamento:string='';
     distrito:string='';
-    Usuario:Usuario=new Usuario();
+    usuario:Usuario=new Usuario();
 }

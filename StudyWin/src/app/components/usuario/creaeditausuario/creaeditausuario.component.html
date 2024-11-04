@@ -2,6 +2,12 @@
     <div class="TReg">Registro Usuario</div>
     <div>
         <form [formGroup]="form" (submit)="aceptar()">
+          
+          <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>Codigo</mat-label>
+            <input matInput placeholder="Ejm. 1" formControlName="hcodigo">
+          </mat-form-field>
+          
             <mat-form-field class="example-full-width">
                 <mat-label>Nombres</mat-label>
                 <input matInput formControlName="hnombre">

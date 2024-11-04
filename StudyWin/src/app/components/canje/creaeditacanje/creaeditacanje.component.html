@@ -1,20 +1,38 @@
 <div>
-    <div>Registro Canje</div>
+    <div class="TReg">Registro Canje</div>
     <div>
         <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+              <mat-label>Codigo</mat-label>
+              <input matInput placeholder="Ejm. 1" formControlName="hcodigo" readonly>
+            </mat-form-field>
+            <br>
             <mat-form-field class="example-full-width">
-                <mat-label>Ambiente</mat-label>
-                <input matInput placeholder="Ejm. Sala" formControlName="hambiente">
-              </mat-form-field>
-              <br>
-              <mat-form-field>
-                <mat-label>Ubicacion</mat-label>
-                <mat-select formControlName="hubicacion">
-                  @for (food of listaUbicaciones; track food) {
-                    <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+              <mat-label>Choose a date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="hfecha">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>  
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Usuario</mat-label>
+                <mat-select formControlName="husuario">
+                  @for (food of listaUsuarios; track food) {
+                    <mat-option [value]="food.id_usuario">{{food.email}}</mat-option>
                   }
-                </mat-select>
-              </mat-form-field>
+              </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Departamento</mat-label>
+              <input matInput placeholder="Ejm. Lima" formControlName="hdepartamento">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Distrito</mat-label>
+              <input matInput placeholder="Ejm. Barranca" formControlName="hdistrito">
+            </mat-form-field>
+
               <div>
                 <button mat-flat-button [disabled]="form.invalid">Registrar</button>
               </div>
