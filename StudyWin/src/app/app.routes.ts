@@ -10,6 +10,7 @@ import { PagemainComponent } from './components/mainpage/pagemain/pagemain.compo
 import { CuestionarioacademicoComponent } from './components/cuestionarioacademico/cuestionarioacademico.component';
 import { RecompensaComponent } from './components/recompensa/recompensa.component';
 import { ListarCursoadminComponent } from './components/curso/listar-cursoadmin/listar-cursoadmin.component';
+import { ListarCursoComponent } from './components/curso/listar-curso/listar-curso.component';
 
 export const routes: Routes = [
     {
@@ -29,11 +30,8 @@ export const routes: Routes = [
             }]
     },
     {
-        path: 'curso', component: CursoComponent, // Ruta para listar los canjes
-        children: [
-            { path: 'nuevo', component: CreaeditacursoComponent },
-            { path: 'cuestionario-academico', component: CuestionarioacademicoComponent }
-        ]
+        path: 'curso', component: ListarCursoComponent
+        
     },
     {
         path: 'asociado', component:AsociadoComponent, // Ruta para listar los asociados
@@ -42,10 +40,14 @@ export const routes: Routes = [
         path: 'recompensas', component:RecompensaComponent, // Ruta para listar las recompensas
     },
     {
-        path: '', component:PagemainComponent, // Ruta para listar los asociados
+        path: '', component:PagemainComponent, // Ruta para listar el mainpage
     },
     {
-        path: 'cursoadmin', component:ListarCursoadminComponent, // Ruta para listar los asociados
+        path: 'cursoadmin', component:CursoComponent,
+        children:[
+            {path:'ediciones/:id',component:CreaeditacursoComponent},// Ruta para listar los cursos vista admin
+            {path: 'nuevo', component: CreaeditacursoComponent }
+        ] 
     }
 ]
 ;
