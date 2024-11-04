@@ -11,6 +11,8 @@ import { CuestionarioacademicoComponent } from './components/cuestionarioacademi
 import { RecompensaComponent } from './components/recompensa/recompensa.component';
 import { ListarCursoadminComponent } from './components/curso/listar-cursoadmin/listar-cursoadmin.component';
 import { ListarCursoComponent } from './components/curso/listar-curso/listar-curso.component';
+import { UsuarioxcursoComponent } from './components/usuarioxcurso/usuarioxcurso.component';
+import { CreaeditausuarioxcursoComponent } from './components/usuarioxcurso/creaeditausuarioxcurso/creaeditausuarioxcurso.component';
 
 export const routes: Routes = [
     {
@@ -48,6 +50,14 @@ export const routes: Routes = [
             {path:'ediciones/:id',component:CreaeditacursoComponent},// Ruta para listar los cursos vista admin
             {path: 'nuevo', component: CreaeditacursoComponent }
         ] 
+    },
+    {
+        path: 'usuarioxcurso',component:UsuarioxcursoComponent,
+        children:[{
+            path:'nuevo',component:CreaeditausuarioxcursoComponent},
+        {
+            path:'ediciones/:id',component:CreaeditausuarioxcursoComponent
+        }]
     }
 ]
 ;

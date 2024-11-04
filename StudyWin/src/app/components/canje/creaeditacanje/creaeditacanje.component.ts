@@ -80,7 +80,7 @@ export class CreaeditacanjeComponent {
         this.form=new FormGroup({
           hcodigo:new FormControl(data.id_canje),
           hfecha:new FormControl(data.fecha),
-          husuario:new FormControl(data.usuario.email),
+          husuario:new FormControl(data.usuario.id_usuario),
           hdepartamento: new FormControl(data.departamento),
           hdistrito: new FormControl(data.distrito)          
         })
