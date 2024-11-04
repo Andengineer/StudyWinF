@@ -27,10 +27,11 @@
         </mat-form-field>
         <br>
           
-            <mat-form-field class="example-full-width">
-                <mat-label>Cantidad de Producto</mat-label>
-                <input matInput formControlName="hcantidad">
-              </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Cantidad de Producto</mat-label>
+          <input matInput type="number" formControlName="hcantidad" min="0">
+        </mat-form-field>
+        
              
               <div class="boton">
                 <button  mat-flat-button [disabled]="form.invalid">Registrar</button>

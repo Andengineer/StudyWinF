@@ -38,7 +38,7 @@ export class CreaeditaDetallexcanjeComponent {
       this.init()
     })
     this.form=this.formBuilder.group({
-      hcantidad:['',Validators.required],
+      hcantidad: ['', [Validators.required, Validators.min(0)]],
       hcanje:['',Validators.required],
       hrecompensa:['',Validators.required],
       hcodigo:['']

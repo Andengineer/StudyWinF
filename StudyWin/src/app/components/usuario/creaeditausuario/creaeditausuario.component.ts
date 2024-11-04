@@ -48,7 +48,7 @@ constructor(private uS:UsuarioService, private formBuilder:FormBuilder,private r
         hapellidos:['',Validators.required],
         hinstitucion:['',Validators.required],
         hdni:['',Validators.required],
-        hemail:['',Validators.required],
+        hemail: ['', [Validators.required, Validators.email]],
         hpassword:['',Validators.required],
         hcodigo:['']
       })

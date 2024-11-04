@@ -45,7 +45,7 @@ export class ListarCanjeComponent implements OnInit {
             duration: 5000,
           });
         } else {
-          this.snackBar.open('Elimine el elemento foraneo de Usuario', 'Cerrar', {
+          this.snackBar.open('Elimine el elemento foraneo de Usuario, antes de eliminar este', 'Cerrar', {
             duration: 3000,
           });
         }
