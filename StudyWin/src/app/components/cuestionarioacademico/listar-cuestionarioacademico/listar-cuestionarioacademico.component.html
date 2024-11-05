@@ -1,0 +1,13 @@
+<div class="todo-cuestionario-academico">
+    <div class="Titulo"><h1  class="Titulos"> Cuestionarios Académicos </h1></div>
+    <div class="contenedor-items">
+        <div class="item" *ngFor="let element of dataSource.data"> <!-- Accede a la propiedad data -->
+            <img src="{{element.imagen}}" alt="Cuestionarios Academicos Imagen" class="item-imagen">
+            <div class="item-contenido">
+                <h2>{{element.nombres}}</h2>
+                <p><strong>Descripción:</strong> {{element.descripcion}}</p>
+                <p><strong>Tiempo límite:</strong> {{element.tiempo_limite}}</p>
+            </div>
+        </div>
+    </div>
+  </div>

@@ -10,12 +10,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { AsociadoComponent } from './components/asociado/asociado.component';
 import { RecompensaComponent } from './components/recompensa/recompensa.component';
 import { PreguntaComponent } from './components/pregunta/pregunta.component';
+import { CuestionarioacademicoComponent } from './components/cuestionarioacademico/cuestionarioacademico.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AsociadoComponent, UsuarioComponent, CursoComponent, CanjeComponent,MatToolbarModule,MatIconModule,MatMenuModule,MatButtonModule,RouterModule,RecompensaComponent,PreguntaComponent],
+  imports: [RouterOutlet, AsociadoComponent, UsuarioComponent, CursoComponent, CanjeComponent,MatToolbarModule,MatIconModule,MatMenuModule,MatButtonModule,RouterModule,RecompensaComponent,PreguntaComponent,CuestionarioacademicoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
