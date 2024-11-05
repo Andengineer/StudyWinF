@@ -9,5 +9,5 @@ export class Recompensa{
     stock:number=0
     imagen:string=""
     Asociado:Asociado=new Asociado();
-    TipoRecompensa:TipoRecompensa=new TipoRecompensa()
+    tipo_recompensa:TipoRecompensa=new TipoRecompensa()
 }

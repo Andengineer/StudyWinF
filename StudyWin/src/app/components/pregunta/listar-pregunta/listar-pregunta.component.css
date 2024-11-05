@@ -1,0 +1,68 @@
+/* Estilo para el título */
+.Titulos {
+    color: #ffffff; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    padding-top: 10px;
+}
+
+.Titulo{
+    font-size: 3em; /* Tamaño de fuente */
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-weight: bold; /* Negrita */
+}
+
+.ContenedorTabla{
+    justify-content: center;
+    padding: 20px; /* Espaciado superior e inferior alrededor de la tabla */
+}
+
+/* Tabla principal */
+table {
+    width: 80%; /* Ajusta el ancho al 60% de la pantalla para márgenes laterales amplios */
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+    border-collapse: collapse;
+    border-spacing: 0; /* Quita el espacio entre celdas */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Fondo y estilo para las cabeceras */
+.mat-header-cell {
+    background-color: #6200ea;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* Estilo para las celdas */
+.mat-cell {
+    background-color: #311b92;
+    color: #e0e0e0;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+/* Interacción al pasar el mouse sobre las filas */
+.mat-row:hover {
+    background-color: #4527a0;
+}
+
+/* Bordes entre las filas */
+.mat-row, .mat-header-row {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Sombra para la tabla */
+.mat-elevation-z8 {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos de clasificación para las cabeceras */
+.mat-sort-header-arrow {
+    color: #ffeb3b;
+}

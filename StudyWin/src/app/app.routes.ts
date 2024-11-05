@@ -15,6 +15,7 @@ import { UsuarioxcursoComponent } from './components/usuarioxcurso/usuarioxcurso
 import { CreaeditausuarioxcursoComponent } from './components/usuarioxcurso/creaeditausuarioxcurso/creaeditausuarioxcurso.component';
 import { DetallexcanjeComponent } from './components/detallexcanje/detallexcanje.component';
 import { CreaeditaDetallexcanjeComponent } from './components/detallexcanje/creaedita-detallexcanje/creaedita-detallexcanje.component';
+import { PreguntaComponent } from './components/pregunta/pregunta.component';
 
 export const routes: Routes = [
     {
@@ -42,6 +43,9 @@ export const routes: Routes = [
     },
     {
         path: 'recompensas', component:RecompensaComponent, // Ruta para listar las recompensas
+    },
+    {
+        path: 'pregunta', component:PreguntaComponent, // Ruta para listar las preguntas
     },
     {
         path: '', component:PagemainComponent, // Ruta para listar el mainpage
