@@ -1,0 +1,38 @@
+<div>
+    <div class="Titulos">
+        <h1 class="Titulo">Preguntas</h1>
+    </div>
+
+    <div class="ContenedorTabla">
+        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+            class="mat-elevation-z8">
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="c1">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">ID</th>
+                <td mat-cell *matCellDef="let element"> {{element.id_pregunta}} </td>
+            </ng-container>
+
+            <!-- Pregunta Column -->
+            <ng-container matColumnDef="c2">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">Pregunta</th>
+                <td mat-cell *matCellDef="let element"> {{element.pregunta}} </td>
+            </ng-container>
+
+            <!-- Puntos Column -->
+            <ng-container matColumnDef="c3">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">Puntos</th>
+                <td mat-cell *matCellDef="let element"> {{element.puntos}} </td>
+            </ng-container>
+            
+            <!-- Cuestionario_academico Column -->
+            <ng-container matColumnDef="c4">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">Cuestionario</th>
+                <td mat-cell *matCellDef="let element"> {{element.cuestionario}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>

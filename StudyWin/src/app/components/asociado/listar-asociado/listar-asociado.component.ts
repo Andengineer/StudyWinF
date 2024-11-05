@@ -16,7 +16,6 @@ export class ListarAsociadoComponent implements OnInit{
 
   constructor(private aS:AsociadoService){}
   ngOnInit(): void {
-    
     this.aS.list().subscribe((data)=>{
       this.dataSource=new MatTableDataSource(data)
     });

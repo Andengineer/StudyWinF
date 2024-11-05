@@ -9,12 +9,13 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { AsociadoComponent } from './components/asociado/asociado.component';
 import { RecompensaComponent } from './components/recompensa/recompensa.component';
+import { PreguntaComponent } from './components/pregunta/pregunta.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AsociadoComponent, UsuarioComponent, CursoComponent, CanjeComponent,MatToolbarModule,MatIconModule,MatMenuModule,MatButtonModule,RouterModule,RecompensaComponent],
+  imports: [RouterOutlet, AsociadoComponent, UsuarioComponent, CursoComponent, CanjeComponent,MatToolbarModule,MatIconModule,MatMenuModule,MatButtonModule,RouterModule,RecompensaComponent,PreguntaComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
