@@ -16,14 +16,12 @@ export class ListarPreguntaComponent implements OnInit, AfterViewInit{
   private _liveAnnouncer = inject(LiveAnnouncer);
   dataSource:MatTableDataSource<Pregunta>=new MatTableDataSource()
 
-  displayedColumns:string[]=['c1','c2','c3','c4']
+  displayedColumns:string[]=['id_pregunta', 'pregunta', 'puntos', 'cuestionario']
 
-  @ViewChild(MatSort) sort: MatSort | undefined;
+  @ViewChild(MatSort) sort: MatSort | null=null;
 
   ngAfterViewInit() {
-    if (this.sort) {
-        this.dataSource.sort = this.sort;
-    }
+    this.dataSource.sort = this.sort;
 }
 
   constructor(private pS:PreguntaService){}
@@ -31,15 +29,11 @@ export class ListarPreguntaComponent implements OnInit, AfterViewInit{
   ngOnInit(): void {
     this.pS.list().subscribe((data)=>{
       this.dataSource=new MatTableDataSource(data)
+      this.dataSource.sort = this.sort;
     });
   }
 
-  /** Announce the change in sort state for assistive technology. */
   announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
     } else {
