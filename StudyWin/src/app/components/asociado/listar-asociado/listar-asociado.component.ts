@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { Asociado } from '../../../models/Asociado';
 import { AsociadoService } from '../../../services/asociado.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listar-asociado',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [CommonModule],
   templateUrl: './listar-asociado.component.html',
   styleUrl: './listar-asociado.component.css'
 })
 export class ListarAsociadoComponent implements OnInit{
   dataSource:MatTableDataSource<Asociado>=new MatTableDataSource()
-  displayedColumns:string[]=['c1','c2','c3','c4','c5','c6','c7']
 
   constructor(private aS:AsociadoService){}
   ngOnInit(): void {
