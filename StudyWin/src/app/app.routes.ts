@@ -45,6 +45,9 @@ export const routes: Routes = [
         path: 'recompensas', component:RecompensaComponent, // Ruta para listar las recompensas
     },
     {
+        path: 'cuestionario', component:CuestionarioacademicoComponent, // Ruta para listar los cuestionarios
+    },
+    {
         path: 'pregunta', component:PreguntaComponent, // Ruta para listar las preguntas
     },
     {
