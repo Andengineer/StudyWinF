@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Recompensa } from '../../../models/Recompensa';
 import { RecompensaService } from '../../../services/recompensa.service';
 import { CommonModule } from '@angular/common';
@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-listar-recompensa',
   standalone: true,
-  imports: [CommonModule],
+  imports: [MatTableModule, CommonModule],
   templateUrl: './listar-recompensa.component.html',
   styleUrl: './listar-recompensa.component.css'
 })
