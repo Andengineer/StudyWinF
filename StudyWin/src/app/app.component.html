@@ -1,28 +1,88 @@
-  <nav class="navbar">
-    <div class="navbar-content">
-      <div class="navbar-brand">
-        <img src="images/StudywinLogo.png" alt="StudyWin Logo" class="logo">
-        
-        <li class="logtitle" ><a class="logtitle" routerLink="/">StudyWin</a></li>
-      </div>
-      <ul class="navbar-menu">
-        <li><a routerLink="/curso">Curso</a></li>
-        <li><a routerLink="/recompensas">Recompensas</a><li></li>
-        <li><a routerLink="/asociado">Asociados</a></li>
-        <li><a routerLink="/progreso">Mi Progreso</a></li>
-        <li><a routerLink="/canje">Canje</a></li>
-        <li><a routerLink="/cuestionario">Cuestionarios</a></li>
-        <li><a routerLink="/pregunta">Preguntas</a></li>
-      </ul>
+<nav class="navbar" *ngIf="verificar()">
+  <div class="navbar-content">
+    <div class="navbar-brand">
+      <img src="images/StudywinLogo.png" alt="StudyWin Logo" class="logo">
+      <li class="logtitle"><a class="logtitle" routerLink="/home">StudyWin</a></li>
     </div>
-    <div class="navbar-profile">
-      <a routerLink="/usuario/nuevo" class="sign-in-link">Sign up</a>
-      <a href="/usuario"><mat-icon style="color: white;">account_circle</mat-icon></a>
-    </div>
-  </nav>
-  <div class="main-content">
-    <router-outlet></router-outlet>
+
+    <ul class="navbar-menu">
+
+      <button mat-button [matMenuTriggerFor]="menuUsuarios" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>business</mat-icon>Usuarios
+      </button>
+      <li *ngIf="isclient()"> <a routerLink="/curso">Cursos</a></li>
+      <button mat-button [matMenuTriggerFor]="menuCursos" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>business</mat-icon>Cursos
+      </button>
+      <li *ngIf="isclient()"><a routerLink="/recompensas">Recompensas</a></li>
+      <li *ngIf="isclient()"><a routerLink="/asociado">Asociados</a></li>
+      <li *ngIf="isclient()"><a routerLink="/progreso">Mi Progreso</a></li>
+      <li *ngIf="isclient()"><a routerLink="/canje">Canjes</a></li>
+      <button mat-button [matMenuTriggerFor]="menuCanjes" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>business</mat-icon>Canjes
+      </button>
+      <li *ngIf="isclient()"><a routerLink="/cuestionario">Cuestionarios</a></li>
+      <li *ngIf="isclient()"><a routerLink="/pregunta">Preguntas</a></li>
+      <button mat-button [matMenuTriggerFor]="menuUsuariosXCursos" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>business</mat-icon>UsuariosXCursos
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuDetalleCanje" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>business</mat-icon>DetalleCanje
+      </button>
+
+    </ul>
   </div>
+  <div class="navbar-profile">
+    <button mat-button [matMenuTriggerFor]="menuPerfil" style="color: white;">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
+</nav>
+<!--Vista dev-->
+<!--Usuarios dev-->
+<mat-menu #menuUsuarios="matMenu">
+  <button mat-menu-item routerLink="/usuario"><mat-icon>playlist_add_check</mat-icon>
+    Listar</button>
+  <button mat-menu-item routerLink="/usuario/nuevo"><mat-icon>playlist_add</mat-icon>Registrar</button>
+</mat-menu>
 
+<mat-menu #menuCursos="matMenu">
+  <button mat-menu-item routerLink="/cursoadmin"><mat-icon>playlist_add_check</mat-icon>
+    Listar</button>
+  <button mat-menu-item routerLink="/cursoadmin/nuevo"><mat-icon>playlist_add</mat-icon>Registrar</button>
+</mat-menu>
 
+<mat-menu #menuCanjes="matMenu">
+  <button mat-menu-item routerLink="/canje"><mat-icon>playlist_add_check</mat-icon>
+    Listar</button>
+  <button mat-menu-item routerLink="/canje/nuevo"><mat-icon>playlist_add</mat-icon>Registrar</button>
+</mat-menu>
 
+<mat-menu #menuUsuariosXCursos="matMenu">
+  <button mat-menu-item routerLink="/usuarioxcurso"><mat-icon>playlist_add_check</mat-icon>
+    Listar</button>
+  <button mat-menu-item routerLink="/usuarioxcurso/nuevo"><mat-icon>playlist_add</mat-icon>Registrar</button>
+</mat-menu>
+
+<mat-menu #menuDetalleCanje="matMenu">
+  <button mat-menu-item routerLink="/detalle-canje"><mat-icon>playlist_add_check</mat-icon>
+    Listar</button>
+  <button mat-menu-item routerLink="/detalle-canje/nuevo"><mat-icon>playlist_add</mat-icon>Registrar</button>
+</mat-menu>
+
+<mat-menu #menuPerfil="matMenu">
+  <button mat-menu-item routerLink="/usuario/nuevo">
+    <mat-icon>person_add</mat-icon> Sign up
+  </button>
+
+  <button mat-menu-item routerLink="/login" (click)="cerrar()">
+    <mat-icon>logout</mat-icon> Cerrar sesión
+  </button>
+  <button mat-menu-item>
+    Rol: <span>{{ role }}</span>
+  </button>
+</mat-menu>
+<!--Vista cliente-->
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>

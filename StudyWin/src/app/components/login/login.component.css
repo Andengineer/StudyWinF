@@ -1,0 +1,52 @@
+/* Contenedor principal centrado */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f6f8; /* Fondo claro */
+}
+
+/* Imagen del logo */
+.container img {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+/* Encabezado */
+.container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+/* Campos de entrada */
+mat-form-field.example-full-width {
+  width: 100%;
+  max-width: 300px;
+}
+
+mat-form-field input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Botón de ingresar */
+.custom-button {
+  width: 100%;
+  max-width: 300px;
+  background-color: #3f51b5; /* Color azul */
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 0;
+  border-radius: 4px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #303f9f; /* Azul más oscuro al pasar el mouse */
+}
