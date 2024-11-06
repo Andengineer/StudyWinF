@@ -1,28 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { Curso } from '../../../models/Curso';
 import { CursoService } from '../../../services/curso.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-listar-cursoadmin',
   standalone: true,
-  imports: [MatTableModule,MatIconModule,RouterModule],
+  imports: [MatTableModule,MatIconModule,RouterModule,MatPaginatorModule],
   templateUrl: './listar-cursoadmin.component.html',
   styleUrl: './listar-cursoadmin.component.css'
 })
 export class ListarCursoadminComponent implements OnInit{
   dataSource:MatTableDataSource<Curso>= new MatTableDataSource()
   displayedColumns:string[]=['c1','c2','c3','c4','c5','accion01','accion02']
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private cS:CursoService, private snackBar: MatSnackBar){}
   ngOnInit(): void {
     this.cS.list().subscribe(data=>{
       this.dataSource=new MatTableDataSource(data)
+      this.dataSource.paginator = this.paginator;
     });
     this.cS.getList().subscribe(data=>{
       this.dataSource=new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
 }
 
@@ -50,5 +54,9 @@ eliminar(id: number): void {
       }
     }
   );
+}
+ngAfterViewInit(): void {
+  this.dataSource.paginator = this.paginator;
+  
 }
 }
