@@ -1,5 +1,5 @@
-<nav class="navbar" *ngIf="verificar()">
-  <div class="navbar-content">
+<nav class="navbar" *ngIf="verificar() || !isclient() ||!isDeveloper()">
+  <div class="navbar-content" >
     <div class="navbar-brand">
       <img src="images/StudywinLogo.png" alt="StudyWin Logo" class="logo">
       <li class="logtitle"><a class="logtitle" routerLink="/home">StudyWin</a></li>
@@ -29,12 +29,15 @@
       <button mat-button [matMenuTriggerFor]="menuDetalleCanje" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>DetalleCanje
       </button>
-
     </ul>
   </div>
+
   <div class="navbar-profile">
-    <button mat-button [matMenuTriggerFor]="menuPerfil" style="color: white;">
-      <mat-icon>account_circle</mat-icon>
+    <a routerLink="/rol" class="invisible-button">as</a>
+    <a *ngIf="!isDeveloper() && !isclient()" routerLink="/usuario/nuevo" class="sign-in-link">Sign up</a>
+    <a *ngIf="!isDeveloper() && !isclient()" routerLink="/login" class="sign-in-link">Sign in</a>
+    <button *ngIf="verificar()" mat-button [matMenuTriggerFor]="menuPerfil" style="color: white;">
+      <mat-icon  >account_circle</mat-icon>
     </button>
   </div>
 </nav>
@@ -71,9 +74,6 @@
 </mat-menu>
 
 <mat-menu #menuPerfil="matMenu">
-  <button mat-menu-item routerLink="/usuario/nuevo">
-    <mat-icon>person_add</mat-icon> Sign up
-  </button>
 
   <button mat-menu-item routerLink="/login" (click)="cerrar()">
     <mat-icon>logout</mat-icon> Cerrar sesión

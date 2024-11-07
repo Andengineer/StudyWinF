@@ -1,0 +1,29 @@
+<div>
+    <div class="TReg">Registro Rol</div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+                   
+            <mat-form-field class="example-full-width" >
+                <mat-label>Codigo</mat-label>
+                <input matInput placeholder="Ejm. 1" formControlName="hcodigo">
+              </mat-form-field>
+              <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Rol</mat-label>
+                <input matInput formControlName="hrol">
+              </mat-form-field>
+          <br>
+              <mat-form-field class="example-full-width">
+                <mat-label>Usuario</mat-label>
+                <mat-select formControlName="husuario">
+                  @for (food of listaUsuarios; track food) {
+                    <mat-option [value]="food.id_usuario">{{food.email}}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+              <div class="boton">
+                <button  mat-flat-button [disabled]="form.invalid">Registrar</button>
+              </div>
+        </form>
+    </div>
+</div>

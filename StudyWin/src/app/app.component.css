@@ -120,3 +120,7 @@ body {
   font-weight: bold;
   text-decoration: none;
 }
+.invisible-button {
+  margin-right: 10px;
+  opacity: 0; /* Hace que el botón sea invisible */
+}

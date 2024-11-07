@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ListarcanjeclientComponent } from './components/canje/listarcanjeclient/listarcanjeclient.component';
 import { ListardetallecanjeclientComponent } from './components/detallexcanje/listardetallecanjeclient/listardetallecanjeclient.component';
 import { ListarusuarioxcursoclientComponent } from './components/usuarioxcurso/listarusuarioxcursoclient/listarusuarioxcursoclient.component';
+import { RegistrarrolComponent } from './components/rol/registrarrol/registrarrol.component';
 
 export const routes: Routes = [
     {
@@ -70,6 +71,10 @@ export const routes: Routes = [
         {
             path: ':id', component: ListardetallecanjeclientComponent
         },]
+    },
+    {
+        path: 'rol', component: RegistrarrolComponent,
+        
     },
     //Cliente
     {
