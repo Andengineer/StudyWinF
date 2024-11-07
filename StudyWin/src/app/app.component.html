@@ -1,5 +1,5 @@
 <nav class="navbar" *ngIf="verificar() || !isclient() ||!isDeveloper()">
-  <div class="navbar-content" >
+  <div class="navbar-content">
     <div class="navbar-brand">
       <img src="images/StudywinLogo.png" alt="StudyWin Logo" class="logo">
       <li class="logtitle"><a class="logtitle" routerLink="/home">StudyWin</a></li>
@@ -36,10 +36,11 @@
     <a routerLink="/rol" class="invisible-button">as</a>
     <a *ngIf="!isDeveloper() && !isclient()" routerLink="/usuario/nuevo" class="sign-in-link">Sign up</a>
     <a *ngIf="!isDeveloper() && !isclient()" routerLink="/login" class="sign-in-link">Sign in</a>
-    <button *ngIf="verificar()" mat-button [matMenuTriggerFor]="menuPerfil" style="color: white;">
-      <mat-icon  >account_circle</mat-icon>
+    <button *ngIf="verificar()" mat-button [matMenuTriggerFor]="menuPerfil" style="color: white;" >
+      <mat-icon>account_circle</mat-icon>
     </button>
   </div>
+
 </nav>
 <!--Vista dev-->
 <!--Usuarios dev-->
@@ -74,7 +75,9 @@
 </mat-menu>
 
 <mat-menu #menuPerfil="matMenu">
-
+  <button mat-menu-item routerLink="/profile">
+    <mat-icon>account_box</mat-icon> Cuenta
+  </button>
   <button mat-menu-item routerLink="/login" (click)="cerrar()">
     <mat-icon>logout</mat-icon> Cerrar sesión
   </button>

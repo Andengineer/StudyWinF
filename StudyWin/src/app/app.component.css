@@ -73,13 +73,6 @@ body {
   align-items: center;
 }
 
-.profile-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .navbar {
@@ -124,3 +117,4 @@ body {
   margin-right: 10px;
   opacity: 0; /* Hace que el botón sea invisible */
 }
+

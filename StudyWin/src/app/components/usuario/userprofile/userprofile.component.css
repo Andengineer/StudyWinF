@@ -1,0 +1,58 @@
+.contiene-detalles {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.detalles-cuenta {
+    width: 80%;
+    max-width: 500px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.Titulo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Titulos {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+.contenedor-detalles {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detalle {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.detalle-contenido p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.detalle-contenido p strong {
+    color: #333;
+}
+
+.detalle-contenido p:last-child {
+    font-weight: bold;
+    color: #006400; /* Verde para indicar estado activo */
+}
+
+.detalle-contenido p:last-child[ng-reflect-enabled="false"] {
+    color: #B22222; /* Rojo para indicar estado inactivo */
+}

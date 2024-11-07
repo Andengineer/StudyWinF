@@ -9,6 +9,10 @@ import { UsuarioService } from '../../../services/usuario.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Usuario } from '../../../models/Usuario';
 import { CommonModule } from '@angular/common';
+import { LoginService } from '../../../services/login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RolService } from '../../../services/rol.service';
+import { Role } from '../../../models/Role';
 
 @Component({
   selector: 'app-creaeditausuario',
@@ -18,11 +22,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './creaeditausuario.component.css'
 })
 export class CreaeditausuarioComponent implements OnInit{
+  role:string=''
+  rola:Role=new Role()
+  rols:string='CLIENT'
   form:FormGroup=new FormGroup({});
   usuario:Usuario=new Usuario();
   hidePassword = true;
   id:number=0;
   edicion:boolean=false
+  page:boolean=false
+
   //lista de instituciones
   listaInstituciones:{ value:string, viewValue:string}[]=[
     { value: 'Universidad Peruana de Ciencias Aplicadas', viewValue: 'Universidad Peruana de Ciencias Aplicadas' },
@@ -35,8 +44,10 @@ export class CreaeditausuarioComponent implements OnInit{
     { value: 'Universidad San Ignacio de Loyola', viewValue: 'Universidad San Ignacio de Loyola' }
   ];
 
-constructor(private uS:UsuarioService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute){}
+constructor(private rolS:RolService,private loginService: LoginService,private uS:UsuarioService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute,private snackBar: MatSnackBar){}
   ngOnInit(): void {
+    this.rola.user
+    this.role = this.loginService.showRole();
     this.route.params.subscribe((data:Params)=>{
       this.id=data['id'];
       this.edicion=data['id']!=null
@@ -53,34 +64,80 @@ constructor(private uS:UsuarioService, private formBuilder:FormBuilder,private r
         hcodigo:['']
       })
   }
+  isclient() {
+    return this.role === 'CLIENT';
+  }
+  isDeveloper() {
+    return this.role === 'DEVELOPER';
+  }
 
-  aceptar(){
-    if(this.form.valid){
-      this.usuario.id_usuario=this.form.value.hcodigo;
-      this.usuario.nombres=this.form.value.hnombre;
-      this.usuario.apellidos=this.form.value.hapellidos;
-      this.usuario.institucion_educativa=this.form.value.hinstitucion;
-      this.usuario.dni=this.form.value.hdni;
-      this.usuario.email=this.form.value.hemail;
-      this.usuario.contrasena=this.form.value.hpassword;
-      this.usuario.puntos_usuario=0;
-      this.usuario.enabled=true;
-      if(this.edicion){
-        this.uS.update(this.usuario).subscribe(d=>{
-          this.uS.list().subscribe(d=>{
-            this.uS.setList(d)
-          })
+  aceptar() {
+    if (this.form.valid) {
+      this.usuario.id_usuario = this.form.value.hcodigo;
+      this.usuario.nombres = this.form.value.hnombre;
+      this.usuario.apellidos = this.form.value.hapellidos;
+      this.usuario.institucion_educativa = this.form.value.hinstitucion;
+      this.usuario.dni = this.form.value.hdni;
+      this.usuario.email = this.form.value.hemail;
+      this.usuario.contrasena = this.form.value.hpassword;
+      this.usuario.puntos_usuario = 0;
+      this.usuario.enabled = true;
+      this.rola.user.id_usuario=this.form.value.hcodigo
+      this.rola.rol=this.rols
+      console.log(this.rola)
+
+      if (this.edicion) {
+        this.page=true
+        
+      //
+        this.uS.update(this.usuario).subscribe(
+          () => {
+            this.uS.list().subscribe(d => {
+              this.uS.setList(d);
+            });
+            //rol
+        this.rolS.insert(this.rola).subscribe(d=>{
         })
-      }else{
-        this.uS.insert(this.usuario).subscribe(d=>{
-          this.uS.list().subscribe(d=>{
-            this.uS.setList(d)
-          })
-        })
+          },
+          error => {
+            if (error.status === 500) {
+              this.snackBar.open('El DNI ya ha sido registrado, ingrese uno distinto', 'Cerrar', {
+                duration: 3000,
+              });
+            }
+          }
+        );
+      } else {
+        this.page=false
+        this.uS.insert(this.usuario).subscribe(
+          () => {
+            this.uS.list().subscribe(d => {
+              this.uS.setList(d);
+            });
+          },
+          error => {
+            if (error.status === 500) {
+              this.snackBar.open('El DNI ya ha sido registrado, ingrese uno distinto', 'Cerrar', {
+                duration: 3000,
+              });
+            }
+          }
+        );
       }
-
     }
-    this.router.navigate(['usuario'])
+    if (this.edicion && this.isclient()) {
+      this.router.navigate(['profile']);//funciona
+    }  else if (!this.edicion && !this.isclient() && !this.isDeveloper()) {
+      this.router.navigate(['login']);//funciona usuario nuevo
+    }
+    else{
+      this.router.navigate(['usuario']);//funciona usuario nuevo
+    }
+    
+    
+    
+    
+    
   }
   
   init(){
@@ -93,7 +150,7 @@ constructor(private uS:UsuarioService, private formBuilder:FormBuilder,private r
           hdni:new FormControl(data.dni),
           hemail:new FormControl(data.email),
           hpassword:new FormControl(data.contrasena),
-          hinstitucion:new FormControl(data.institucion_educativa)
+          hinstitucion:new FormControl(data.institucion_educativa),
         })
       })
     }

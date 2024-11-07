@@ -1,0 +1,20 @@
+<div class="contiene-detalles">
+    <div class="detalles-cuenta">
+        <div class="Titulo">
+            <h1 class="Titulos">Detalles de Cuenta</h1>
+        </div>
+        <div class="contenedor-detalles">
+            <div class="detalle" *ngFor="let usuario of dataSource.data">
+                <div class="detalle-contenido">
+                    <p><strong>Nombre Completo:</strong> {{usuario.nombres}} {{usuario.apellidos}}</p>
+                    <p><strong>DNI:</strong> {{usuario.dni}}</p>
+                    <p><strong>Email:</strong> {{usuario.email}}</p>
+                    <p><strong>Puntos:</strong> {{usuario.puntos_usuario}}</p>
+                    <p><strong>Institución Educativa:</strong> {{usuario.institucion_educativa}}</p>
+                    <p><strong>Estado de Cuenta:</strong> {{usuario.enabled ? 'Activo' : 'Inactivo'}}</p>
+                    <button mat-flat-button [routerLink]="['/usuario/ediciones', usuario.id_usuario]">Editar Cuenta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

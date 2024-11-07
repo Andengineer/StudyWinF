@@ -3,7 +3,7 @@
     <div>
         <form [formGroup]="form" (submit)="aceptar()">
           
-          <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-form-field class="example-full-width" *ngIf="edicion && !isclient() " >
             <mat-label>Codigo</mat-label>
             <input matInput placeholder="Ejm. 1" formControlName="hcodigo" readonly>
           </mat-form-field>
@@ -20,7 +20,7 @@
               <br>
               <mat-form-field class="example-full-width">
                 <mat-label>DNI</mat-label>
-                <input matInput formControlName="hdni" maxlength="8">
+                <input matInput formControlName="hdni" maxlength="8" [readonly]="isclient()" >
               </mat-form-field>              
               <br>
               <mat-form-field class="example-full-width">

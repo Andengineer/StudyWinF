@@ -5,20 +5,23 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f4f6f8; /* Fondo claro */
+  background-color: #1f0058; /* Fondo claro */
 }
 
 /* Imagen del logo */
 .container img {
-  max-width: 150px;
   margin-bottom: 20px;
+  width: 100px; /* Ajusta el tamaño según lo necesario */
+  height: 100px; /* Ajusta el tamaño según lo necesario */
+  border-radius: 30%; /* Hace la imagen circular */
+  
 }
 
 /* Encabezado */
 .container h2 {
   font-size: 24px;
   font-weight: 600;
-  color: #333333;
+  color: #dfdfdf;
   margin-bottom: 20px;
 }
 
@@ -37,8 +40,8 @@ mat-form-field input {
 .custom-button {
   width: 100%;
   max-width: 300px;
-  background-color: #3f51b5; /* Color azul */
-  color: #ffffff;
+  background-color: #6c23f1; /* Color azul */
+  color: #fffffffb;
   font-size: 16px;
   font-weight: 500;
   padding: 12px 0;
@@ -48,5 +51,5 @@ mat-form-field input {
 }
 
 .custom-button:hover {
-  background-color: #303f9f; /* Azul más oscuro al pasar el mouse */
+  background-color: #713eff; /* Azul más oscuro al pasar el mouse */
 }

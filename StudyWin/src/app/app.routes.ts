@@ -21,6 +21,7 @@ import { ListarcanjeclientComponent } from './components/canje/listarcanjeclient
 import { ListardetallecanjeclientComponent } from './components/detallexcanje/listardetallecanjeclient/listardetallecanjeclient.component';
 import { ListarusuarioxcursoclientComponent } from './components/usuarioxcurso/listarusuarioxcursoclient/listarusuarioxcursoclient.component';
 import { RegistrarrolComponent } from './components/rol/registrarrol/registrarrol.component';
+import { UserprofileComponent } from './components/usuario/userprofile/userprofile.component';
 
 export const routes: Routes = [
     {
@@ -31,6 +32,10 @@ export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent,
+    },
+    {
+        path: 'profile',
+        component: UserprofileComponent,
     },
     //Developer
     {
