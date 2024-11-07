@@ -14,16 +14,15 @@
       <button mat-button [matMenuTriggerFor]="menuCursos" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>Cursos
       </button>
-      <li *ngIf="isclient()"> <a routerLink="/usuarioxcurso/miscursos">Mis Cursos</a></li>
+      <li *ngIf="isclient()"> <a routerLink="/usuarioxcurso/miscursos">Mi Progreso</a></li>
       <li *ngIf="isclient()"><a routerLink="/recompensas">Recompensas</a></li>
       <li *ngIf="isclient()"><a routerLink="/asociado">Asociados</a></li>
-      <li *ngIf="isclient()"><a routerLink="/progreso">Mi Progreso</a></li>
       <li *ngIf="isclient()"><a routerLink="/canje-client">Canjes</a></li>
       <button mat-button [matMenuTriggerFor]="menuCanjes" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>Canjes
       </button>
       <li *ngIf="isclient()"><a routerLink="/cuestionario">Cuestionarios</a></li>
-      <li *ngIf="isclient()"><a routerLink="/pregunta">Preguntas</a></li>
+      <li *ngIf="isDeveloper()"><a routerLink="/pregunta">Preguntas</a></li>
       <button mat-button [matMenuTriggerFor]="menuUsuariosXCursos" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>UsuariosXCursos
       </button>

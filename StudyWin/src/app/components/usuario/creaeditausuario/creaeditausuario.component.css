@@ -5,8 +5,8 @@ form {
     padding: 30px; /* Agrega espacio interno */
     padding-left: 60px;
     background-color: #491cc2; /* Fondo ligero */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor del formulario */
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 8px;
+    box-shadow: 3px 0px 20px rgb(255, 255, 255);
     
   }
   button[mat-flat-button]{
