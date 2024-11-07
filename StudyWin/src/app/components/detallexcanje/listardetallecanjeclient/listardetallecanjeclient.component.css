@@ -1,0 +1,55 @@
+/* Contenedor principal para centrar y estilizar el contenido */
+.detalle-canje-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .contienetodo{
+    padding-top: 80px;
+  }
+  
+  .detalle-canje-container h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para la tabla de detalles */
+  .detalle-canje-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Encabezados de la tabla */
+  .detalle-canje-table th {
+    background-color: #3c01c7b2;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  /* Celdas de la tabla */
+  .detalle-canje-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Alternar color de fila */
+  .detalle-canje-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilo para el mensaje cuando no hay datos */
+  .no-data-message {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+    margin-top: 20px;
+  }
+  

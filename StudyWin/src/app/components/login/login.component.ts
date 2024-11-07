@@ -20,13 +20,16 @@ export class LoginComponent {
   password: string = '';
   mensaje: string = '';
 
+  
+
   constructor(
     private loginService: LoginService,
     private router: Router,
     private snackBar: MatSnackBar
   ) {}
   
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   login() {
     let request = new JwtRequest();
     request.username = this.username;
@@ -34,6 +37,7 @@ export class LoginComponent {
     this.loginService.login(request).subscribe(
       (data: any) => {
         sessionStorage.setItem('token', data.jwttoken);
+        this.loginService.setusername(this.username)
         this.router.navigate(['home']);
       },
       (error) => {
@@ -41,5 +45,6 @@ export class LoginComponent {
         this.snackBar.open(this.mensaje, 'Aviso', { duration: 2000 });
       }
     );
+    
   }
 }

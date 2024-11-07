@@ -11,4 +11,5 @@ import { ListarUsuarioComponent } from './listar-usuario/listar-usuario.componen
 })
 export class UsuarioComponent {
   constructor(public route:ActivatedRoute){}
+  
 }

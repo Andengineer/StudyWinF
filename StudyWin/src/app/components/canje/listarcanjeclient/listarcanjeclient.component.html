@@ -1,0 +1,16 @@
+<div class="contienetodo">
+    <div class="todo">
+        <div class="Titulo"><h1  class="Titulos"> Canjes</h1></div>
+        <div class="contenedor-items">
+            <div class="item" *ngFor="let element of dataSource.data"> 
+                <div class="item-contenido">
+                    <p><strong>Departamento:</strong> {{element.departamento}}</p>
+                    <p><strong>Distrito:</strong> {{element.distrito}}</p>
+                    <p><strong>Fecha:</strong> {{element.fecha}}</p>
+                    <!-- Botón para redirigir a la página de detalle del canje -->
+                    <button mat-flat-button [routerLink]="['/detalle-canje', element.id_canje]">Detalle Canje</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

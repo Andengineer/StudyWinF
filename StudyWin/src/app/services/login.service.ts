@@ -7,6 +7,17 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class LoginService {
   constructor(private http: HttpClient) {}
+
+  _username: string = '';
+
+  setusername(value: string) {
+    this._username = value;
+  }
+
+  getusername(): string {
+    return this._username;
+  }
+
   login(request: JwtRequest) {
     return this.http.post('http://localhost:8080/login', request);
   }

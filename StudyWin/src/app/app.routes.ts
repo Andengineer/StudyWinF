@@ -17,6 +17,9 @@ import { CreaeditaDetallexcanjeComponent } from './components/detallexcanje/crea
 import { PreguntaComponent } from './components/pregunta/pregunta.component';
 import { seguridadGuard } from './guard/seguridad.guard';
 import { LoginComponent } from './components/login/login.component';
+import { ListarcanjeclientComponent } from './components/canje/listarcanjeclient/listarcanjeclient.component';
+import { ListardetallecanjeclientComponent } from './components/detallexcanje/listardetallecanjeclient/listardetallecanjeclient.component';
+import { ListarusuarioxcursoclientComponent } from './components/usuarioxcurso/listarusuarioxcursoclient/listarusuarioxcursoclient.component';
 
 export const routes: Routes = [
     {
@@ -28,15 +31,7 @@ export const routes: Routes = [
         path: 'login',
         component: LoginComponent,
     },
-    {
-        path: 'usuario', component: UsuarioComponent,
-        children: [{
-            path: 'nuevo', component: CreaeditausuarioComponent
-        },
-        {
-            path: 'ediciones/:id', component: CreaeditausuarioComponent
-        }]
-    },
+    //Developer
     {
         path: 'canje', component: CanjeComponent, // Ruta para listar los canjes
         children: [
@@ -44,26 +39,6 @@ export const routes: Routes = [
             {
                 path: 'ediciones/:id', component: CreaeditacanjeComponent
             }]
-    },
-    {
-        path: 'curso', component: ListarCursoComponent,
-        canActivate: [seguridadGuard]
-
-    },
-    {
-        path: 'asociado', component: AsociadoComponent, // Ruta para listar los asociados
-    },
-    {
-        path: 'recompensas', component: RecompensaComponent, // Ruta para listar las recompensas
-    },
-    {
-        path: 'cuestionario', component: CuestionarioacademicoComponent, // Ruta para listar los cuestionarios
-    },
-    {
-        path: 'pregunta', component: PreguntaComponent, // Ruta para listar las preguntas
-    },
-    {
-        path: 'home', component: PagemainComponent, // Ruta para listar el mainpage
     },
     {
         path: 'cursoadmin', component: CursoComponent,
@@ -79,7 +54,10 @@ export const routes: Routes = [
         },
         {
             path: 'ediciones/:id', component: CreaeditausuarioxcursoComponent
-        }]
+        },
+        {
+            path: 'miscursos', component: ListarusuarioxcursoclientComponent
+        },]
     },
     {
         path: 'detalle-canje', component: DetallexcanjeComponent,
@@ -88,7 +66,46 @@ export const routes: Routes = [
         },
         {
             path: 'ediciones/:id', component: CreaeditaDetallexcanjeComponent
+        },
+        {
+            path: ':id', component: ListardetallecanjeclientComponent
+        },]
+    },
+    //Cliente
+    {
+        path: 'canje-client', component: ListarcanjeclientComponent,
+        
+    },
+    {
+        path: 'usuario', component: UsuarioComponent,
+        children: [{
+            path: 'nuevo', component: CreaeditausuarioComponent
+        },
+        {
+            path: 'ediciones/:id', component: CreaeditausuarioComponent
         }]
+    },
+    {
+        path: 'curso', component: ListarCursoComponent,
+        
+
+    },
+    //ordenar
+    {
+        path: 'asociado', component: AsociadoComponent, // Ruta para listar los asociados
+    },
+    {
+        path: 'recompensas', component: RecompensaComponent, // Ruta para listar las recompensas
+    },
+    {
+        path: 'cuestionario', component: CuestionarioacademicoComponent, // Ruta para listar los cuestionarios
+    },
+    {
+        path: 'pregunta', component: PreguntaComponent, // Ruta para listar las preguntas
+    },
+    //main
+    {
+        path: 'home', component: PagemainComponent, // Ruta para listar el mainpage
     }
 ]
     ;
