@@ -20,10 +20,11 @@ export class ListarCursoComponent implements OnInit{
   dataSource:MatTableDataSource<Curso>= new MatTableDataSource();
   usXcurso:UsuarioXCurso=new UsuarioXCurso()
   
-  constructor(private cS:CursoService, private ls:LoginService, uxcS:UsuarioXCursoService){}
+  constructor(private cS:CursoService, private ls:LoginService, private uxcS:UsuarioXCursoService){}
   Comenzar(idcurso:number){
     this.usXcurso.curso.id_curso=idcurso
-    //this.usXcurso.usuario
+    this.usXcurso.usuario.id_usuario=this.ls.getId()
+    this.uxcS.insert(this.usXcurso).subscribe(d=>{})
   }
   ngOnInit(): void {
       this.cS.list().subscribe(data=>{
