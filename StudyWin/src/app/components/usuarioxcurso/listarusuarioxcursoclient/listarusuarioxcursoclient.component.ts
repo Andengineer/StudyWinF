@@ -17,18 +17,15 @@ import { UsuarioXCursoService } from '../../../services/usuario-xcurso.service';
 })
 export class ListarusuarioxcursoclientComponent {
   dataSource: MatTableDataSource<UsuarioXCurso> = new MatTableDataSource();
-  user: string = '';
   constructor(private uxcS: UsuarioXCursoService, private uS: LoginService) {}
 
   ngOnInit(): void {
-    // Obtiene el username desde el servicio LoginService
-    this.user = this.uS.getusername();
     // Obtiene la lista completa de canjes y filtra por usuario
     this.uxcS.list().subscribe(data => {
       // Filtra los datos solo para el usuario actual
-      const filteredData = data.filter((element: UsuarioXCurso) => element.usuario.email === this.user);
+      const filteredData = data.filter((element: UsuarioXCurso) => element.usuario.id_usuario === this.uS.getId());
       this.dataSource = new MatTableDataSource(filteredData);
-      console.log(this.user);
     });
   }
+  
 }

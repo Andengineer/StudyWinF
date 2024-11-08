@@ -9,9 +9,17 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
   _username: string = '';
+  idUsuario:number=0
+  
 
   setusername(value: string) {
     this._username = value;
+  }
+  setid(value:number){
+    this.idUsuario=value
+  }
+  getId(){
+    return this.idUsuario
   }
 
   getusername(): string {

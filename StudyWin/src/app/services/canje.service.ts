@@ -10,6 +10,7 @@ const base_url=environment.base
 export class CanjeService {
   private url=`${base_url}/canje`
   private listaCambio= new Subject<Canje[]>();
+  identcanje:number=0
   constructor(private http:HttpClient) { }
   list(){
     return this.http.get<Canje[]>(this.url)
@@ -32,5 +33,12 @@ export class CanjeService {
   }
   update(r:Canje){
     return this.http.put(this.url,r)
+  }
+  setIdcanje(value:number){
+    this.identcanje=value
+    return console.log(this.getIdcanje())
+  }
+  getIdcanje(){
+    return this.identcanje
   }
 }

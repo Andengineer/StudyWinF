@@ -8,7 +8,7 @@
                     <p><strong>Distrito:</strong> {{element.distrito}}</p>
                     <p><strong>Fecha:</strong> {{element.fecha}}</p>
                     <!-- Botón para redirigir a la página de detalle del canje -->
-                    <button mat-flat-button [routerLink]="['/detalle-canje', element.id_canje]">Detalle Canje</button>
+                    <button mat-flat-button (click)="setIdcanje(element.id_canje)" routerLink="/detalle-canje/cl">Detalle Canje</button>
                 </div>
             </div>
         </div>

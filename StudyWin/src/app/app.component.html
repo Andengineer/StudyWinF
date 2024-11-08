@@ -21,8 +21,11 @@
       <button mat-button [matMenuTriggerFor]="menuCanjes" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>Canjes
       </button>
+      <!--cambiar a l de preguntas-->
       <li *ngIf="isclient()"><a routerLink="/cuestionario">Cuestionarios</a></li>
-      <li *ngIf="isDeveloper()"><a routerLink="/pregunta">Preguntas</a></li>
+      <button mat-button [matMenuTriggerFor]="menuCanjes" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>business</mat-icon>Preguntas
+      </button>
       <button mat-button [matMenuTriggerFor]="menuUsuariosXCursos" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>UsuariosXCursos
       </button>

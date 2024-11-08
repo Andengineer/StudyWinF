@@ -16,7 +16,6 @@ import { CommonModule } from '@angular/common';
 export class UserprofileComponent {
   dataSource: MatTableDataSource<Usuario> = new MatTableDataSource();
   user: string = '';
-
   constructor(private cS: UsuarioService, private uS: LoginService) {}
   ngOnInit(): void {
     // Obtiene el username desde el servicio LoginService
@@ -25,7 +24,6 @@ export class UserprofileComponent {
       // Filtra los datos solo para el usuario actual
       const filteredData = data.filter((element: Usuario) => element.email === this.user);
       this.dataSource = new MatTableDataSource(filteredData);
-      console.log(this.user);
     });
   }
 }

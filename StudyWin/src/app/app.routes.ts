@@ -74,7 +74,7 @@ export const routes: Routes = [
             path: 'ediciones/:id', component: CreaeditaDetallexcanjeComponent
         },
         {
-            path: ':id', component: ListardetallecanjeclientComponent
+            path: 'cl', component: ListardetallecanjeclientComponent
         },]
     },
     {

@@ -101,7 +101,7 @@ constructor(private rolS:RolService,private loginService: LoginService,private u
           },
           error => {
             if (error.status === 500) {
-              this.snackBar.open('El DNI ya ha sido registrado, ingrese uno distinto', 'Cerrar', {
+              this.snackBar.open('El DNI o el email ya han sido registrados, ingrese uno distinto', 'Cerrar', {
                 duration: 3000,
               });
             }
