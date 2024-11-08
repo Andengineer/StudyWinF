@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { LoginService } from '../../../services/login.service';
 import { Usuario } from '../../../models/Usuario';
@@ -13,16 +13,13 @@ import { CommonModule } from '@angular/common';
   templateUrl: './userprofile.component.html',
   styleUrl: './userprofile.component.css'
 })
-export class UserprofileComponent {
+export class UserprofileComponent implements OnInit {
   dataSource: MatTableDataSource<Usuario> = new MatTableDataSource();
-  user: string = '';
   constructor(private cS: UsuarioService, private uS: LoginService) {}
   ngOnInit(): void {
-    // Obtiene el username desde el servicio LoginService
-    this.user = this.uS.getusername();
     this.cS.list().subscribe(data => {
       // Filtra los datos solo para el usuario actual
-      const filteredData = data.filter((element: Usuario) => element.email === this.user);
+      const filteredData = data.filter((element: Usuario) => element.id_usuario === this.uS.getId());
       this.dataSource = new MatTableDataSource(filteredData);
     });
   }

@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Curso } from '../models/Curso';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
 })
 export class CursoService {
   private url=`${base_url}/curso`
+  private titleSubject=new BehaviorSubject<boolean>(true);
   private listaCambio= new Subject<Curso[]>();
   constructor(private http:HttpClient) { }
   list(){
@@ -32,6 +33,13 @@ export class CursoService {
   }
   update(r:Curso){
     return this.http.put(this.url,r)
+  }
+  settitle(value: boolean) {
+    this.titleSubject.next(value); // Actualiza el estado del título
+  }
+
+  gettitle() {
+    return this.titleSubject.asObservable(); // Devuelve el Observable para suscribirse
   }
   
 }

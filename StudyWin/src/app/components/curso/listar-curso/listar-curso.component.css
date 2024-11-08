@@ -73,3 +73,31 @@
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
   font-weight: bold; /* Negrita */
 }
+/* Estilo para el botón de iniciar */
+button.btonstart {
+  width: 100%;
+  background-color: rgb(70, 1, 180); /* Color de fondo */
+  color: #ffffff; /* Color del texto */
+  font-size: 17px; /* Tamaño del texto */
+  font-weight: bold;
+  border: none; /* Elimina bordes adicionales */
+  padding: 10px 20px; /* Espaciado interno */
+  margin-top: 15px; /* Espaciado superior */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Efecto de transición */
+}
+
+/* Efecto hover para el botón */
+button.btonstart:hover {
+  background-color: rgb(58, 6, 143); /* Color de fondo al pasar el cursor */
+  transform: translateY(-8px); /* Pequeño desplazamiento hacia arriba */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Sombra aumentada */
+}
+
+/* Efecto activo (al hacer clic) */
+button.btonstart:active {
+  background-color: rgb(110, 52, 204); /* Color de fondo más claro al hacer clic */
+  transform: translateY(1px); /* Desplazamiento hacia abajo */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra reducida */
+}

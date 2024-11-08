@@ -1,5 +1,5 @@
 <div class="todo">
-    <div class="Titulo"><h1  class="Titulos"> Cursos</h1></div>
+    <div class="Titulo" *ngIf="showTitle"><h1  class="Titulos"> Cursos</h1></div>
     <div class="contenedor-items">
         <div class="item" *ngFor="let element of dataSource.data"> 
             <img src="{{element.imagen}}" alt="Curso Imagen" class="item-imagen">
@@ -7,8 +7,9 @@
                 <h2>{{element.nombre}}</h2>
                 <p><strong>Categoría:</strong> {{element.categoria}}</p>
                 <p><strong>Descripción:</strong> {{element.descripcion}}</p>
-                <button mat-flat-button (click)="Comenzar(element.id_curso)">Comenzar</button>
+                
             </div>
+            <button class="btonstart" mat-flat-button (click)="Comenzar(element.id_curso)">Comenzar</button>
         </div>
     </div>
 </div>
