@@ -22,6 +22,8 @@ import { ListardetallecanjeclientComponent } from './components/detallexcanje/li
 import { ListarusuarioxcursoclientComponent } from './components/usuarioxcurso/listarusuarioxcursoclient/listarusuarioxcursoclient.component';
 import { RegistrarrolComponent } from './components/rol/registrarrol/registrarrol.component';
 import { UserprofileComponent } from './components/usuario/userprofile/userprofile.component';
+import { CreaeditaasociadoComponent } from './components/asociado/creaeditaasociado/creaeditaasociado.component';
+import { ListarAsociadoComponent } from './components/asociado/listar-asociado/listar-asociado.component';
 
 export const routes: Routes = [
     {
@@ -51,6 +53,13 @@ export const routes: Routes = [
         children: [
             { path: 'ediciones/:id', component: CreaeditacursoComponent },// Ruta para listar los cursos vista admin
             { path: 'nuevo', component: CreaeditacursoComponent }
+        ]
+    },
+    {
+        path: 'asociadoadmin', component: AsociadoComponent,
+        children: [
+            { path: 'ediciones/:id', component: CreaeditaasociadoComponent },// Ruta para listar los asociados vista admin
+            { path: 'nuevo', component: CreaeditaasociadoComponent }
         ]
     },
     {
@@ -96,13 +105,10 @@ export const routes: Routes = [
         }]
     },
     {
-        path: 'curso', component: ListarCursoComponent,
-        
-
+        path: 'curso', component: ListarCursoComponent, // Ruta para listar los cursos del cliente
     },
-    //ordenar
     {
-        path: 'asociado', component: AsociadoComponent, // Ruta para listar los asociados
+        path: 'asociado', component: ListarAsociadoComponent, // Ruta para listar los asociados
     },
     {
         path: 'recompensas', component: RecompensaComponent, // Ruta para listar las recompensas
