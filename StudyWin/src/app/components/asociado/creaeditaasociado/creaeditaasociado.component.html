@@ -1,0 +1,58 @@
+<div>
+    <div class="TReg">Registro Asociado</div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+              <mat-label>Código</mat-label>
+              <input matInput placeholder="Ejm. 1" formControlName="hcodigo" readonly>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Empresa</mat-label>
+              <input matInput placeholder="Ejm. Yape" formControlName="hempresa">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Descripción</mat-label>
+                <input matInput placeholder="Ejm. Empresa peruana que..." formControlName="hdescripcion">
+              </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>RUC</mat-label>
+                <input matInput placeholder="Ejm. 2939405041" formControlName="hruc">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Elija la Fecha inicio</mat-label>
+              <input matInput [matDatepicker]="pickerInicio" formControlName="hfechainicio" readonly>
+              <mat-datepicker-toggle matIconSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+              <mat-datepicker #pickerInicio></mat-datepicker>
+          </mat-form-field>
+          <br>
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Elija la Fecha fin</mat-label>
+              <input matInput [matDatepicker]="pickerFin" formControlName="hfechafin" readonly>
+              <mat-datepicker-toggle matIconSuffix [for]="pickerFin"></mat-datepicker-toggle>
+              <mat-datepicker #pickerFin></mat-datepicker>
+          </mat-form-field>
+          <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Url Imagen</mat-label>
+                <input matInput placeholder="www.image.png" formControlName="himagen">
+            </mat-form-field>
+            <br>
+
+              <div>
+                <button mat-flat-button [disabled]="form.invalid">Registrar</button>
+              </div>
+        </form>
+    </div>
+</div>
+
+

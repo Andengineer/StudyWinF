@@ -18,6 +18,7 @@
       <li *ngIf="isclient()"><a routerLink="/recompensas">Recompensas</a></li>
       <li *ngIf="isclient()"><a routerLink="/asociado">Asociados</a></li>
       <li *ngIf="isclient()"><a routerLink="/canje-client">Canjes</a></li>
+
       <button mat-button [matMenuTriggerFor]="menuCanjes" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>Canjes
       </button>
@@ -30,6 +31,9 @@
       </button>
       <button mat-button [matMenuTriggerFor]="menuDetalleCanje" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>DetalleCanje
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuAsociado" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>business</mat-icon>Asociados
       </button>
     </ul>
   </div>
@@ -74,6 +78,11 @@
   <button mat-menu-item routerLink="/detalle-canje"><mat-icon>playlist_add_check</mat-icon>
     Listar</button>
   <button mat-menu-item routerLink="/detalle-canje/nuevo"><mat-icon>playlist_add</mat-icon>Registrar</button>
+</mat-menu>
+
+<mat-menu #menuAsociado="matMenu">
+  <button mat-menu-item routerLink="/asociadoadmin"><mat-icon>playlist_add_check</mat-icon> Listar </button>
+  <button mat-menu-item routerLink="/asociadoadmin/nuevo"><mat-icon>playlist_add</mat-icon> Registrar </button>
 </mat-menu>
 
 <mat-menu #menuPerfil="matMenu">
