@@ -8,6 +8,6 @@ export class Recompensa{
     puntos:number=0
     stock:number=0
     imagen:string=""
-    Asociado:Asociado=new Asociado();
+    asociado:Asociado=new Asociado();
     tipo_recompensa:TipoRecompensa=new TipoRecompensa()
 }

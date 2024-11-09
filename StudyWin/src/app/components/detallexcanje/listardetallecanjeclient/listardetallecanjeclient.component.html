@@ -1,29 +1,15 @@
-<div class="contienetodo">
-  <div class="detalle-canje-container">
-    <h1>Detalles del Canje</h1>
-  
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 detalle-canje-table">
-      <!-- ID Detalle Canje Column -->
-      
-  
-      <!-- Nombre de la Recompensa Column -->
-      <ng-container matColumnDef="c2">
-        <th mat-header-cell *matHeaderCellDef> Recompensa Canjeada </th>
-        <td mat-cell *matCellDef="let element"> {{ element.recompensa.nombre }} </td>
-      </ng-container> 
-      <!-- Cantidad de Producto Canjeado Column -->
-      <ng-container matColumnDef="c4">
-        <th mat-header-cell *matHeaderCellDef> Cantidad de Producto Canjeado </th>
-        <td mat-cell *matCellDef="let element"> {{ element.cantidadProductoCanje }} </td>
-      </ng-container>
-  
-      <!-- Header and Row Definitions -->
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  
-    <div class="no-data-message" *ngIf="dataSource.data.length === 0">
-      No hay detalles disponibles para este canje.
-    </div>
+<div class="todo-recompensa">
+  <div class="Titulo"><h1  class="Titulos"> Detalle Canje</h1></div>
+  <div class="contenedor-items">
+      <div class="item" *ngFor="let element of dataSource.data"> <!-- Accede a la propiedad data -->
+          <img src="{{element.recompensa.imagen}}" alt="Recompensas Imagen" class="item-imagen">
+          <div class="item-contenido">
+              <h2>{{element.recompensa.nombre}}</h2>
+              <p><strong>Descripcion:</strong> {{element.recompensa.descripcion}}</p>
+              <p><strong>Cantidad Canjeada:</strong> {{element.cantidadProductoCanje}}</p>
+              <p><strong>Empresa:</strong> {{element.recompensa.asociado.empresa}}</p>
+              <p><strong>Puntos:</strong> {{element.recompensa.puntos}}</p>
+          </div> 
+      </div>
   </div>
 </div>

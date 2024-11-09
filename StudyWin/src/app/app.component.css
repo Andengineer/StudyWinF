@@ -36,12 +36,11 @@ body {
 }
 
 /* Menú de navegación */
-.navbar-menu {
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  margin: 0; /* Elimina el margen */
-  padding: 0; /* Elimina el padding si es necesario */
+.navbar-menu a {
+  color: white;
+  transition: background-color 3s ease, color 0.9s ease, transform 3s ease; /* Transición suave */
+  padding: 8px 12px; /* Agrega un poco de padding para dar más área al hover */
+  border-radius: 4px; /* Bordes redondeados en el hover */
 }
 
 .navbar-menu li {
@@ -64,7 +63,8 @@ body {
 }
 
 .navbar-menu a:hover {
-  color: #cd62ff;
+  color: #8d51fd;
+  
 }
 
 /* Perfil de usuario */
