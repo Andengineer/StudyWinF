@@ -19,12 +19,16 @@ export class ListarCursoComponent implements OnInit {
   dataSource: MatTableDataSource<Curso> = new MatTableDataSource();
   usXcurso: UsuarioXCurso = new UsuarioXCurso()
   showTitle: boolean = true; // Controla la visibilidad del título
-
+  role: string = '';
   constructor(private cS: CursoService, private ls: LoginService, private uxcS: UsuarioXCursoService) { }
   Comenzar(idcurso: number) {
     this.usXcurso.curso.id_curso = idcurso
     this.usXcurso.usuario.id_usuario = this.ls.getId()
     this.uxcS.insert(this.usXcurso).subscribe(d => { })
+  }
+  isclient() {
+    this.role = this.ls.showRole();
+    return this.role === 'CLIENT';
   }
   gettitle() {
     return this.cS.gettitle

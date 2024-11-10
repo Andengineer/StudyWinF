@@ -9,7 +9,7 @@
                 <p><strong>Descripción:</strong> {{element.descripcion}}</p>
                 
             </div>
-            <button class="btonstart" mat-flat-button (click)="Comenzar(element.id_curso)">Comenzar</button>
+            <button *ngIf="isclient()" class="btonstart" mat-flat-button (click)="Comenzar(element.id_curso)">Comenzar</button>
         </div>
     </div>
 </div>
