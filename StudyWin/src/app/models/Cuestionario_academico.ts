@@ -6,5 +6,5 @@ export class Cuestionario_academico{
     descripcion:string=""
     tiempo_limite:number=0
     imagen:string=""
-    Curso:Curso=new Curso();
+    curso:Curso=new Curso();
 }

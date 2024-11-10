@@ -28,6 +28,8 @@ import { TipoDeRecompensaComponent } from './components/tipo-de-recompensa/tipo-
 import { CreaeditatiporecompensaComponent } from './components/tipo-de-recompensa/creaeditatiporecompensa/creaeditatiporecompensa.component';
 import { CreaeditarecompensaComponent } from './components/recompensa/creaeditarecompensa/creaeditarecompensa.component';
 import { ListarRecompensaComponent } from './components/recompensa/listar-recompensa/listar-recompensa.component';
+import { ListarCuestionarioacademicoComponent } from './components/cuestionarioacademico/listar-cuestionarioacademico/listar-cuestionarioacademico.component';
+import { CreaeditacuestionarioacademicoComponent } from './components/cuestionarioacademico/creaeditacuestionarioacademico/creaeditacuestionarioacademico.component';
 
 export const routes: Routes = [
     //Login
@@ -83,6 +85,13 @@ export const routes: Routes = [
         ]
     },
     {
+        path: 'cuestionarioacademicoadmin', component: CuestionarioacademicoComponent,// Ruta para listar los cuestionarios academicos vista admin
+        children: [
+            { path: 'ediciones/:id', component: CreaeditacuestionarioacademicoComponent },// Ruta para editar/eliminar un cuestionario academico
+            { path: 'nuevo', component: CreaeditacuestionarioacademicoComponent }// Ruta para registrar un cuestionario academico
+        ]
+    },
+    {
         path: 'usuarioxcurso', component: UsuarioxcursoComponent,
         children: [{
             path: 'nuevo', component: CreaeditausuarioxcursoComponent
@@ -126,19 +135,19 @@ export const routes: Routes = [
         }]
     },
     {
-        path: 'curso', component: ListarCursoComponent, // Ruta para listar los cursos del cliente
+        path: 'curso', component: ListarCursoComponent, // Ruta para listar los cursos del cliente como cards
     },
     {
-        path: 'asociado', component: ListarAsociadoComponent, // Ruta para listar los asociados
+        path: 'asociado', component: ListarAsociadoComponent, // Ruta para listar los asociados como cards
     },
     {
-        path: 'recompensas', component: ListarRecompensaComponent, // Ruta para listar las recompensas
+        path: 'recompensas', component: ListarRecompensaComponent, // Ruta para listar las recompensas como cards
     },
     {
-        path: 'cuestionario', component: CuestionarioacademicoComponent, // Ruta para listar los cuestionarios
+        path: 'cuestionario', component: ListarCuestionarioacademicoComponent, // Ruta para listar los cuestionarios como cards
     },
     {
-        path: 'pregunta', component: PreguntaComponent, // Ruta para listar las preguntas
+        path: 'pregunta', component: PreguntaComponent, // Ruta para listar las preguntas como lista ordenada
     },
     //main
     {

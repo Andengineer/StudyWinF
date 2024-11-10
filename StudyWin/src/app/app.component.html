@@ -41,6 +41,9 @@
       <button mat-button [matMenuTriggerFor]="menuRecompensa" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>Recompensa
       </button>
+      <button mat-button [matMenuTriggerFor]="menuCuestionario" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>business</mat-icon>Cuestionario
+      </button>
     </ul>
   </div>
 
@@ -99,6 +102,11 @@
 <mat-menu #menuRecompensa="matMenu">
   <button mat-menu-item routerLink="/recompensaadmin"><mat-icon>playlist_add_check</mat-icon> Listar </button>
   <button mat-menu-item routerLink="/recompensaadmin/nuevo"><mat-icon>playlist_add</mat-icon> Registrar </button>
+</mat-menu>
+
+<mat-menu #menuCuestionario="matMenu">
+  <button mat-menu-item routerLink="/cuestionarioacademicoadmin"><mat-icon>playlist_add_check</mat-icon> Listar </button>
+  <button mat-menu-item routerLink="/cuestionarioacademicoadmin/nuevo"><mat-icon>playlist_add</mat-icon> Registrar </button>
 </mat-menu>
 
 <mat-menu #menuPerfil="matMenu">
