@@ -1,0 +1,52 @@
+<div>
+    <div class="TReg">Registro Asociado</div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+              <mat-label>Código</mat-label>
+              <input matInput placeholder="Ejm. 1" formControlName="hcodigo" readonly>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Nombre</mat-label>
+              <input matInput placeholder="Ejm. Calculo 1" formControlName="hnombre">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Descripción</mat-label>
+                <input matInput placeholder="Ejm. Cuestionario dedicado a..." formControlName="hdescripcion">
+              </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Tiempo Límite</mat-label>
+                <input matInput placeholder="Ejm. 5000" formControlName="htiempo">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Curso</mat-label>
+                <mat-select formControlName="hcurso">
+                  @for (food of listaCursos; track food) {
+                    <mat-option [value]="food.id_curso">{{food.nombre}}</mat-option>
+                  }
+              </mat-select>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Url Imagen</mat-label>
+                <input matInput placeholder="www.image.png" formControlName="himagen">
+            </mat-form-field>
+            <br>
+
+              <div>
+                <button mat-flat-button [disabled]="form.invalid">Registrar</button>
+              </div>
+        </form>
+    </div>
+</div>
+
+

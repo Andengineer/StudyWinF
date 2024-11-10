@@ -1,0 +1,73 @@
+<div>
+    <div style="text-align: center; ">
+      <h1 style="color: white;">Lista de Cuestionarios Académicos</h1>
+    </div>
+    <div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+        <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+  
+        <!-- ID Column -->
+        <ng-container matColumnDef="c1">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id_cuestionario}} </td>
+        </ng-container>
+  
+        <!-- Nombre Column -->
+        <ng-container matColumnDef="c2">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
+        </ng-container>
+  
+        <!-- Descripcion Column -->
+        <ng-container matColumnDef="c3">
+          <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+          <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+        </ng-container>
+
+        <!-- Tiempo Column -->
+        <ng-container matColumnDef="c4">
+          <th mat-header-cell *matHeaderCellDef> Tiempo Límite </th>
+          <td mat-cell *matCellDef="let element"> {{element.tiempo_limite}} </td>
+        </ng-container>
+
+        <!-- Curso Column -->
+        <ng-container matColumnDef="c5">
+          <th mat-header-cell *matHeaderCellDef> Curso </th>
+          <td mat-cell *matCellDef="let element"> {{element.curso.nombre}} </td>
+        </ng-container>
+
+        <!-- Imagen Column -->
+        <ng-container matColumnDef="c6">
+          <th mat-header-cell *matHeaderCellDef> Imagen</th>
+          <td mat-cell *matCellDef="let element"> {{element.imagen}} </td>
+        </ng-container>
+
+        <!-- Eliminar Column -->
+        <ng-container matColumnDef="accion01">
+          <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+          <td mat-cell *matCellDef="let element" (click)='eliminar(element.id_cuestionario)'>
+            <mat-icon style="color: red;">delete_outline</mat-icon>
+          </td>
+        </ng-container>
+  
+        <!-- Modificar Column -->
+        <ng-container matColumnDef="accion02">
+          <th mat-header-cell *matHeaderCellDef> Actualizar </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button [routerLink]="['ediciones',element.id_cuestionario]">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+  <div class="paginator">
+    <mat-paginator [pageSizeOptions]="[4, 7, 10]" showFirstLastButtons></mat-paginator>
+  </div>

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
-import { ListarCuestionarioacademicoComponent } from './listar-cuestionarioacademico/listar-cuestionarioacademico.component';
+import { ListarCuestionarioacademicoadminComponent } from "./listar-cuestionarioacademicoadmin/listar-cuestionarioacademicoadmin.component";
 
 @Component({
   selector: 'app-cuestionarioacademico',
   standalone: true,
-  imports: [ListarCuestionarioacademicoComponent,RouterOutlet],
+  imports: [RouterOutlet, ListarCuestionarioacademicoadminComponent],
   templateUrl: './cuestionarioacademico.component.html',
   styleUrl: './cuestionarioacademico.component.css'
 })
