@@ -1,0 +1,14 @@
+.mat-elevation-z8 {
+    overflow: hidden;
+    border-top-left-radius: 18px; /* Borde redondeado en la esquina superior izquierda */
+    border-top-right-radius: 18px; /* Borde redondeado en la esquina superior derecha */
+}
+
+.paginator{
+    overflow: hidden;
+    border-bottom-left-radius: 18px; /* Borde redondeado en la esquina superior izquierda */
+    border-bottom-right-radius: 18px; /* Borde redondeado en la esquina superior derecha */
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
