@@ -24,8 +24,11 @@ import { RegistrarrolComponent } from './components/rol/registrarrol/registrarro
 import { UserprofileComponent } from './components/usuario/userprofile/userprofile.component';
 import { CreaeditaasociadoComponent } from './components/asociado/creaeditaasociado/creaeditaasociado.component';
 import { ListarAsociadoComponent } from './components/asociado/listar-asociado/listar-asociado.component';
+import { TipoDeRecompensaComponent } from './components/tipo-de-recompensa/tipo-de-recompensa.component';
+import { CreaeditatiporecompensaComponent } from './components/tipo-de-recompensa/creaeditatiporecompensa/creaeditatiporecompensa.component';
 
 export const routes: Routes = [
+    //Login
     {
         path: '',
         redirectTo: 'login',
@@ -39,6 +42,7 @@ export const routes: Routes = [
         path: 'profile',
         component: UserprofileComponent,
     },
+
     //Developer
     {
         path: 'canje', component: CanjeComponent, // Ruta para listar los canjes
@@ -56,10 +60,17 @@ export const routes: Routes = [
         ]
     },
     {
-        path: 'asociadoadmin', component: AsociadoComponent,
+        path: 'asociadoadmin', component: AsociadoComponent,// Ruta para listar los asociados vista admin
         children: [
-            { path: 'ediciones/:id', component: CreaeditaasociadoComponent },// Ruta para listar los asociados vista admin
-            { path: 'nuevo', component: CreaeditaasociadoComponent }
+            { path: 'ediciones/:id', component: CreaeditaasociadoComponent },// Ruta para editar/eliminar un asociado
+            { path: 'nuevo', component: CreaeditaasociadoComponent }// Ruta para registrar un asociado
+        ]
+    },
+    {
+        path: 'tiporecompensaadmin', component: TipoDeRecompensaComponent,// Ruta para listar los asociados vista admin
+        children: [
+            { path: 'ediciones/:id', component: CreaeditatiporecompensaComponent },// Ruta para editar/eliminar un asociado
+            { path: 'nuevo', component: CreaeditatiporecompensaComponent }// Ruta para registrar un asociado
         ]
     },
     {
@@ -90,6 +101,7 @@ export const routes: Routes = [
         path: 'rol', component: RegistrarrolComponent,
         
     },
+
     //Cliente
     {
         path: 'canje-client', component: ListarcanjeclientComponent,

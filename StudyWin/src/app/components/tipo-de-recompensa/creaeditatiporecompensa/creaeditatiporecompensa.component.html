@@ -1,0 +1,24 @@
+<div>
+    <div class="TReg">Registro Tipo de Recompensa</div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+              <mat-label>Código</mat-label>
+              <input matInput placeholder="Ejm. 1" formControlName="hcodigo" readonly>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Tipo</mat-label>
+              <input matInput placeholder="Ejm. Productos" formControlName="htipo">
+            </mat-form-field>
+            <br>
+
+              <div>
+                <button mat-flat-button [disabled]="form.invalid">Registrar</button>
+              </div>
+        </form>
+    </div>
+</div>
+
+

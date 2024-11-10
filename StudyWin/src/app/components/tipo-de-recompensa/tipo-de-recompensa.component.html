@@ -1,1 +1,4 @@
-<p>tipo-de-recompensa works!</p>
+<router-outlet></router-outlet>
+<div [hidden]="route.children.length!==0">
+    <app-listar-tipo-de-recompensa></app-listar-tipo-de-recompensa>
+</div>
