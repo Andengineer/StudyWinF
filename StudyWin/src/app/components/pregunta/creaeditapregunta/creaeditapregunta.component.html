@@ -1,0 +1,46 @@
+<div>
+    <div class="TReg">Registro de Pregunta</div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+              <mat-label>Código</mat-label>
+              <input matInput placeholder="Ejm. 1" formControlName="hcodigo" readonly>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Pregunta</mat-label>
+              <input matInput placeholder="Ejm. ¿Cuánto vale el valor de..." formControlName="hpregunta">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Puntos</mat-label>
+                <input matInput placeholder="Ejm. 20" formControlName="hpuntos">
+              </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Respuesta</mat-label>
+                <input matInput placeholder="Ejm. Todas las anteriores" formControlName="hrespuesta">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Cuestionario</mat-label>
+                <mat-select formControlName="hcuestionario">
+                  @for (food of listaCuestionarios; track food) {
+                    <mat-option [value]="food.id_cuestionario">{{food.nombres}}</mat-option>
+                  }
+              </mat-select>
+            </mat-form-field>
+            <br>
+
+              <div>
+                <button mat-flat-button [disabled]="form.invalid">Registrar</button>
+              </div>
+        </form>
+    </div>
+</div>
+
+
