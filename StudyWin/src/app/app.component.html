@@ -35,6 +35,9 @@
       <button mat-button [matMenuTriggerFor]="menuAsociado" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>Asociados
       </button>
+      <button mat-button [matMenuTriggerFor]="menuTipoRecompensa" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>business</mat-icon>Tipo de Recompensa
+      </button>
     </ul>
   </div>
 
@@ -83,6 +86,11 @@
 <mat-menu #menuAsociado="matMenu">
   <button mat-menu-item routerLink="/asociadoadmin"><mat-icon>playlist_add_check</mat-icon> Listar </button>
   <button mat-menu-item routerLink="/asociadoadmin/nuevo"><mat-icon>playlist_add</mat-icon> Registrar </button>
+</mat-menu>
+
+<mat-menu #menuTipoRecompensa="matMenu">
+  <button mat-menu-item routerLink="/tiporecompensaadmin"><mat-icon>playlist_add_check</mat-icon> Listar </button>
+  <button mat-menu-item routerLink="/tiporecompensaadmin/nuevo"><mat-icon>playlist_add</mat-icon> Registrar </button>
 </mat-menu>
 
 <mat-menu #menuPerfil="matMenu">
