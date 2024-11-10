@@ -30,6 +30,8 @@ import { CreaeditarecompensaComponent } from './components/recompensa/creaeditar
 import { ListarRecompensaComponent } from './components/recompensa/listar-recompensa/listar-recompensa.component';
 import { ListarCuestionarioacademicoComponent } from './components/cuestionarioacademico/listar-cuestionarioacademico/listar-cuestionarioacademico.component';
 import { CreaeditacuestionarioacademicoComponent } from './components/cuestionarioacademico/creaeditacuestionarioacademico/creaeditacuestionarioacademico.component';
+import { ListarPreguntaComponent } from './components/pregunta/listar-pregunta/listar-pregunta.component';
+import { CreaeditapreguntaComponent } from './components/pregunta/creaeditapregunta/creaeditapregunta.component';
 
 export const routes: Routes = [
     //Login
@@ -92,6 +94,13 @@ export const routes: Routes = [
         ]
     },
     {
+        path: 'preguntaadmin', component: PreguntaComponent,// Ruta para listar las preguntas vista admin
+        children: [
+            { path: 'ediciones/:id', component: CreaeditapreguntaComponent },// Ruta para editar/eliminar una pregunta
+            { path: 'nuevo', component: CreaeditapreguntaComponent }// Ruta para registrar una pregunta
+        ]
+    },
+    {
         path: 'usuarioxcurso', component: UsuarioxcursoComponent,
         children: [{
             path: 'nuevo', component: CreaeditausuarioxcursoComponent
@@ -147,7 +156,7 @@ export const routes: Routes = [
         path: 'cuestionario', component: ListarCuestionarioacademicoComponent, // Ruta para listar los cuestionarios como cards
     },
     {
-        path: 'pregunta', component: PreguntaComponent, // Ruta para listar las preguntas como lista ordenada
+        path: 'pregunta', component: ListarPreguntaComponent, // Ruta para listar las preguntas como lista ordenada
     },
     //main
     {
