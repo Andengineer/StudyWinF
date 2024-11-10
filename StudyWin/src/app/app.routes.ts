@@ -26,6 +26,8 @@ import { CreaeditaasociadoComponent } from './components/asociado/creaeditaasoci
 import { ListarAsociadoComponent } from './components/asociado/listar-asociado/listar-asociado.component';
 import { TipoDeRecompensaComponent } from './components/tipo-de-recompensa/tipo-de-recompensa.component';
 import { CreaeditatiporecompensaComponent } from './components/tipo-de-recompensa/creaeditatiporecompensa/creaeditatiporecompensa.component';
+import { CreaeditarecompensaComponent } from './components/recompensa/creaeditarecompensa/creaeditarecompensa.component';
+import { ListarRecompensaComponent } from './components/recompensa/listar-recompensa/listar-recompensa.component';
 
 export const routes: Routes = [
     //Login
@@ -67,10 +69,17 @@ export const routes: Routes = [
         ]
     },
     {
-        path: 'tiporecompensaadmin', component: TipoDeRecompensaComponent,// Ruta para listar los asociados vista admin
+        path: 'tiporecompensaadmin', component: TipoDeRecompensaComponent,// Ruta para listar los tipos de recompensas vista admin
         children: [
-            { path: 'ediciones/:id', component: CreaeditatiporecompensaComponent },// Ruta para editar/eliminar un asociado
-            { path: 'nuevo', component: CreaeditatiporecompensaComponent }// Ruta para registrar un asociado
+            { path: 'ediciones/:id', component: CreaeditatiporecompensaComponent },// Ruta para editar/eliminar un tipo de recompensa
+            { path: 'nuevo', component: CreaeditatiporecompensaComponent }// Ruta para registrar un tipo de recompensa
+        ]
+    },
+    {
+        path: 'recompensaadmin', component: RecompensaComponent,// Ruta para listar las recompensas vista admin
+        children: [
+            { path: 'ediciones/:id', component: CreaeditarecompensaComponent },// Ruta para editar/eliminar una recompensa
+            { path: 'nuevo', component: CreaeditarecompensaComponent }// Ruta para registrar una recompensa
         ]
     },
     {
@@ -123,7 +132,7 @@ export const routes: Routes = [
         path: 'asociado', component: ListarAsociadoComponent, // Ruta para listar los asociados
     },
     {
-        path: 'recompensas', component: RecompensaComponent, // Ruta para listar las recompensas
+        path: 'recompensas', component: ListarRecompensaComponent, // Ruta para listar las recompensas
     },
     {
         path: 'cuestionario', component: CuestionarioacademicoComponent, // Ruta para listar los cuestionarios

@@ -1,0 +1,68 @@
+<div>
+    <div class="TReg">Registro Asociado</div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+              <mat-label>Código</mat-label>
+              <input matInput placeholder="Ejm. 1" formControlName="hcodigo" readonly>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Nombre</mat-label>
+              <input matInput placeholder="Ejm. Calculadora Científica" formControlName="hnombre">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Descripción</mat-label>
+                <input matInput placeholder="Ejm. Esta recompensa te ayuda a..." formControlName="hdescripcion">
+              </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Puntos</mat-label>
+                <input matInput placeholder="Ejm. 5000" formControlName="hpuntos">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Stock</mat-label>
+                <input matInput placeholder="Ejm. 2" formControlName="hstock">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Asociado</mat-label>
+                <mat-select formControlName="hasociado">
+                  @for (food of listaAsociados; track food) {
+                    <mat-option [value]="food.id_asociado">{{food.empresa}}</mat-option>
+                  }
+              </mat-select>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Tipo</mat-label>
+                <mat-select formControlName="htipo">
+                  @for (food of listaTipos; track food) {
+                    <mat-option [value]="food.idTipoRecompensa">{{food.tipo}}</mat-option>
+                  }
+              </mat-select>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Url Imagen</mat-label>
+                <input matInput placeholder="www.image.png" formControlName="himagen">
+            </mat-form-field>
+            <br>
+
+              <div>
+                <button mat-flat-button [disabled]="form.invalid">Registrar</button>
+              </div>
+        </form>
+    </div>
+</div>
+
+
