@@ -23,7 +23,7 @@
           <br>
 
           <div class="boton-container">
-              <button mat-flat-button [disabled]="form.invalid">Enviar</button>
+              <button mat-flat-button [disabled]="form.invalid" (click)="responder(pregunta.puntos)">Enviar</button>
           </div>
         </form>
     </div>
