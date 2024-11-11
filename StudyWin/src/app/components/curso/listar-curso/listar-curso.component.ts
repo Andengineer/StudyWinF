@@ -6,18 +6,20 @@ import { CommonModule } from '@angular/common';
 import { LoginService } from '../../../services/login.service';
 import { UsuarioXCursoService } from '../../../services/usuario-xcurso.service';
 import { UsuarioXCurso } from '../../../models/UsuarioXCurso';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-listar-curso',
   standalone: true,
-  imports: [MatTableModule, CommonModule],
+  imports: [MatTableModule, CommonModule,RouterModule],
   templateUrl: './listar-curso.component.html',
   styleUrl: './listar-curso.component.css'
 })
 export class ListarCursoComponent implements OnInit {
   dataSource: MatTableDataSource<Curso> = new MatTableDataSource();
   usXcurso: UsuarioXCurso = new UsuarioXCurso()
+  identcurso:number=0
   showTitle: boolean = true; // Controla la visibilidad del título
   role: string = '';
   constructor(private cS: CursoService, private ls: LoginService, private uxcS: UsuarioXCursoService) { }
@@ -44,5 +46,9 @@ export class ListarCursoComponent implements OnInit {
     this.cS.getList().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     });
+  }
+  setIdcanje(value: number) {
+    this.identcurso = value;
+    this.cS.setIdcurso(value);
   }
 }
