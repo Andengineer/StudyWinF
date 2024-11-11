@@ -17,11 +17,13 @@
           </mat-select>
         </mat-form-field>
         <br>
+
+
         <mat-form-field class="example-full-width">
-            <mat-label>Usuario</mat-label>
+            <mat-label>Canje</mat-label>
             <mat-select formControlName="hcanje">
               @for (food of listaCanjes; track food) {
-                <mat-option [value]="food.id_canje">{{food.usuario.email}}</mat-option>
+                <mat-option [value]="food.id_canje">{{food.id_canje}}</mat-option>
               }
           </mat-select>
         </mat-form-field>
