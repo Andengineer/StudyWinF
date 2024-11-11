@@ -32,6 +32,7 @@ import { ListarCuestionarioacademicoComponent } from './components/cuestionarioa
 import { CreaeditacuestionarioacademicoComponent } from './components/cuestionarioacademico/creaeditacuestionarioacademico/creaeditacuestionarioacademico.component';
 import { ListarPreguntaComponent } from './components/pregunta/listar-pregunta/listar-pregunta.component';
 import { CreaeditapreguntaComponent } from './components/pregunta/creaeditapregunta/creaeditapregunta.component';
+import { ResolucionpreguntaClientComponent } from './components/pregunta/resolucionpregunta-client/resolucionpregunta-client.component';
 
 export const routes: Routes = [
     //Login
@@ -157,6 +158,9 @@ export const routes: Routes = [
     },
     {
         path: 'pregunta', component: ListarPreguntaComponent, // Ruta para listar las preguntas como lista ordenada
+    },
+    {
+        path: 'resolucion', component: ResolucionpreguntaClientComponent, // Ruta para listar los cuestionarios como cards
     },
     //main
     {

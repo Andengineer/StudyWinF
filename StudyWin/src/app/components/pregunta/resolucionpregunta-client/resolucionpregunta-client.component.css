@@ -1,0 +1,83 @@
+.Titulo {
+  color: #ffffff; /* Color del texto */
+  text-align: center; /* Centrar el texto */
+  padding-top: 10px;
+}
+.Titulos{
+  font-size: 3em; /* Tamaño de fuente */
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-weight: bold; /* Negrita */
+}
+ /* Estilo general del contenedor */
+form {
+    max-width: auto; /* Limita el ancho del formulario */
+    margin:  10px; /* Centra el formulario vertical y horizontalmente */
+    padding: 30px; /* Agrega espacio interno */
+    padding-left: 60px;
+    background-color: #491cc2; /* Fondo ligero */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor del formulario */
+    border-radius: 8px; /* Bordes redondeados */
+    
+  }
+  button[mat-flat-button]{
+    background-color: #8a62f7;
+    color: #ffffff;
+  }
+  /* Efecto hover en el botón */
+  button[mat-flat-button]:hover {
+    background-color: #6027ff;
+  }
+  .boton{
+    padding-left: 29%;
+  }
+  .boton-container {
+    display: flex;
+    justify-content: center; /* Centra el botón */
+  }
+  .example-full-width {
+    width: 280px; /* Ajusta este valor según lo que necesites */
+  }
+  .fec{
+    color: white;
+  }
+/* Estilos de la fila para pregunta y puntos */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.pregunta-container, .puntos-container {
+  flex: 1;
+  margin: 10px;
+}
+
+.pregunta-label, .puntos-label {
+  font-weight: bold;
+  color: #ffffff;
+  display: block;
+}
+
+.pregunta-texto, .puntos-texto {
+  font-size: 16px;
+  color: #e0e0e0;
+}
+.respuesta-field {
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+  .pregunta-container, .puntos-container {
+    width: 100%;
+    margin: 10px 0;
+  }
+}

@@ -8,6 +8,7 @@
                 <p><strong>Descripción:</strong> {{element.descripcion}}</p>
                 <p><strong>Tiempo límite:</strong> {{element.tiempo_limite}}</p>
             </div>
+            <button routerLink="/pregunta" *ngIf="isclient()" class="btonstart" mat-flat-button (click)="setIdcuestionario(element.id_cuestionario)">Ver Preguntas</button>
         </div>
     </div>
   </div>

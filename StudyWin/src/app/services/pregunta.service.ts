@@ -10,6 +10,7 @@ const base_url=environment.base
 export class PreguntaService {
   private url=`${base_url}/pregunta`
   private listaCambio= new Subject<Pregunta[]>();
+  identpregunta:number=0
 
   constructor(private http:HttpClient) { }
   list(){
@@ -32,5 +33,12 @@ export class PreguntaService {
   }
   update(p:Pregunta){
     return this.http.put(this.url,p)
+  }
+  setIdpregunta(value:number){
+    this.identpregunta=value
+    return console.log(this.getIdpregunta())
+  }
+  getIdpregunta(){
+    return this.identpregunta
   }
 }

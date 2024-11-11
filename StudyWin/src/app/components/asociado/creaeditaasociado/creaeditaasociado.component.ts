@@ -25,6 +25,7 @@ export class CreaeditaasociadoComponent {
   asociado:Asociado=new Asociado()
   id:number=0;
   edicion:boolean=false
+  role:string=''
 
   constructor(private aS:AsociadoService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute){}
 
@@ -87,5 +88,11 @@ export class CreaeditaasociadoComponent {
         })
       })
     }
+  }
+  isClient() {
+    return this.role === 'CLIENT';
+  }
+  isDeveloper() {
+    return this.role === 'DEVELOPER';
   }
 }

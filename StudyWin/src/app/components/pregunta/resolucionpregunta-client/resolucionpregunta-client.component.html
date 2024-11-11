@@ -1,0 +1,32 @@
+<div>
+  <div class="Titulo"><h1  class="Titulos"> Resolución de Preguntas </h1></div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+          <div class="row">
+            <div class="pregunta-container">
+              <mat-label class="pregunta-label">Pregunta:</mat-label>
+              <span class="pregunta-texto">{{ pregunta.pregunta }}</span>
+            </div>
+      
+            <div class="puntos-container">
+              <mat-label class="puntos-label">Puntos:</mat-label>
+              <span class="puntos-texto">{{ pregunta.puntos }}</span>
+            </div>
+          </div>
+
+          <br>
+
+          <mat-form-field class="respuesta-field example-full-width">
+              <mat-label>Respuesta</mat-label>
+              <input matInput placeholder="Ejm. Todas las anteriores" formControlName="hrespuesta">
+          </mat-form-field>
+          <br>
+
+          <div class="boton-container">
+              <button mat-flat-button [disabled]="form.invalid">Enviar</button>
+          </div>
+        </form>
+    </div>
+</div>
+
+
