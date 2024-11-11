@@ -10,6 +10,7 @@ const base_url=environment.base
 export class CursoService {
   private url=`${base_url}/curso`
   private titleSubject=new BehaviorSubject<boolean>(true);
+  identcurso:number=0
   private listaCambio= new Subject<Curso[]>();
   constructor(private http:HttpClient) { }
   list(){
@@ -40,6 +41,13 @@ export class CursoService {
 
   gettitle() {
     return this.titleSubject.asObservable(); // Devuelve el Observable para suscribirse
+  }
+  setIdcurso(value:number){
+    this.identcurso=value
+    return console.log(this.getIdcurso())
+  }
+  getIdcurso(){
+    return this.identcurso
   }
   
 }
