@@ -1,38 +1,17 @@
-<div>
-    <div class="Titulos">
-        <h1 class="Titulo">Preguntas</h1>
-    </div>
+<div class="contienetodo">
+    <div class="todo">
+        <div class="Titulo"><h1  class="Titulos"> Preguntas </h1></div>
+        <div class="contenedor-items">
+            <div class="item" *ngFor="let element of dataSource.data"> 
+                <div class="item-contenido">
+                    <p><strong>Pregunta:</strong> {{element.pregunta}}</p>
+                    <p><strong>Puntos:</strong> {{element.puntos}}</p>
+                    <p><strong>Cuestionario:</strong> {{element.cuestionario.nombres}}</p>
 
-    <div class="ContenedorTabla">
-        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
-            class="mat-elevation-z8">
-
-            <!-- ID Column -->
-            <ng-container matColumnDef="id_pregunta">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header >ID</th>
-                <td mat-cell *matCellDef="let element"> {{element.id_pregunta}} </td>
-            </ng-container>
-
-            <!-- Pregunta Column -->
-            <ng-container matColumnDef="pregunta">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header >Pregunta</th>
-                <td mat-cell *matCellDef="let element"> {{element.pregunta}} </td>
-            </ng-container>
-
-            <!-- Puntos Column -->
-            <ng-container matColumnDef="puntos">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header >Puntos</th>
-                <td mat-cell *matCellDef="let element"> {{element.puntos}} </td>
-            </ng-container>
-            
-            <!-- Cuestionario_academico Column -->
-            <ng-container matColumnDef="cuestionario">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header >Cuestionario</th>
-                <td mat-cell *matCellDef="let element"> {{element.cuestionario}} </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+                    <!-- Botón para redirigir a la página de responder pregunta-->
+                    <button routerLink="/resolucion" *ngIf="isclient()" class="btonstart" mat-flat-button (click)="setIdpregunta(element.id_pregunta)" (click)="comenzarPregunta(element.id_pregunta)">Comenzar Pregunta</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

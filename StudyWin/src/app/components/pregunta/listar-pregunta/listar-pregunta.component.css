@@ -1,68 +1,72 @@
-/* Estilo para el título */
-.Titulos {
-    color: #ffffff; /* Color del texto */
-    text-align: center; /* Centrar el texto */
-    padding-top: 10px;
-}
-
-.Titulo{
-    font-size: 3em; /* Tamaño de fuente */
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    font-weight: bold; /* Negrita */
-}
-
-.ContenedorTabla{
-    justify-content: center;
-    padding: 20px; /* Espaciado superior e inferior alrededor de la tabla */
-}
-
-/* Tabla principal */
-table {
-    width: 80%; /* Ajusta el ancho al 60% de la pantalla para márgenes laterales amplios */
-    margin: 0 auto; /* Centra la tabla horizontalmente */
-    border-collapse: collapse;
-    border-spacing: 0; /* Quita el espacio entre celdas */
+/* Estilo general para el contenedor principal */
+.todo {
+    max-width: 900px;
+    margin-left: 25%;
+    background-color: #f5f5f5;
     border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Fondo y estilo para las cabeceras */
-.mat-header-cell {
-    background-color: #6200ea;
-    color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 3px 4px 20px rgb(227, 206, 253);
+  }
+  .contienetodo{
+    padding-top: 80px;
+  }
+  /* Estilo del título */
+  .Titulo h1 {
+    text-align: center;
+    color: #360069;
+    font-size: 28px;
     font-weight: bold;
-    text-align: center;
-    padding: 12px;
+    margin-bottom: 20px;
+  }
+  
+  /* Contenedor para los items */
+  .contenedor-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre los elementos */
+    
+  }
+  
+  /* Estilo de cada item */
+  .item {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .item:hover {
+    transform: scale(1.02); /* Efecto de escala al pasar el mouse */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilo del contenido del item */
+  .item-contenido p {
+    margin: 8px 0;
     font-size: 16px;
-}
-
-/* Estilo para las celdas */
-.mat-cell {
-    background-color: #311b92;
-    color: #e0e0e0;
-    padding: 10px;
-    text-align: center;
-    font-size: 15px;
+    color: #555;
+  }
+  
+  /* Estilo para el botón Detalle Canje */
+  button[mat-flat-button] {
+    background-color: #3c01c7b2;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-/* Interacción al pasar el mouse sobre las filas */
-.mat-row:hover {
-    background-color: #4527a0;
-}
-
-/* Bordes entre las filas */
-.mat-row, .mat-header-row {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Sombra para la tabla */
-.mat-elevation-z8 {
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Estilos de clasificación para las cabeceras */
-.mat-sort-header-arrow {
-    color: #ffeb3b;
-}
+  }
+  
+  button[mat-flat-button]:hover {
+    background-color: #3c01c7b2; /* Cambia de color al pasar el mouse */
+  }
+  
+  /* Estilo para mejorar el contraste del texto */
+  .item-contenido strong {
+    color: #333;
+  }
+  

@@ -10,6 +10,7 @@ const base_url=environment.base
 export class CuestionarioAcademicoService {
   private url=`${base_url}/cuestionarios`
   private listaCambio= new Subject<Cuestionario_academico[]>();
+  identcuestionario:number=0
 
   constructor(private http:HttpClient) { }
 
@@ -33,5 +34,12 @@ export class CuestionarioAcademicoService {
   }
   update(r:Cuestionario_academico){
     return this.http.put(this.url,r)
+  }
+  setIdcuestionario(value:number){
+    this.identcuestionario=value
+    return console.log(this.getIdcuestionario())
+  }
+  getIdcuestionario(){
+    return this.identcuestionario
   }
 }
