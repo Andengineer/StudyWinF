@@ -44,6 +44,10 @@ export class AppComponent {
     return this.role === 'CLIENT';
   }
 
+  isStudent() {
+    return this.role === 'STUDENT';
+  }
+
   setBolean(){
     this.rS.setBolean(false)
   }

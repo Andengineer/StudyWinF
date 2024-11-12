@@ -41,7 +41,9 @@ export class CreaeditausuarioComponent implements OnInit{
     { value: 'Universidad Nacional de Ingeniería', viewValue: 'Universidad Nacional de Ingeniería' },
     { value: 'Universidad ESAN', viewValue: 'Universidad ESAN' },
     { value: 'Universidad del Pacífico', viewValue: 'Universidad del Pacífico' },
-    { value: 'Universidad San Ignacio de Loyola', viewValue: 'Universidad San Ignacio de Loyola' }
+    { value: 'Universidad San Ignacio de Loyola', viewValue: 'Universidad San Ignacio de Loyola' },
+    { value: 'Otras Instituciones', viewValue: 'Otras Instituciones' },
+    { value: 'Ninguna', viewValue: 'Ninguna' }
   ];
 
 constructor(private rolS:RolService,private loginService: LoginService,private uS:UsuarioService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute,private snackBar: MatSnackBar){}

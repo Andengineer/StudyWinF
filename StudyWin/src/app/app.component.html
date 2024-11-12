@@ -1,4 +1,4 @@
-<nav class="navbar" *ngIf="verificar() || !isclient() ||!isDeveloper()">
+<nav class="navbar" *ngIf="verificar() || !isclient() ||!isDeveloper() || !isStudent()">
   <div class="navbar-content">
     <div class="navbar-brand">
       <img src="images/StudywinLogo.png" alt="StudyWin Logo" class="logo">
@@ -10,14 +10,14 @@
       <button mat-button [matMenuTriggerFor]="menuUsuarios" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>Usuarios
       </button>
-      <li *ngIf="isclient()"> <a routerLink="/curso">Cursos</a></li>
+      <li *ngIf="isclient() || isStudent()"> <a routerLink="/curso">Cursos</a></li>
       <button mat-button [matMenuTriggerFor]="menuCursos" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>Cursos
       </button>
-      <li *ngIf="isclient()"> <a routerLink="/usuarioxcurso/miscursos">Mi Progreso</a></li>
-      <li *ngIf="isclient()"><a routerLink="/recompensas" (click)="setBolean()">Recompensas</a></li>
-      <li *ngIf="isclient()"><a routerLink="/asociado">Asociados</a></li>
-      <li *ngIf="isclient()"><a routerLink="/canje-client">Canjes</a></li>
+      <li *ngIf="isclient() || isStudent()" > <a routerLink="/usuarioxcurso/miscursos">Mi Progreso</a></li>
+      <li *ngIf="isclient() || isStudent()"><a routerLink="/recompensas" (click)="setBolean()">Recompensas</a></li>
+      <li *ngIf="isclient() || isStudent()"><a routerLink="/asociado">Asociados</a></li>
+      <li *ngIf="isclient() || isStudent()"><a routerLink="/canje-client">Canjes</a></li>
 
       <button mat-button [matMenuTriggerFor]="menuCanjes" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>Canjes
@@ -48,8 +48,8 @@
 
   <div class="navbar-profile">
     <a routerLink="/rol" class="invisible-button">as</a>
-    <a *ngIf="!isDeveloper() && !isclient()" routerLink="/usuario/nuevo" class="sign-in-link">Sign up</a>
-    <a *ngIf="!isDeveloper() && !isclient()" routerLink="/login" class="sign-in-link">Sign in</a>
+    <a *ngIf="!isDeveloper() && !isclient() && !isStudent()" routerLink="/usuario/nuevo" class="sign-in-link">Sign up</a>
+    <a *ngIf="!isDeveloper() && !isclient() && !isStudent()" routerLink="/login" class="sign-in-link">Sign in</a>
     <button *ngIf="verificar()" mat-button [matMenuTriggerFor]="menuPerfil" style="color: white;" >
       <mat-icon>account_circle</mat-icon>
     </button>
