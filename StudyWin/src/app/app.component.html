@@ -6,42 +6,43 @@
     </div>
 
     <ul class="navbar-menu">
-
-      <button mat-button [matMenuTriggerFor]="menuUsuarios" style="color: white" *ngIf="isDeveloper()">
-        <mat-icon>business</mat-icon>Usuarios
-      </button>
       <li *ngIf="isclient() || isStudent()"> <a routerLink="/curso">Cursos</a></li>
-      <button mat-button [matMenuTriggerFor]="menuCursos" style="color: white" *ngIf="isDeveloper()">
-        <mat-icon>business</mat-icon>Cursos
-      </button>
       <li *ngIf="isclient() || isStudent()"> <a routerLink="/usuarioxcurso/miscursos">Mi Progreso</a></li>
       <li *ngIf="isclient() || isStudent()"><a routerLink="/recompensas" (click)="setBolean()">Recompensas</a></li>
       <li *ngIf="isclient() || isStudent()"><a routerLink="/asociado">Asociados</a></li>
       <li *ngIf="isclient() || isStudent()"><a routerLink="/canje-client">Canjes</a></li>
-
+      <button mat-button [matMenuTriggerFor]="menuCursos" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>school</mat-icon>Cursos
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuUsuarios" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>people</mat-icon>Usuarios
+      </button>
       <button mat-button [matMenuTriggerFor]="menuCanjes" style="color: white" *ngIf="isDeveloper()">
-        <mat-icon>business</mat-icon>Canjes
+        <mat-icon>swap_horiz</mat-icon>Canjes
       </button>
       <button mat-button [matMenuTriggerFor]="menuUsuariosXCursos" style="color: white" *ngIf="isDeveloper()">
-        <mat-icon>business</mat-icon>UsuariosXCursos
+        <mat-icon>group_work</mat-icon>UsuariosXCursos
       </button>
       <button mat-button [matMenuTriggerFor]="menuDetalleCanje" style="color: white" *ngIf="isDeveloper()">
-        <mat-icon>business</mat-icon>DetalleCanje
+        <mat-icon>description</mat-icon>DetalleCanje
       </button>
       <button mat-button [matMenuTriggerFor]="menuAsociado" style="color: white" *ngIf="isDeveloper()">
-        <mat-icon>business</mat-icon>Asociados
+        <mat-icon>handshake</mat-icon>Asociados
       </button>
       <button mat-button [matMenuTriggerFor]="menuTipoRecompensa" style="color: white" *ngIf="isDeveloper()">
-        <mat-icon>business</mat-icon>Tipo de Recompensa
+        <mat-icon>category</mat-icon>Tipo de Recompensas
       </button>
       <button mat-button [matMenuTriggerFor]="menuRecompensa" style="color: white" *ngIf="isDeveloper()">
-        <mat-icon>business</mat-icon>Recompensa
+        <mat-icon>redeem</mat-icon>Recompensas
       </button>
       <button mat-button [matMenuTriggerFor]="menuCuestionario" style="color: white" *ngIf="isDeveloper()">
-        <mat-icon>business</mat-icon>Cuestionario
+        <mat-icon>quiz</mat-icon>Cuestionarios
       </button>
       <button mat-button [matMenuTriggerFor]="menuPregunta" style="color: white" *ngIf="isDeveloper()">
-        <mat-icon>business</mat-icon>Pregunta
+        <mat-icon>help_outline</mat-icon>Preguntas
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuRol" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>verified_user</mat-icon>Rol
       </button>
     </ul>
   </div>
@@ -115,6 +116,9 @@
 <mat-menu #menuPregunta="matMenu">
   <button mat-menu-item routerLink="/preguntaadmin"><mat-icon>playlist_add_check</mat-icon> Listar </button>
   <button mat-menu-item routerLink="/preguntaadmin/nuevo"><mat-icon>playlist_add</mat-icon> Registrar </button>
+</mat-menu>
+<mat-menu #menuRol="matMenu">
+  <button mat-menu-item routerLink="/rol"><mat-icon>playlist_add</mat-icon> Registrar</button>
 </mat-menu>
 
 <mat-menu #menuPerfil="matMenu">
