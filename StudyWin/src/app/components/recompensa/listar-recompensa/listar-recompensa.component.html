@@ -9,6 +9,7 @@
                 <p><strong>Stock:</strong> {{element.stock}}</p>
                 <p><strong>Asociado:</strong> {{element.asociado.empresa}}</p> 
             </div> 
+            <button routerLink="/canjeados" *ngIf="isclient()" class="btonstart" mat-flat-button (click)="Canjear()" (click)="setIdrecompensa(element.id_recompensa)">Canjear</button>
         </div>
     </div>
 </div>
