@@ -11,6 +11,7 @@ export class RecompensaService {
   private url=`${base_url}/recompensas`
   private listaCambio= new Subject<Recompensa[]>();
   identrecompensa:number=0
+  
   constructor(private http:HttpClient) { }
   list(){
     return this.http.get<Recompensa[]>(this.url)

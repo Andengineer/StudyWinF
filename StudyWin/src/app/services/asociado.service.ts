@@ -10,6 +10,7 @@ const base_url=environment.base
 export class AsociadoService {
   private url=`${base_url}/asociado`
   private listaCambio= new Subject<Asociado[]>();
+  identasociado:number=0
 
   constructor(private http:HttpClient) { }
   list(){
@@ -32,5 +33,15 @@ export class AsociadoService {
   }
   update(a:Asociado){
     return this.http.put(this.url,a)
+  }
+  setIdasociado(value:number){
+    this.identasociado=value
+    return console.log(this.getIdasociado())
+  }
+  getIdasociado(){
+    return this.identasociado
+  }
+  clearIdasociado() {
+    this.identasociado = 0;
   }
 }

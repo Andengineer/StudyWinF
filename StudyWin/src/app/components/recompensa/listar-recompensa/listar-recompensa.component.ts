@@ -8,6 +8,8 @@ import { CanjeService } from '../../../services/canje.service';
 import { Canje } from '../../../models/Canje';
 import { DetalleXCanje } from '../../../models/DetalleXCanje';
 import { DetallexcanjeService } from '../../../services/detallexcanje.service';
+import { AsociadoService } from '../../../services/asociado.service';
+
 
 @Component({
   selector: 'app-listar-recompensa',
@@ -20,10 +22,11 @@ export class ListarRecompensaComponent implements OnInit {
   dataSource: MatTableDataSource<Recompensa> = new MatTableDataSource()
   canje: Canje = new Canje;
   role: string = '';
-  constructor(private dcS:DetallexcanjeService,private rS: RecompensaService, private ls: LoginService, private cS: CanjeService) { }
+  constructor(private dcS:DetallexcanjeService,private rS: RecompensaService, private ls: LoginService, private cS: CanjeService, private aS:AsociadoService) { }
   ngOnInit(): void {
     this.rS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data)
+
     });
   }
   isclient() {

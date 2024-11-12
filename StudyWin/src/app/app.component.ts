@@ -13,6 +13,7 @@ import { PreguntaComponent } from './components/pregunta/pregunta.component';
 import { CuestionarioacademicoComponent } from './components/cuestionarioacademico/cuestionarioacademico.component';
 import { LoginService } from './services/login.service';
 import { CommonModule } from '@angular/common';
+import { AsociadoService } from './services/asociado.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'StudyWin';
   role: string = '';
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private aS:AsociadoService) {}
 
   cerrar() {
     sessionStorage.clear();
@@ -40,5 +41,9 @@ export class AppComponent {
 
   isclient() {
     return this.role === 'CLIENT';
+  }
+  // Método para redirigir a "Recompensas" y mostrar todas las recompensas
+  verTodasRecompensas() {
+    this.aS.clearIdasociado();
   }
 }
