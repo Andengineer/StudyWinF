@@ -20,7 +20,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ListarCursoComponent implements OnInit {
   dataSource: MatTableDataSource<Curso> = new MatTableDataSource();
   usXcurso: UsuarioXCurso = new UsuarioXCurso()
-  identcurso:number=0
   showTitle: boolean = true; // Controla la visibilidad del título
   role: string = '';
   constructor(private cS: CursoService, private ls: LoginService, private uxcS: UsuarioXCursoService,private snackBar: MatSnackBar) { }
@@ -66,8 +65,7 @@ export class ListarCursoComponent implements OnInit {
       this.dataSource = new MatTableDataSource(data);
     });
   }
-  setIdcanje(value: number) {
-    this.identcurso = value;
+  setIdcurso(value: number) {
     this.cS.setIdcurso(value);
   }
 }

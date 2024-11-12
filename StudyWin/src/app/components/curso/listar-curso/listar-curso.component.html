@@ -9,7 +9,7 @@
                 <p><strong>Descripción:</strong> {{element.descripcion}}</p>
                 
             </div>
-            <button routerLink="/cuestionario" *ngIf="isclient()" class="btonstart" mat-flat-button (click)="Comenzar(element.id_curso)" (click)="setIdcanje(element.id_curso)">Comenzar</button>
+            <button routerLink="/cuestionario" *ngIf="isclient()" class="btonstart" mat-flat-button (click)="Comenzar(element.id_curso)" (click)="setIdcurso(element.id_curso)">Comenzar</button>
         </div>
     </div>
 </div>

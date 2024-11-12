@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Canje } from '../models/Canje';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,8 @@ export class CanjeService {
   list(){
     return this.http.get<Canje[]>(this.url)
   }
-  insert(ro:Canje){
-    return this.http.post(this.url,ro)
+  insert(ro:Canje): Observable<Canje>{
+    return this.http.post<Canje>(this.url,ro)
   }
 
   setList(listaNueva:Canje[]){

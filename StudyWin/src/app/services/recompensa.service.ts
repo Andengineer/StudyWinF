@@ -10,7 +10,7 @@ const base_url=environment.base
 export class RecompensaService {
   private url=`${base_url}/recompensas`
   private listaCambio= new Subject<Recompensa[]>();
-  
+  identrecompensa:number=0
   constructor(private http:HttpClient) { }
   list(){
     return this.http.get<Recompensa[]>(this.url)
@@ -32,5 +32,12 @@ export class RecompensaService {
   }
   update(r:Recompensa){
     return this.http.patch(this.url,r)
+  }
+  setIdrecompensa(value:number){
+    this.identrecompensa=value
+    return console.log(this.getIdrecompensa())
+  }
+  getIdrecompensa(){
+    return this.identrecompensa
   }
 }
