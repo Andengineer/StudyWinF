@@ -1,14 +1,27 @@
 <div class="todo">
-    <div class="Titulo"><h1  class="Titulos"> Cursos</h1></div>
+    <div class="Titulo">
+        <h1 class="Titulos"> Cursos</h1>
+    </div>
     <div class="contenedor-items">
-        <div class="item" *ngFor="let element of dataSource.data"> 
+        <!-- Condición para mostrar el mensaje si no hay canjes -->
+
+        <div class="item" *ngFor="let element of dataSource.data">
             <img src="{{element.curso.imagen}}" alt="Curso Imagen" class="item-imagen">
             <div class="item-contenido">
                 <h2>{{element.curso.nombre}}</h2>
                 <p><strong>Categoría:</strong> {{element.curso.categoria}}</p>
                 <p><strong>Descripción:</strong> {{element.curso.descripcion}}</p>
             </div>
-            <button routerLink="/cuestionario" *ngIf="isclient()" class="btonstart" mat-flat-button (click)="Comenzar(element.curso.id_curso)" (click)="setIdcurso(element.curso.id_curso)">Continuar</button>
+            <button routerLink="/cuestionario" *ngIf="isclient()" class="btonstart" mat-flat-button
+                (click)="Comenzar(element.curso.id_curso)"
+                (click)="setIdcurso(element.curso.id_curso)">Continuar</button>
         </div>
+
+    </div>
+</div>
+
+<div class="nocanjess">
+    <div *ngIf="dataSource.data.length === 0" class="no-canjes">
+        <p>No has empezado ningún curso</p>
     </div>
 </div>

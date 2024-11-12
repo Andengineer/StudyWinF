@@ -1,16 +1,22 @@
 <div class="contienetodo">
     <div class="todo">
-        <div class="Titulo"><h1  class="Titulos"> Canjes</h1></div>
-        <div class="contenedor-items">
-            <div class="item" *ngFor="let element of dataSource.data"> 
-                <div class="item-contenido">
-                    <p><strong>Departamento:</strong> {{element.departamento}}</p>
-                    <p><strong>Distrito:</strong> {{element.distrito}}</p>
-                    <p><strong>Fecha:</strong> {{element.fecha}}</p>
-                    <!-- Botón para redirigir a la página de detalle del canje -->
-                    <button mat-flat-button (click)="setIdcanje(element.id_canje)" routerLink="/detalle-canje/cl">Detalle Canje</button>
-                </div>
-            </div>
+      <div class="Titulo"><h1 class="Titulos">Canjes</h1></div>
+      <div class="contenedor-items">
+        <!-- Condición para mostrar el mensaje si no hay canjes -->
+        <div *ngIf="dataSource.data.length === 0" class="no-canjes">
+          <p>No has canjeado nada aún</p>
         </div>
+        <!-- Lista de canjes -->
+        <div class="item" *ngFor="let element of dataSource.data">
+          <div class="item-contenido">
+            <p><strong>Departamento:</strong> {{element.departamento}}</p>
+            <p><strong>Distrito:</strong> {{element.distrito}}</p>
+            <p><strong>Fecha:</strong> {{element.fecha}}</p>
+            <!-- Botón para redirigir a la página de detalle del canje -->
+            <button mat-flat-button (click)="setIdcanje(element.id_canje)" routerLink="/detalle-canje/cl">Detalle Canje</button>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  

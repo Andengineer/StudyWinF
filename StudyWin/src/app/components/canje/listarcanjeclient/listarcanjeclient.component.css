@@ -69,3 +69,14 @@ button[mat-flat-button]:hover {
 .item-contenido strong {
   color: #333;
 }
+/* Estilo para el mensaje cuando no hay canjes */
+.no-canjes {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+  padding: 20px;
+  background-color: #fff3e0;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
