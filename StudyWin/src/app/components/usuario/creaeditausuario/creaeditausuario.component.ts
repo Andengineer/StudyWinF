@@ -80,7 +80,7 @@ constructor(private rolS:RolService,private loginService: LoginService,private u
       this.usuario.dni = this.form.value.hdni;
       this.usuario.email = this.form.value.hemail;
       this.usuario.contrasena = this.form.value.hpassword;
-      this.usuario.puntos_usuario = 0;
+      this.usuario.puntos_usuario = this.form.value.hpuntos;
       this.usuario.enabled = true;
       this.rola.user.id_usuario=this.form.value.hcodigo
       this.rola.rol=this.rols
@@ -90,7 +90,7 @@ constructor(private rolS:RolService,private loginService: LoginService,private u
         this.page=true
         
       //
-        this.uS.update(this.usuario).subscribe(
+        this.uS.insert(this.usuario).subscribe(
           () => {
             this.uS.list().subscribe(d => {
               this.uS.setList(d);
@@ -151,6 +151,7 @@ constructor(private rolS:RolService,private loginService: LoginService,private u
           hemail:new FormControl(data.email),
           hpassword:new FormControl(data.contrasena),
           hinstitucion:new FormControl(data.institucion_educativa),
+          hpuntos:new FormControl(data.puntos_usuario)
         })
       })
     }
