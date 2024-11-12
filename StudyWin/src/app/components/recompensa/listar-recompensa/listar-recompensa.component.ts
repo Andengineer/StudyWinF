@@ -9,6 +9,10 @@ import { Canje } from '../../../models/Canje';
 import { DetalleXCanje } from '../../../models/DetalleXCanje';
 import { DetallexcanjeService } from '../../../services/detallexcanje.service';
 import { AsociadoService } from '../../../services/asociado.service';
+import { UsuarioService } from '../../../services/usuario.service';
+import { RolService } from '../../../services/rol.service';
+import { Role } from '../../../models/Role';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -22,7 +26,9 @@ export class ListarRecompensaComponent implements OnInit {
   dataSource: MatTableDataSource<Recompensa> = new MatTableDataSource()
   canje: Canje = new Canje;
   role: string = '';
-  constructor(private dcS:DetallexcanjeService,private rS: RecompensaService, private ls: LoginService, private cS: CanjeService, private aS:AsociadoService) { }
+  rola:Role=new Role()
+    rols:string='CLIENT'
+  constructor(private snackBar: MatSnackBar,private rolS:RolService,private dcS:DetallexcanjeService,private rS: RecompensaService, private ls: LoginService, private cS: CanjeService, private aS:AsociadoService, private uS:UsuarioService) { }
   ngOnInit(): void {
     const verificador = this.rS.getBolean();
     if(verificador==true){
@@ -48,29 +54,59 @@ export class ListarRecompensaComponent implements OnInit {
     this.role = this.ls.showRole();
     return this.role === 'CLIENT';
   }
-  Canjear() {
-    this.canje.departamento = 'Lima'
-    this.canje.distrito = 'Barranco'
-    this.canje.fecha = new Date();
-    this.canje.usuario.id_usuario = this.ls.getId()
-     // Llamamos al servicio de canje para crear el canje
-    this.cS.insert(this.canje).subscribe(d => {
-      const idRecompensa = this.rS.getIdrecompensa();
+  Canjear(value:number,value2:number,value3:number) {
+    const idRecompensa =value3 ;
 
-      // Una vez creado el canje, creamos el detalle usando el id del canje creado y la cantidad
-      const detalleCanje = new DetalleXCanje();
-      console.log("Mostrando el valor de id_canje:");
-      console.log(d.id_canje);
-      detalleCanje.canje.id_canje = d.id_canje;
-      detalleCanje.recompensa.id_recompensa = idRecompensa;
-      detalleCanje.cantidadProductoCanje = 1;
+    this.rS.listId(idRecompensa).subscribe(recompensa => {
+      this.uS.listId(this.ls.getId()).subscribe(usuario => {
+        if (usuario.puntos_usuario >= recompensa.puntos) {
+          if (value2 > 0) {
+            usuario.puntos_usuario -= recompensa.puntos;
+            recompensa.stock = recompensa.stock-1;
 
-      // Insertamos el detalle canje
-      this.dcS.insert(detalleCanje).subscribe(() => {
-        console.log('Detalle canje creado con éxito');
+            // Actualiza el usuario y sus puntos
+            this.uS.update(usuario).subscribe(() => {
+              console.log('Puntos del usuario actualizados.');
+
+              // Actualiza el stock de la recompensa
+              this.rS.update(recompensa).subscribe(() => {
+                console.log('Stock de recompensa actualizado.');
+
+                // Crear o actualizar el rol del usuario
+                this.rola.user = usuario;
+                this.rola.rol = this.rols;
+                this.rolS.insert(this.rola).subscribe(() => {
+                  console.log('Rol asignado o actualizado correctamente.');
+
+                  // Registrar el canje y el detalle de canje
+                  this.canje.departamento = 'Lima';
+                  this.canje.distrito = 'Barranco';
+                  this.canje.fecha = new Date();
+                  this.canje.usuario.id_usuario = usuario.id_usuario;
+
+                  this.cS.insert(this.canje).subscribe(d => {
+                    const detalleCanje = new DetalleXCanje();
+                    detalleCanje.canje.id_canje = d.id_canje;
+                    detalleCanje.recompensa.id_recompensa = value;
+                    detalleCanje.cantidadProductoCanje = 1;
+
+                    this.dcS.insert(detalleCanje).subscribe(() => {
+                      this.snackBar.open('Producto canjeado con éxito', 'Cerrar', { duration: 3000 });
+                    });
+                  });
+                });
+              });
+            });
+          } else {
+            this.snackBar.open('Recompensa no disponible', 'Cerrar', { duration: 3000 });
+          }
+        } else {
+          this.snackBar.open('No tienes suficientes puntos para canjear esta recompensa.', 'Cerrar', { duration: 3000 });
+        }
       });
     });
   }
+  
   setIdrecompensa(value: number) {
     this.rS.setIdrecompensa(value);
   }
