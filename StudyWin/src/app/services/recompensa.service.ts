@@ -11,6 +11,7 @@ export class RecompensaService {
   private url=`${base_url}/recompensas`
   private listaCambio= new Subject<Recompensa[]>();
   identrecompensa:number=0
+  verificador: boolean | null = null;
   
   constructor(private http:HttpClient) { }
   list(){
@@ -40,5 +41,11 @@ export class RecompensaService {
   }
   getIdrecompensa(){
     return this.identrecompensa
+  }
+  setBolean(value:boolean){
+    this.verificador=value
+  }
+  getBolean(){
+    return this.verificador
   }
 }

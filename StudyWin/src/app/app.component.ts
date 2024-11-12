@@ -14,6 +14,7 @@ import { CuestionarioacademicoComponent } from './components/cuestionarioacademi
 import { LoginService } from './services/login.service';
 import { CommonModule } from '@angular/common';
 import { AsociadoService } from './services/asociado.service';
+import { RecompensaService } from './services/recompensa.service';
 
 
 @Component({
@@ -26,7 +27,7 @@ import { AsociadoService } from './services/asociado.service';
 export class AppComponent {
   title = 'StudyWin';
   role: string = '';
-  constructor(private loginService: LoginService, private aS:AsociadoService) {}
+  constructor(private loginService: LoginService, private aS:AsociadoService, private rS:RecompensaService) {}
 
   cerrar() {
     sessionStorage.clear();
@@ -42,8 +43,8 @@ export class AppComponent {
   isclient() {
     return this.role === 'CLIENT';
   }
-  // Método para redirigir a "Recompensas" y mostrar todas las recompensas
-  verTodasRecompensas() {
-    this.aS.clearIdasociado();
+
+  setBolean(){
+    this.rS.setBolean(false)
   }
 }
