@@ -15,7 +15,7 @@
         <mat-icon>business</mat-icon>Cursos
       </button>
       <li *ngIf="isclient()"> <a routerLink="/usuarioxcurso/miscursos">Mi Progreso</a></li>
-      <li *ngIf="isclient()"><a routerLink="/recompensas" (click)="verTodasRecompensas()">Recompensas</a></li>
+      <li *ngIf="isclient()"><a routerLink="/recompensas" (click)="setBolean()">Recompensas</a></li>
       <li *ngIf="isclient()"><a routerLink="/asociado">Asociados</a></li>
       <li *ngIf="isclient()"><a routerLink="/canje-client">Canjes</a></li>
 

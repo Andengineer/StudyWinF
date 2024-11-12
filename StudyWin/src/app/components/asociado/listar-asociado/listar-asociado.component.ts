@@ -19,7 +19,7 @@ export class ListarAsociadoComponent implements OnInit{
   role: string = '';
   identasociado:number=0
 
-  constructor(private ls: LoginService, private aS:AsociadoService, private router:Router){}
+  constructor(private ls: LoginService, private aS:AsociadoService, private router:Router, private rS:RecompensaService){}
   ngOnInit(): void {
     this.aS.list().subscribe((data)=>{
       this.dataSource=new MatTableDataSource(data)
@@ -32,6 +32,10 @@ export class ListarAsociadoComponent implements OnInit{
   setIdasociado(value: number) {
     this.identasociado = value;
     this.aS.setIdasociado(value);
-    this.router.navigate(['/recompensas']);
+    this.rS.setBolean(true);
+    this.router.navigate(['/recompensa']);
+  }
+  setBolean(){
+    this.rS.setBolean(true)
   }
 }

@@ -24,10 +24,25 @@ export class ListarRecompensaComponent implements OnInit {
   role: string = '';
   constructor(private dcS:DetallexcanjeService,private rS: RecompensaService, private ls: LoginService, private cS: CanjeService, private aS:AsociadoService) { }
   ngOnInit(): void {
-    this.rS.list().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data)
+    const verificador = this.rS.getBolean();
+    if(verificador==true){
+      console.log(this.rS.getBolean())
+    // Obtiene el ID del asociado seleccionado desde el servicio AsociadoService
+    const asociadoId = this.aS.getIdasociado();
 
+    // Llama al RecompensaService para obtener todas las recompensas
+    this.rS.list().subscribe((data) => {
+      // Si hay un id de asociado, filtra; si no, muestra todas las recompensas
+      const filteredRecompensas = asociadoId ? data.filter((recompensa: Recompensa) => recompensa.asociado.id_asociado === asociadoId) : data;
+      this.dataSource = new MatTableDataSource(filteredRecompensas);
     });
+    }else{
+      console.log(this.rS.getBolean())
+      this.rS.list().subscribe((data) => {
+        this.dataSource = new MatTableDataSource(data)
+
+      });
+    }
   }
   isclient() {
     this.role = this.ls.showRole();

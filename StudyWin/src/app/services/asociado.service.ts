@@ -41,7 +41,4 @@ export class AsociadoService {
   getIdasociado(){
     return this.identasociado
   }
-  clearIdasociado() {
-    this.identasociado = 0;
-  }
 }

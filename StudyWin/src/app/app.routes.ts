@@ -151,7 +151,10 @@ export const routes: Routes = [
         path: 'asociado', component: ListarAsociadoComponent, // Ruta para listar los asociados como cards
     },
     {
-        path: 'recompensas', component: ListarRecompensaComponent, // Ruta para listar las recompensas como cards
+        path: 'recompensa', component: ListarRecompensaComponent, // Ruta para listar las recompensas para cada asociado
+    },
+    {
+        path: 'recompensas', component: ListarRecompensaComponent, // Ruta para listar las recompensas totales
     },
     {
         path: 'cuestionario', component: ListarCuestionarioacademicoComponent, // Ruta para listar los cuestionarios como cards
