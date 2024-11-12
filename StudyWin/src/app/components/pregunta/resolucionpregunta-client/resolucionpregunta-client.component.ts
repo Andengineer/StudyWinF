@@ -62,7 +62,7 @@ export class ResolucionpreguntaClientComponent implements OnInit {
   aceptar(): void {
     if (this.form.valid) {
       console.log('Respuesta enviada:', this.form.value.hrespuesta);
-      this.router.navigate(['/preguntas']); // Vuelve a la lista de preguntas después de enviar
+      this.router.navigate(['/pregunta']); // Vuelve a la lista de preguntas después de enviar
     }
   }
 
