@@ -43,4 +43,16 @@ export class LoginService {
     const decodedToken = helper.decodeToken(token);
     return decodedToken?.role;
   }
+  showUser() {
+    let token = sessionStorage.getItem('token');
+    if (!token) {
+        return '';
+    }
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    console.log("Token decodificado:", decodedToken); // Esto mostrará el token completo en la consola
+    // Cambia "username" por "nombre" para extraer el nombre correcto
+    this._username = decodedToken?.sub || ''; 
+    return this._username;
+}
 }

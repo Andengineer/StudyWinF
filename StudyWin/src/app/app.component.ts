@@ -27,7 +27,13 @@ import { RecompensaService } from './services/recompensa.service';
 export class AppComponent {
   title = 'StudyWin';
   role: string = '';
+  nombre: string='';
   constructor(private loginService: LoginService, private aS:AsociadoService, private rS:RecompensaService) {}
+
+  ngOnInit() {
+    this.verificar();
+    this.shownombre(); // Llamamos a shownombre para cargar el nombre de usuario
+  }
 
   cerrar() {
     sessionStorage.clear();
@@ -50,5 +56,10 @@ export class AppComponent {
 
   setBolean(){
     this.rS.setBolean(false)
+  }
+
+  shownombre(){
+    this.nombre=this.loginService.showUser();
+    console.log("Usuario:", this.nombre);
   }
 }
