@@ -14,7 +14,7 @@
       <button mat-button [matMenuTriggerFor]="menuCursos" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>business</mat-icon>Cursos
       </button>
-      <li *ngIf="isclient() || isStudent()" > <a routerLink="/usuarioxcurso/miscursos">Mi Progreso</a></li>
+      <li *ngIf="isclient() || isStudent()"> <a routerLink="/usuarioxcurso/miscursos">Mi Progreso</a></li>
       <li *ngIf="isclient() || isStudent()"><a routerLink="/recompensas" (click)="setBolean()">Recompensas</a></li>
       <li *ngIf="isclient() || isStudent()"><a routerLink="/asociado">Asociados</a></li>
       <li *ngIf="isclient() || isStudent()"><a routerLink="/canje-client">Canjes</a></li>
@@ -48,9 +48,11 @@
 
   <div class="navbar-profile">
     <a routerLink="/rol" class="invisible-button">as</a>
-    <a *ngIf="!isDeveloper() && !isclient() && !isStudent()" routerLink="/usuario/nuevo" class="sign-in-link">Sign up</a>
+    <a *ngIf="!isDeveloper() && !isclient() && !isStudent()" routerLink="/usuario/nuevo" class="sign-in-link">Sign
+      up</a>
     <a *ngIf="!isDeveloper() && !isclient() && !isStudent()" routerLink="/login" class="sign-in-link">Sign in</a>
-    <button *ngIf="verificar()" mat-button [matMenuTriggerFor]="menuPerfil" style="color: white;" >
+    <button (click)="shownombre()" *ngIf="verificar()" mat-button [matMenuTriggerFor]="menuPerfil"
+      style="color: white;">
       <mat-icon>account_circle</mat-icon>
     </button>
   </div>
@@ -104,8 +106,10 @@
 </mat-menu>
 
 <mat-menu #menuCuestionario="matMenu">
-  <button mat-menu-item routerLink="/cuestionarioacademicoadmin"><mat-icon>playlist_add_check</mat-icon> Listar </button>
-  <button mat-menu-item routerLink="/cuestionarioacademicoadmin/nuevo"><mat-icon>playlist_add</mat-icon> Registrar </button>
+  <button mat-menu-item routerLink="/cuestionarioacademicoadmin"><mat-icon>playlist_add_check</mat-icon> Listar
+  </button>
+  <button mat-menu-item routerLink="/cuestionarioacademicoadmin/nuevo"><mat-icon>playlist_add</mat-icon> Registrar
+  </button>
 </mat-menu>
 
 <mat-menu #menuPregunta="matMenu">
@@ -115,16 +119,16 @@
 
 <mat-menu #menuPerfil="matMenu">
   <button mat-menu-item routerLink="/profile">
-    <mat-icon>account_box</mat-icon> Cuenta
+    <mat-icon>account_box</mat-icon> Mi perfil
   </button>
-  <button mat-menu-item routerLink="/login" (click)="cerrar()">
-    <mat-icon>logout</mat-icon> Cerrar sesión
+  <button mat-menu-item>
+    Usuario: <span>{{ nombre }}</span>
   </button>
   <button mat-menu-item>
     Rol: <span>{{ role }}</span>
   </button>
-    <button mat-menu-item>
-    Usuario: <span>{{ nombre }}</span>
+  <button mat-menu-item routerLink="/login" (click)="cerrar()">
+    <mat-icon>logout</mat-icon> Cerrar sesión
   </button>
 </mat-menu>
 <!--Vista cliente-->

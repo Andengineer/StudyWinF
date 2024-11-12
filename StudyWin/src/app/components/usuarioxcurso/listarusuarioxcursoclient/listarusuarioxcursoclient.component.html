@@ -8,6 +8,7 @@
                 <p><strong>Categoría:</strong> {{element.curso.categoria}}</p>
                 <p><strong>Descripción:</strong> {{element.curso.descripcion}}</p>
             </div>
+            <button routerLink="/cuestionario" *ngIf="isclient()" class="btonstart" mat-flat-button (click)="Comenzar(element.curso.id_curso)" (click)="setIdcurso(element.curso.id_curso)">Continuar</button>
         </div>
     </div>
 </div>
