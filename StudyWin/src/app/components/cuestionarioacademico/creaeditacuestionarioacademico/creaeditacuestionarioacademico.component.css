@@ -8,15 +8,16 @@
     padding-left: 10px;
   }
   /* Estilo general del contenedor */
-form {
+  form {
     max-width: 300px; /* Limita el ancho del formulario */
     margin:  auto; /* Centra el formulario vertical y horizontalmente */
-    padding: 30px; /* Agrega espacio interno */
+    padding: 10px; /* Agrega espacio interno */
     padding-left: 60px;
+    padding-right: 60px;
     background-color: #491cc2; /* Fondo ligero */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor del formulario */
     border-radius: 8px; /* Bordes redondeados */
-    
+    text-align: center; /* Centra el texto horizontalmente */
   }
   button[mat-flat-button]{
     background-color: #8a62f7;

@@ -12,6 +12,7 @@ import { Curso } from '../../../models/Curso';
 import { Cuestionario_academico } from '../../../models/Cuestionario_academico';
 import { CursoService } from '../../../services/curso.service';
 import { CuestionarioAcademicoService } from '../../../services/cuestionario-academico.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creaeditacuestionarioacademico',
@@ -27,7 +28,7 @@ export class CreaeditacuestionarioacademicoComponent {
   edicion:boolean=false
   listaCursos:Curso[]=[];
 
-  constructor(private caS:CuestionarioAcademicoService, private cS:CursoService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute){}
+  constructor(private caS:CuestionarioAcademicoService, private cS:CursoService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute, private snackBar:MatSnackBar){}
 
   ngOnInit(): void {
     this.route.params.subscribe((data:Params)=>{
@@ -51,6 +52,15 @@ export class CreaeditacuestionarioacademicoComponent {
   }
 
   aceptar(){
+    const tiempo = this.form.value.htiempo;
+  
+    if (tiempo < 0) {
+      this.snackBar.open('No se puede ingresar tiempos negativos, por favor vuelva a digitar el tiempo', 'Cerrar', {
+        duration: 3000,
+      });
+      return;
+    }
+
     if(this.form.valid){
       this.cuestionario.id_cuestionario=this.form.value.hcodigo;
       this.cuestionario.nombres=this.form.value.hnombre;

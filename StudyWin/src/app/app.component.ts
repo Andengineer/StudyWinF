@@ -50,10 +50,6 @@ export class AppComponent  implements OnInit{
     return this.role === 'CLIENT';
   }
 
-  isStudent() {
-    return this.role === 'STUDENT';
-  }
-
   setBolean(){
     this.rS.setBolean(false)
   }

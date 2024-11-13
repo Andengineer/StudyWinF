@@ -11,6 +11,7 @@ import { Pregunta } from '../../../models/Pregunta';
 import { Cuestionario_academico } from '../../../models/Cuestionario_academico';
 import { PreguntaService } from '../../../services/pregunta.service';
 import { CuestionarioAcademicoService } from '../../../services/cuestionario-academico.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creaeditapregunta',
@@ -26,7 +27,7 @@ export class CreaeditapreguntaComponent {
   edicion:boolean=false
   listaCuestionarios:Cuestionario_academico[]=[];
 
-  constructor(private pS:PreguntaService, private cS:CuestionarioAcademicoService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute){}
+  constructor(private pS:PreguntaService, private cS:CuestionarioAcademicoService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute, private snackBar:MatSnackBar){}
 
   ngOnInit(): void {
     this.route.params.subscribe((data:Params)=>{
@@ -50,6 +51,15 @@ export class CreaeditapreguntaComponent {
   } 
   
   aceptar(){
+    const puntos = this.form.value.hpuntos;
+  
+    if (puntos < 0) {
+      this.snackBar.open('No se puede ingresar puntos negativos, por favor vuelva a digitar los puntos', 'Cerrar', {
+        duration: 3000,
+      });
+      return;
+    }
+
     if(this.form.valid){
       this.pregunta.id_pregunta=this.form.value.hcodigo;
       this.pregunta.pregunta=this.form.value.hpregunta;
