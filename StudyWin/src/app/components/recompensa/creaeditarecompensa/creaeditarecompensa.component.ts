@@ -14,6 +14,7 @@ import { Asociado } from '../../../models/Asociado';
 import { TipoRecompensa } from '../../../models/TipoRecompensa';
 import { AsociadoService } from '../../../services/asociado.service';
 import { TipoDeRecompensaService } from '../../../services/tipo-de-recompensa.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creaeditarecompensa',
@@ -30,7 +31,7 @@ export class CreaeditarecompensaComponent {
   listaAsociados:Asociado[]=[];
   listaTipos:TipoRecompensa[]=[];
 
-  constructor(private rS:RecompensaService, private aS:AsociadoService, private trS:TipoDeRecompensaService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute){}
+  constructor(private rS:RecompensaService, private aS:AsociadoService, private trS:TipoDeRecompensaService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute, private snackBar: MatSnackBar){}
 
   ngOnInit(): void {
     this.route.params.subscribe((data:Params)=>{
@@ -42,8 +43,8 @@ export class CreaeditarecompensaComponent {
     this.form=this.formBuilder.group({
       hnombre:['',Validators.required],
       hdescripcion:['',Validators.required],
-      hpuntos:['',Validators.required],
-      hstock:['',Validators.required],
+      hpuntos: ['', Validators.required],
+      hstock: ['', Validators.required],
       hasociado:['',Validators.required],
       htipo:['',Validators.required],
       himagen:['',Validators.required],
@@ -60,6 +61,23 @@ export class CreaeditarecompensaComponent {
   }
 
   aceptar(){
+    const puntos = this.form.value.hpuntos;
+    const stock = this.form.value.hstock;
+  
+    if (puntos < 0) {
+      this.snackBar.open('No se puede ingresar números negativos en los puntos', 'Cerrar', {
+        duration: 3000,
+      });
+      return;
+    }
+  
+    if (stock < 0) {
+      this.snackBar.open('No se puede ingresar números negativos en el stock', 'Cerrar', {
+        duration: 3000,
+      });
+      return;
+    }
+
     if(this.form.valid){
       this.recompensa.id_recompensa=this.form.value.hcodigo;
       this.recompensa.nombre=this.form.value.hnombre;

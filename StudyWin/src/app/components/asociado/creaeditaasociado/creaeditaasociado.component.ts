@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { Asociado } from '../../../models/Asociado';
 import { AsociadoService } from '../../../services/asociado.service';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creaeditaasociado',
@@ -27,7 +28,7 @@ export class CreaeditaasociadoComponent {
   edicion:boolean=false
   role:string=''
 
-  constructor(private aS:AsociadoService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute){}
+  constructor(private aS:AsociadoService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute, private snackBar: MatSnackBar){}
 
   ngOnInit(): void {
     this.route.params.subscribe((data:Params)=>{
@@ -44,33 +45,66 @@ export class CreaeditaasociadoComponent {
       hfechafin:['',Validators.required],
       himagen:['',Validators.required],
       hcodigo:[''] 
-    });
+      },
+      {
+        validators: this.fechaValidator('hfechainicio', 'hfechafin'),
+      }
+    );
   }
 
-  aceptar(){
-    if(this.form.valid){
-      this.asociado.id_asociado=this.form.value.hcodigo;
-      this.asociado.empresa=this.form.value.hempresa;
-      this.asociado.descripcion=this.form.value.hdescripcion;
-      this.asociado.ruc=this.form.value.hruc;
-      this.asociado.fecha_inicio=this.form.value.hfechainicio;
-      this.asociado.fecha_fin=this.form.value.hfechafin;
-      this.asociado.imagen=this.form.value.himagen;
-      
-      if(this.edicion){
-        this.aS.update(this.asociado).subscribe(d=>{
-          this.aS.list().subscribe(d=>{
-            this.aS.setList(d)
-          })
-        })
-      }else{
-        this.aS.insert(this.asociado).subscribe(d=>{
-          this.aS.list().subscribe(d=>{
-            this.aS.setList(d)
-          });
-        });
+  fechaValidator(fechaInicioKey: string, fechaFinKey: string) {
+    return (group: AbstractControl): { [key: string]: any } | null => {
+      const atfechaInicio = group.get(fechaInicioKey)?.value;
+      const atfechaFin = group.get(fechaFinKey)?.value;
+
+      return atfechaInicio && atfechaFin && atfechaFin < atfechaInicio
+        ? { fechaInvalida: true }
+        : null;
+    };
+  }
+
+  aceptar() {
+    if (this.form.valid) {
+      this.asociado.id_asociado = this.form.value.hcodigo;
+      this.asociado.empresa = this.form.value.hempresa;
+      this.asociado.descripcion = this.form.value.hdescripcion;
+      this.asociado.ruc = this.form.value.hruc;
+      this.asociado.fecha_inicio = this.form.value.hfechainicio;
+      this.asociado.fecha_fin = this.form.value.hfechafin;
+      this.asociado.imagen = this.form.value.himagen;
+  
+      if (this.edicion) {
+        this.aS.update(this.asociado).subscribe(
+          () => {
+            this.aS.list().subscribe(d => {
+              this.aS.setList(d);
+            });
+          },
+          error => {
+            if (error.status === 500) {
+              this.snackBar.open('El RUC ya ha sido registrado, ingrese uno distinto', 'Cerrar', {
+                duration: 3000,
+              });
+            }
+          }
+        );
+      } else {
+        this.aS.insert(this.asociado).subscribe(
+          () => {
+            this.aS.list().subscribe(d => {
+              this.aS.setList(d);
+            });
+          },
+          error => {
+            if (error.status === 500) {
+              this.snackBar.open('El RUC ya ha sido registrado, ingrese uno distinto', 'Cerrar', {
+                duration: 3000,
+              });
+            }
+          }
+        );
       }
-      this.router.navigate(['asociadoadmin'])
+      this.router.navigate(['asociadoadmin']);
     }
   }
 
