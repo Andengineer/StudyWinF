@@ -44,6 +44,9 @@
       <button mat-button [matMenuTriggerFor]="menuRol" style="color: white" *ngIf="isDeveloper()">
         <mat-icon>verified_user</mat-icon>Rol
       </button>
+      <button mat-button [matMenuTriggerFor]="menuReportes" style="color: white" *ngIf="isDeveloper()">
+        <mat-icon>verified_user</mat-icon>Reportes
+      </button>
     </ul>
   </div>
 
@@ -115,6 +118,10 @@
 
 <mat-menu #menuPregunta="matMenu">
   <button mat-menu-item routerLink="/preguntaadmin"><mat-icon>playlist_add_check</mat-icon> Listar </button>
+  <button mat-menu-item routerLink="/preguntaadmin/nuevo"><mat-icon>playlist_add</mat-icon> Registrar </button>
+</mat-menu>
+<mat-menu #menuReportes="matMenu">
+  <button mat-menu-item routerLink="/cantuserxIE"><mat-icon>playlist_add_check</mat-icon> Cantidad de Usuarios por IE </button>
   <button mat-menu-item routerLink="/preguntaadmin/nuevo"><mat-icon>playlist_add</mat-icon> Registrar </button>
 </mat-menu>
 <mat-menu #menuRol="matMenu">

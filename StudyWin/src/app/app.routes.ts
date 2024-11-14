@@ -33,6 +33,7 @@ import { CreaeditacuestionarioacademicoComponent } from './components/cuestionar
 import { ListarPreguntaComponent } from './components/pregunta/listar-pregunta/listar-pregunta.component';
 import { CreaeditapreguntaComponent } from './components/pregunta/creaeditapregunta/creaeditapregunta.component';
 import { ResolucionpreguntaClientComponent } from './components/pregunta/resolucionpregunta-client/resolucionpregunta-client.component';
+import { CantidadporIEComponent } from './components/reportes/cantidadpor-ie/cantidadpor-ie.component';
 
 export const routes: Routes = [
     //Login
@@ -168,6 +169,9 @@ export const routes: Routes = [
     //main
     {
         path: 'home', component: PagemainComponent, // Ruta para listar el mainpage
+    },
+    {
+        path: 'cantuserxIE', component: CantidadporIEComponent
     }
 ]
     ;

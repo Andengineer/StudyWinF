@@ -1,5 +1,5 @@
 <div>
-    <div class="TReg">Actualización Usuario</div>
+    <div class="TReg">Registro de Usuario Usuario</div>
     <div>
         <form [formGroup]="form" (submit)="aceptar()">
           
@@ -20,7 +20,7 @@
               <br>
               <mat-form-field class="example-full-width">
                 <mat-label>DNI</mat-label>
-                <input matInput formControlName="hdni" maxlength="8" [readonly]="isclient()" >
+                <input matInput formControlName="hdni" maxlength="8" minlength="8" [readonly]="isclient()" >
               </mat-form-field>              
               <br>
               <mat-form-field class="example-full-width">
