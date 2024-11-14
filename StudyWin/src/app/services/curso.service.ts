@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Curso } from '../models/Curso';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { CursosXCategoriaDTO } from '../models/CursosXCategoriaDTO';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,9 @@ export class CursoService {
   }
   getIdcurso(){
     return this.identcurso
+  }
+  getCursosxcategoria():Observable<CursosXCategoriaDTO[]>{
+    return this.http.get<CursosXCategoriaDTO[]>(`${this.url}/cursoxcategoria`)
   }
   
 }

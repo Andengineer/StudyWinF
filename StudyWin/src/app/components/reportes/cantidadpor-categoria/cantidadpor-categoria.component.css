@@ -1,0 +1,33 @@
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .title h1 {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 3px solid #9a1eff;
+    width: 100%;
+  }
+  
+  .chart-container {
+    margin-top: 20px;
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-container canvas {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+  }
+  

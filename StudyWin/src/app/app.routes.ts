@@ -34,6 +34,7 @@ import { ListarPreguntaComponent } from './components/pregunta/listar-pregunta/l
 import { CreaeditapreguntaComponent } from './components/pregunta/creaeditapregunta/creaeditapregunta.component';
 import { ResolucionpreguntaClientComponent } from './components/pregunta/resolucionpregunta-client/resolucionpregunta-client.component';
 import { CantidadporIEComponent } from './components/reportes/cantidadpor-ie/cantidadpor-ie.component';
+import { CantidadporCategoriaComponent } from './components/reportes/cantidadpor-categoria/cantidadpor-categoria.component';
 
 export const routes: Routes = [
     //Login
@@ -172,6 +173,9 @@ export const routes: Routes = [
     },
     {
         path: 'cantuserxIE', component: CantidadporIEComponent
+    },
+    {
+        path: 'cantcursosxCat', component: CantidadporCategoriaComponent
     }
 ]
     ;
