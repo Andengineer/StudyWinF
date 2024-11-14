@@ -149,8 +149,9 @@ export const routes: Routes = [
         },
         {
             path: 'ediciones/:id', component: CreaeditausuarioComponent
+            
         }],
-        canActivate: [seguridadGuard],
+        
     },
     {
         path: 'curso', component: ListarCursoComponent, // Ruta para listar los cursos del cliente como cards
@@ -177,6 +178,7 @@ export const routes: Routes = [
     //main
     {
         path: 'home', component: PagemainComponent, // Ruta para listar el mainpage
+        canActivate: [seguridadGuard],
     },
     {
         path: 'cantuserxIE', component: CantidadporIEComponent,
