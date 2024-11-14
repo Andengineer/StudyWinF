@@ -50,6 +50,7 @@ export const routes: Routes = [
     {
         path: 'profile',
         component: UserprofileComponent,
+        canActivate: [seguridadGuard],
     },
 
     //Developer
@@ -59,14 +60,16 @@ export const routes: Routes = [
             { path: 'nuevo', component: CreaeditacanjeComponent },// Ruta para crear/editar un canje
             {
                 path: 'ediciones/:id', component: CreaeditacanjeComponent
-            }]
+            }],
+            canActivate: [seguridadGuard],
     },
     {
         path: 'cursoadmin', component: CursoComponent,
         children: [
             { path: 'ediciones/:id', component: CreaeditacursoComponent },// Ruta para listar los cursos vista admin
             { path: 'nuevo', component: CreaeditacursoComponent }
-        ]
+        ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'asociadoadmin', component: AsociadoComponent,// Ruta para listar los asociados vista admin
@@ -113,7 +116,8 @@ export const routes: Routes = [
         },
         {
             path: 'miscursos', component: ListarusuarioxcursoclientComponent
-        },]
+        },],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'detalle-canje', component: DetallexcanjeComponent,
@@ -125,17 +129,18 @@ export const routes: Routes = [
         },
         {
             path: 'cl', component: ListardetallecanjeclientComponent
-        },]
+        },],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'rol', component: RegistrarrolComponent,
-        
+        canActivate: [seguridadGuard],
     },
 
     //Cliente
     {
         path: 'canje-client', component: ListarcanjeclientComponent,
-        
+        canActivate: [seguridadGuard],
     },
     {
         path: 'usuario', component: UsuarioComponent,
@@ -144,10 +149,12 @@ export const routes: Routes = [
         },
         {
             path: 'ediciones/:id', component: CreaeditausuarioComponent
-        }]
+        }],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'curso', component: ListarCursoComponent, // Ruta para listar los cursos del cliente como cards
+        canActivate: [seguridadGuard],
     },
     {
         path: 'asociado', component: ListarAsociadoComponent, // Ruta para listar los asociados como cards
@@ -172,10 +179,12 @@ export const routes: Routes = [
         path: 'home', component: PagemainComponent, // Ruta para listar el mainpage
     },
     {
-        path: 'cantuserxIE', component: CantidadporIEComponent
+        path: 'cantuserxIE', component: CantidadporIEComponent,
+        canActivate: [seguridadGuard],
     },
     {
-        path: 'cantcursosxCat', component: CantidadporCategoriaComponent
+        path: 'cantcursosxCat', component: CantidadporCategoriaComponent,
+        canActivate: [seguridadGuard],
     }
 ]
     ;
