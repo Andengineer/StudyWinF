@@ -1,67 +1,20 @@
 <div class="container">
-    <div style="text-align: center; ">
-      <h1 style="color: white;">Lista de Preguntas</h1>
+  <div class="Titulo"><h1  class="Titulos"> Preguntas </h1></div>
+    <div class="contenedor-items">
+        <div class="item" *ngFor="let element of dataSource.data"> <!-- Accede a la propiedad data -->
+            <div class="item-contenido">
+                <h2>{{element.pregunta}}</h2>
+                <p><strong>Id:</strong> {{element.id_pregunta}}</p>
+                <p><strong>Puntos:</strong> {{element.puntos}}</p>
+                <p><strong>Respuesta:</strong> {{element.respuesta}}</p> 
+                <p><strong>Respuesta:</strong> {{element.cuestionario.nombres}}</p> 
+                <button mat-raised-button [routerLink]="['ediciones',element.id_pregunta]">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-raised-button (click)='eliminar(element.id_pregunta)'>
+                  <mat-icon style="color: white;">delete_outline</mat-icon>
+                </button>
+            </div> 
+        </div>
     </div>
-    <div class="table-responsive">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  
-        <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
-  
-        <!-- ID Column -->
-        <ng-container matColumnDef="c1">
-          <th mat-header-cell *matHeaderCellDef> ID </th>
-          <td mat-cell *matCellDef="let element"> {{element.id_pregunta}} </td>
-        </ng-container>
-  
-        <!-- Pregunta Column -->
-        <ng-container matColumnDef="c2">
-          <th mat-header-cell *matHeaderCellDef> Pregunta </th>
-          <td mat-cell *matCellDef="let element"> {{element.pregunta}} </td>
-        </ng-container>
-  
-        <!-- Puntos Column -->
-        <ng-container matColumnDef="c3">
-          <th mat-header-cell *matHeaderCellDef> Puntos </th>
-          <td mat-cell *matCellDef="let element"> {{element.puntos}} </td>
-        </ng-container>
-
-        <!-- Respuesta Column -->
-        <ng-container matColumnDef="c4">
-          <th mat-header-cell *matHeaderCellDef> Respuesta </th>
-          <td mat-cell *matCellDef="let element"> {{element.respuesta}} </td>
-        </ng-container>
-
-        <!-- Cuestionario Column -->
-        <ng-container matColumnDef="c5">
-          <th mat-header-cell *matHeaderCellDef> Cuestionario </th>
-          <td mat-cell *matCellDef="let element"> {{element.cuestionario.nombres}} </td>
-        </ng-container>
-
-        <!-- Eliminar Column -->
-        <ng-container matColumnDef="accion01">
-          <th mat-header-cell *matHeaderCellDef> Eliminar </th>
-          <td mat-cell *matCellDef="let element" (click)='eliminar(element.id_pregunta)'>
-            <mat-icon style="color: red;">delete_outline</mat-icon>
-          </td>
-        </ng-container>
-  
-        <!-- Modificar Column -->
-        <ng-container matColumnDef="accion02">
-          <th mat-header-cell *matHeaderCellDef> Actualizar </th>
-          <td mat-cell *matCellDef="let element">
-            <button mat-raised-button [routerLink]="['ediciones',element.id_pregunta]">
-              <mat-icon>edit</mat-icon>
-            </button>
-          </td>
-        </ng-container>
-  
-  
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-    </div>
-    <div class="paginator">
-      <mat-paginator [pageSizeOptions]="[4, 7, 10]" showFirstLastButtons></mat-paginator>
-    </div>
-  </div>
+</div>

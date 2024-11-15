@@ -1,69 +1,125 @@
+/* Contenedor principal */
 .container {
-    padding: 0 1rem;
-}
-
-.table-responsive {
-    overflow-x: auto;
-}
-
-.mat-elevation-z8 {
+    text-align: center;
+  }
+  
+  /* Título */
+  .Titulo h1 {
+    color: #ffffff;
+    font-size: 3em;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Estilo del contenedor de items */
+  .contenedor-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  /* Contenedor de cada item */
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 290px;
     overflow: hidden;
-    border-top-left-radius: 18px; /* Borde redondeado en la esquina superior izquierda */
-    border-top-right-radius: 18px; /* Borde redondeado en la esquina superior derecha */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 3px 4px 20px rgb(200, 157, 255);
+    padding: 3.5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .item:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Contenido del item en la parte inferior */
+  .item-contenido {
+    background-color: #ffffff;
+    color: rgb(101, 17, 235);
     width: 100%;
-}
-
-.paginator {
-    overflow: hidden;
-    border-bottom-left-radius: 18px; /* Borde redondeado en la esquina superior izquierda */
-    border-bottom-right-radius: 18px; /* Borde redondeado en la esquina superior derecha */
-
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-.responsive-img {
-    max-width: 100px;
-    height: auto;
-    display: block;
-    margin: auto;
-}
-
-/* Media queries para responsive design */
-@media (max-width: 768px) {
-    .mat-elevation-z8 {
-        display: block;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+    padding: 15px;
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Estilo para el título dentro de cada tarjeta */
+  .item-contenido h2 {
+    font-size: 27px;
+    font-weight: bold;
+    margin: 5px 0;
+    color: rgb(58, 6, 143);
+  }
+  
+  /* Estilo para párrafos */
+  .item-contenido p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: rgb(110, 52, 204);
+  }
+  
+  /* Estilo para el botón */
+  button[mat-raised-button] {
+    width: 100%;
+    background-color: rgb(70, 1, 180);
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 4px
+  }
+  
+  /* Efecto hover para el botón */
+  button[mat-raised-button]:hover {
+    background-color: rgb(58, 6, 143);
+    transform: translateY(-8px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Efecto activo (al hacer clic) */
+  button[mat-raised-button]:active {
+    background-color: rgb(110, 52, 204);
+    transform: translateY(1px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Media Queries para Responsividad */
+  @media (max-width: 768px) {
+    .Titulo h1 {
+      font-size: 1.5rem;
     }
-
-    th.mat-header-cell, td.mat-cell {
-        padding: 8px;
-        font-size: 12px;
+  
+    .item {
+      max-width: 100%;
     }
-
-    /* Ocultar algunas columnas en pantallas pequeñas */
-    th.mat-header-cell:nth-child(4), 
-    td.mat-cell:nth-child(4), 
-    th.mat-header-cell:nth-child(5), 
-    td.mat-cell:nth-child(5),
-    th.mat-header-cell:nth-child(6), 
-    td.mat-cell:nth-child(6) {
-        display: none;
+  }
+  
+  @media (max-width: 480px) {
+    .Titulo h1 {
+      font-size: 1.25rem;
     }
-}
-
-@media (max-width: 480px) {
-    th.mat-header-cell, td.mat-cell {
-        padding: 6px;
-        font-size: 10px;
+  
+    .item-contenido h2 {
+      font-size: 1.25rem;
     }
-    
-    /* Ocultar columnas adicionales en pantallas muy pequeñas */
-    th.mat-header-cell:nth-child(3), 
-    td.mat-cell:nth-child(3) {
-        display: none;
+  
+    .item-contenido p {
+      font-size: 0.875rem;
     }
-}
+  }
+  
