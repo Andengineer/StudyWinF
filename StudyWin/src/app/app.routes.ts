@@ -35,6 +35,7 @@ import { CreaeditapreguntaComponent } from './components/pregunta/creaeditapregu
 import { ResolucionpreguntaClientComponent } from './components/pregunta/resolucionpregunta-client/resolucionpregunta-client.component';
 import { CantidadporIEComponent } from './components/reportes/cantidadpor-ie/cantidadpor-ie.component';
 import { CantidadporCategoriaComponent } from './components/reportes/cantidadpor-categoria/cantidadpor-categoria.component';
+import { PageComponent } from './components/landing/page/page.component';
 
 export const routes: Routes = [
     //Login
@@ -199,6 +200,9 @@ export const routes: Routes = [
     {
         path: 'cantcursosxCat', component: CantidadporCategoriaComponent,
         canActivate: [seguridadGuard],
+    }
+    ,{
+        path: 'landing',component: PageComponent
     }
 ]
     ;

@@ -1,0 +1,178 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Sección de encabezado */
+.seccion-header {
+    text-align: center;
+    background: linear-gradient(to bottom, #34008C, #301C42);
+    color: white;
+    padding: 40px; /* Aumentado para mayor espacio */
+}
+
+.seccion-header h1 {
+    margin: 0;
+    font-size: 48px; /* Tamaño aumentado */
+    color: #8D51FD;
+}
+
+.seccion-header h2 {
+    margin: 20px 0;
+    font-size: 24px;
+    color: white;
+}
+
+.btnregistrate {
+    display: inline-block;
+    padding: 15px 30px; /* Aumentado para mayor espacio */
+    color: white;
+    background-color: #8D51FD;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px; /* Aumentado para mayor visibilidad */
+}
+
+/* Sección de empezar */
+.seccion-empezar {
+    padding: 60px 20px; /* Aumentado para mayor espacio */
+    text-align: center;
+    background: linear-gradient(to left, #8D51FD, #34008C);
+}
+
+.texto-medio {
+    font-size: 20px;
+    margin: 30px 0; /* Aumentado para mayor espacio */
+    color: white;
+}
+
+.boton-naranja {
+    background-color: #8D51FD;
+    color: white;
+    padding: 15px 30px; /* Aumentado para mayor espacio */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.boton-naranja:hover {
+    background-color: #301C42;
+}
+
+.container-empezar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px; /* Aumentado para mayor espacio */
+}
+
+.imagen-izquierda, .imagen-derecha {
+    width: 200px; /* Tamaño aumentado */
+    height: auto;
+}
+
+/* Segmento objetivo */
+.segmento-objetivo {
+    text-align: center;
+    padding: 60px 20px; /* Aumentado para mayor espacio */
+    background: #8D51FD;
+}
+
+.container-objetivo {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Aumentado para mayor espacio */
+}
+
+.fondo_img {
+    text-align: center;
+    background-color: #6a0377;
+    padding: 40px;
+    border-radius: 15px;
+    width: 180px;
+}
+
+.centrar-texto-segmento {
+    max-width: 300px;
+    color: white;
+}
+
+/* Universidades */
+.universidades {
+    text-align: center;
+    padding: 60px 20px; /* Aumentado para mayor espacio */
+    background: linear-gradient(to right, #8D51FD, #34008C);
+    color: white;
+}
+
+.titulo2 {
+    font-size: 28px; /* Tamaño aumentado */
+    margin-bottom: 30px; /* Aumentado para mayor espacio */
+}
+
+.imagenes-universidad {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Aumentado para mayor espacio */
+}
+
+.imagenes-universidad img {
+    height: 120px; /* Tamaño aumentado */
+    object-fit: contain;
+}
+
+/* Pie de página */
+.ultima-parte {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px; /* Aumentado para mayor espacio */
+    background-color: #301C42;
+    color: white;
+}
+
+.piepagina {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Aumentado para mayor espacio */
+    align-items: center;
+    margin-top: 20px;
+}
+
+.piepagina img {
+    width: 80px;
+    height: auto;
+}
+
+.pieseguridad, .pieterminos, .piederechos {
+    font-size: 16px; /* Tamaño aumentado */
+    color: #8D51FD;
+    text-decoration: underline;
+    margin: 0 15px;
+}
+
+/* Ajustes para las aplicaciones de descarga */
+.descarga-apps {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px; /* Aumentado para mayor espacio */
+}
+
+.descarga-apps img {
+    height: 50px; /* Tamaño aumentado */
+    object-fit: contain;
+}
+
+/* Para centrar el texto de descarga */
+.texto-descarga {
+    text-align: center;
+    font-size: 16px; /* Tamaño aumentado */
+    color: white;
+    margin-top: 20px;
+}
