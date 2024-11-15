@@ -76,35 +76,40 @@ export const routes: Routes = [
         children: [
             { path: 'ediciones/:id', component: CreaeditaasociadoComponent },// Ruta para editar/eliminar un asociado
             { path: 'nuevo', component: CreaeditaasociadoComponent }// Ruta para registrar un asociado
-        ]
+        ],
+        canActivate:[seguridadGuard],
     },
     {
         path: 'tiporecompensaadmin', component: TipoDeRecompensaComponent,// Ruta para listar los tipos de recompensas vista admin
         children: [
             { path: 'ediciones/:id', component: CreaeditatiporecompensaComponent },// Ruta para editar/eliminar un tipo de recompensa
             { path: 'nuevo', component: CreaeditatiporecompensaComponent }// Ruta para registrar un tipo de recompensa
-        ]
+        ],
+        canActivate:[seguridadGuard],
     },
     {
         path: 'recompensaadmin', component: RecompensaComponent,// Ruta para listar las recompensas vista admin
         children: [
             { path: 'ediciones/:id', component: CreaeditarecompensaComponent },// Ruta para editar/eliminar una recompensa
             { path: 'nuevo', component: CreaeditarecompensaComponent }// Ruta para registrar una recompensa
-        ]
+        ],
+        canActivate:[seguridadGuard],
     },
     {
         path: 'cuestionarioacademicoadmin', component: CuestionarioacademicoComponent,// Ruta para listar los cuestionarios academicos vista admin
         children: [
             { path: 'ediciones/:id', component: CreaeditacuestionarioacademicoComponent },// Ruta para editar/eliminar un cuestionario academico
             { path: 'nuevo', component: CreaeditacuestionarioacademicoComponent }// Ruta para registrar un cuestionario academico
-        ]
+        ],
+        canActivate:[seguridadGuard],
     },
     {
         path: 'preguntaadmin', component: PreguntaComponent,// Ruta para listar las preguntas vista admin
         children: [
             { path: 'ediciones/:id', component: CreaeditapreguntaComponent },// Ruta para editar/eliminar una pregunta
             { path: 'nuevo', component: CreaeditapreguntaComponent }// Ruta para registrar una pregunta
-        ]
+        ],
+        canActivate:[seguridadGuard],
     },
     {
         path: 'usuarioxcurso', component: UsuarioxcursoComponent,
@@ -159,21 +164,27 @@ export const routes: Routes = [
     },
     {
         path: 'asociado', component: ListarAsociadoComponent, // Ruta para listar los asociados como cards
+        canActivate: [seguridadGuard],
     },
     {
         path: 'recompensa', component: ListarRecompensaComponent, // Ruta para listar las recompensas para cada asociado
+        canActivate: [seguridadGuard],
     },
     {
         path: 'recompensas', component: ListarRecompensaComponent, // Ruta para listar las recompensas totales
+        canActivate: [seguridadGuard],
     },
     {
         path: 'cuestionario', component: ListarCuestionarioacademicoComponent, // Ruta para listar los cuestionarios como cards
+        canActivate: [seguridadGuard],
     },
     {
         path: 'pregunta', component: ListarPreguntaComponent, // Ruta para listar las preguntas como lista ordenada
+        canActivate: [seguridadGuard],
     },
     {
         path: 'resolucion', component: ResolucionpreguntaClientComponent, // Ruta para listar los cuestionarios como cards
+        canActivate: [seguridadGuard],
     },
     //main
     {
