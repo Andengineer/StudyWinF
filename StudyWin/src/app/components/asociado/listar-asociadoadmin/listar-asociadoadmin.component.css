@@ -8,15 +8,15 @@
 
 .mat-elevation-z8 {
     overflow: hidden;
-    border-top-left-radius: 18px; /* Borde redondeado en la esquina superior izquierda */
-    border-top-right-radius: 18px; /* Borde redondeado en la esquina superior derecha */
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
     width: 100%;
 }
 
 .paginator {
     overflow: hidden;
-    border-bottom-left-radius: 18px; /* Borde redondeado en la esquina superior izquierda */
-    border-bottom-right-radius: 18px; /* Borde redondeado en la esquina superior derecha */
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
 
 }
 

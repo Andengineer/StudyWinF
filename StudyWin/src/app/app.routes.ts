@@ -191,6 +191,7 @@ export const routes: Routes = [
         path: 'home', component: PagemainComponent, // Ruta para listar el mainpage
         canActivate: [seguridadGuard],
     },
+    //reportes
     {
         path: 'cantuserxIE', component: CantidadporIEComponent,
         canActivate: [seguridadGuard],

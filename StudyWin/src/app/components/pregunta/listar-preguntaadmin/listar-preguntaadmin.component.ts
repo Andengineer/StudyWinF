@@ -1,34 +1,30 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { Pregunta } from '../../../models/Pregunta';
 import { PreguntaService } from '../../../services/pregunta.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listar-preguntaadmin',
   standalone: true,
-  imports: [MatTableModule,MatIconModule,RouterModule,MatPaginatorModule],
+  imports: [MatTableModule,MatIconModule,RouterModule,CommonModule],
   templateUrl: './listar-preguntaadmin.component.html',
   styleUrl: './listar-preguntaadmin.component.css'
 })
-export class ListarPreguntaadminComponent {
+export class ListarPreguntaadminComponent implements OnInit{
   dataSource:MatTableDataSource<Pregunta>= new MatTableDataSource()
-  displayedColumns:string[]=['c1','c2','c3','c4','c5','accion01','accion02']
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private pS:PreguntaService, private snackBar: MatSnackBar){}
 
   ngOnInit(): void {
     this.pS.list().subscribe(data=>{
-      console.log("Datos recibidos:", data); // Verifica la estructura aquí
+      console.log("Datos recibidos:", data); // Verifica la estructura
       this.dataSource=new MatTableDataSource(data)
-      this.dataSource.paginator = this.paginator;
     });
     this.pS.getList().subscribe(data=>{
       this.dataSource=new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
     });
 }
 
@@ -56,9 +52,5 @@ eliminar(id: number): void {
       }
     }
   );
-}
-
-ngAfterViewInit(): void {
-  this.dataSource.paginator = this.paginator;
 }
 }

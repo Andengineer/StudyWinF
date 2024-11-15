@@ -3,12 +3,15 @@
   .image-container {
     position: relative;
     width: 100%;
-    z-index: 1; /* Coloca la imagen debajo de la barra */
+    z-index: 1;
+    height: 100%;
   }
   
   /* Imagen */
   .image-container img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   /* Texto superpuesto */
@@ -21,12 +24,166 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     text-align: center;
     pointer-events: none;
-    width: 100%;
+    width: 80%;
+    max-width: 800px;
+    padding: 10px;
   }
   .h1img{
     font-size: 250%;
     font-weight: bold; 
     font-family: 'Inria Sans', sans-serif;
   }
+
+@media (max-width: 1534px) {
+  .image-container {
+    height: 250px;
+  }
+  
+  .h1img {
+    font-size: 235%;
+  }
+  .text-overlay {
+    top: 55%;
+  }
+}
+
+@media (max-width: 1354px) {
+  .image-container {
+    height: 250px;
+  }
+  
+  .h1img {
+    font-size: 225%;
+  }
+  .text-overlay {
+    top: 50%;
+  }
+}
+
+@media (max-width: 1224px) {
+  .image-container {
+    height: 250px;
+  }
+  
+  .h1img {
+    font-size: 215%;
+  }
+  .text-overlay {
+    top: 45%;
+  }
+}
+
+@media (max-width: 1134px) {
+  .image-container {
+    height: 250px;
+  }
+  
+  .h1img {
+    font-size: 210%;
+  }
+  .text-overlay {
+    top: 40%;
+  }
+}
+
+@media (max-width: 994px) {
+  .image-container {
+    height: 235px;
+  }
+  
+  .h1img {
+    font-size: 205%;
+  }
+  .text-overlay {
+    top: 37%;
+  }
+}
+
+@media (max-width: 871px) {
+  .image-container {
+    height: 230px;
+  }
+  
+  .h1img {
+    font-size: 200%;
+  }
+  .text-overlay {
+    top: 35%;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    height: 200px;
+  }
+
+  .h1img {
+    font-size: 195%;
+  }
+
+  .text-overlay {
+    top: 30%;
+  }
+}
+
+@media (max-width: 576px) {
+  .image-container {
+    height: 180px;
+  }
+
+  .h1img {
+    font-size: 150%;
+  }
+
+  .text-overlay {
+    top: 30%;
+  }
+}
+
+@media (max-width: 521px) {
+  .image-container {
+    height: 170px;
+  }
+
+  .h1img {
+    font-size: 1.4em;
+    line-height: 1.2em;
+  }
+
+  .text-overlay {
+    top: 25%;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-container {
+    height: 150px;
+  }
+
+  .h1img {
+    font-size: 1.4em;
+    line-height: 1.2em;
+  }
+
+  .text-overlay {
+    top: 25%;
+  }
+}
+
+@media (max-width: 405px) {
+  .image-container {
+    height: 150px;
+  }
+
+  .h1img {
+    font-size: 1.2em;
+    line-height: 0.8em;
+  }
+
+  .text-overlay {
+    top: 25%;
+  }
+}
+
  
   
