@@ -37,6 +37,7 @@ import { CantidadporIEComponent } from './components/reportes/cantidadpor-ie/can
 import { CantidadporCategoriaComponent } from './components/reportes/cantidadpor-categoria/cantidadpor-categoria.component';
 import { PageComponent } from './components/landing/page/page.component';
 import { RecompensaspopularesComponent } from './components/reportes/recompensaspopulares/recompensaspopulares.component';
+import { UsuariosporCuestionariosComponent } from './components/reportes/usuariospor-cuestionarios/usuariospor-cuestionarios.component';
 
 export const routes: Routes = [
     //Login
@@ -204,6 +205,10 @@ export const routes: Routes = [
     },
     {
         path: 'recompensaspopulares', component: RecompensaspopularesComponent,
+        canActivate: [seguridadGuard],
+    },
+    {
+        path: 'cuestionariosresueltos', component: UsuariosporCuestionariosComponent,
         canActivate: [seguridadGuard],
     },
     //landing

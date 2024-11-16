@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Cuestionario_academico } from '../models/Cuestionario_academico';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { CuestionariosresueltosDTO } from '../models/CuestionariosresueltosDTO';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
@@ -41,5 +42,8 @@ export class CuestionarioAcademicoService {
   }
   getIdcuestionario(){
     return this.identcuestionario
+  }
+  getUserXCuest():Observable<CuestionariosresueltosDTO[]>{
+    return this.http.get<CuestionariosresueltosDTO[]>(`${this.url}/resueltos`)
   }
 }
