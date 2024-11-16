@@ -1,37 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataset, ChartOptions, ChartType } from 'chart.js';
+import { RecompensaService } from '../../../services/recompensa.service';
 import { BaseChartDirective } from 'ng2-charts';
-import { CuestionarioAcademicoService } from '../../../services/cuestionario-academico.service';
 
 @Component({
-  selector: 'app-usuariospor-cuestionarios',
+  selector: 'app-recompensasxasociado',
   standalone: true,
   imports: [BaseChartDirective],
-  templateUrl: './usuariospor-cuestionarios.component.html',
-  styleUrl: './usuariospor-cuestionarios.component.css'
+  templateUrl: './recompensasxasociado.component.html',
+  styleUrl: './recompensasxasociado.component.css'
 })
-export class UsuariosporCuestionariosComponent implements OnInit{
+export class RecompensasxasociadoComponent implements OnInit{
   barChartOptions:ChartOptions={
     responsive:true,
   };
   barChartLabels: string[] = [];
   //barChartType: ChartType = 'pie';
-  //barChartType: ChartType = 'doughnut';
+  barChartType: ChartType = 'doughnut';
   //barChartType: ChartType = 'line';
-  barChartType: ChartType = 'bar';
+  //barChartType: ChartType = 'bar';
   //barChartType: ChartType = 'polarArea';
   barChartLegend = true;
   barChartData: ChartDataset[] = [];
 
-  constructor(private caS:CuestionarioAcademicoService){}
+  constructor(private rS:RecompensaService){}
 
   ngOnInit(): void {
-    this.caS.getUserXCuest().subscribe((data) => {
-      this.barChartLabels = data.map((item) => item.nombre);
+    this.rS.getAsociadosQuantity().subscribe((data) => {
+      this.barChartLabels = data.map((item) => item.empresa);
       this.barChartData = [
         {
-          data: data.map((item) => item.cuestionarios_resueltos),
-          label: 'Cantidad de Cuestionarios Resueltos',
+          data: data.map((item) => item.cantidad_recompensas),
+          label: 'Cantidad de Recompensas por Asociado',
           backgroundColor: [
             '#9d83e3', 
             '#af30e6', 

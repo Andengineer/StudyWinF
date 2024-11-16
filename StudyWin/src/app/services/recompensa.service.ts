@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Recompensa } from '../models/Recompensa';
 import { Observable, Subject } from 'rxjs';
 import { RecompesapopularDTO } from '../models/RecompesapopularDTO';
+import { RecompensaxasociadoDTO } from '../models/RecompensaxasociadoDTO';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
@@ -51,5 +52,8 @@ export class RecompensaService {
   }
   getQuantity():Observable<RecompesapopularDTO[]>{
     return this.http.get<RecompesapopularDTO[]>(`${this.url}/populares`)
+  }
+  getAsociadosQuantity():Observable<RecompensaxasociadoDTO[]>{
+    return this.http.get<RecompensaxasociadoDTO[]>(`${this.url}/recompensaxasociado`)
   }
 }
