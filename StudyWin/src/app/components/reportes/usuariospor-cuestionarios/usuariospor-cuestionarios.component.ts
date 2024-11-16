@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartDataset, ChartOptions, ChartType } from 'chart.js';
-import { RecompensaService } from '../../../services/recompensa.service';
 import { BaseChartDirective } from 'ng2-charts';
+import { CuestionarioAcademicoService } from '../../../services/cuestionario-academico.service';
 
 @Component({
-  selector: 'app-recompensaspopulares',
+  selector: 'app-usuariospor-cuestionarios',
   standalone: true,
   imports: [BaseChartDirective],
-  templateUrl: './recompensaspopulares.component.html',
-  styleUrl: './recompensaspopulares.component.css'
+  templateUrl: './usuariospor-cuestionarios.component.html',
+  styleUrl: './usuariospor-cuestionarios.component.css'
 })
-export class RecompensaspopularesComponent implements OnInit{
+export class UsuariosporCuestionariosComponent implements OnInit{
   barChartOptions:ChartOptions={
     responsive:true,
   };
@@ -23,15 +23,15 @@ export class RecompensaspopularesComponent implements OnInit{
   barChartLegend = true;
   barChartData: ChartDataset[] = [];
 
-  constructor(private rS:RecompensaService){}
+  constructor(private caS:CuestionarioAcademicoService){}
 
   ngOnInit(): void {
-    this.rS.getQuantity().subscribe((data) => {
+    this.caS.getUserXCuest().subscribe((data) => {
       this.barChartLabels = data.map((item) => item.nombre);
       this.barChartData = [
         {
-          data: data.map((item) => item.quantityRecompensas),
-          label: 'Cantidad de Recompensas Canjeadas',
+          data: data.map((item) => item.cuestionarios_resueltos),
+          label: 'Cantidad de Cuestionarios Resueltos',
           backgroundColor: [
             '#9d83e3', 
             '#af30e6', 
