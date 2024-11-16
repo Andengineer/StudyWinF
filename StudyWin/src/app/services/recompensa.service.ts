@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Recompensa } from '../models/Recompensa';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { RecompesapopularDTO } from '../models/RecompesapopularDTO';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
@@ -47,5 +48,8 @@ export class RecompensaService {
   }
   getBolean(){
     return this.verificador
+  }
+  getQuantity():Observable<RecompesapopularDTO[]>{
+    return this.http.get<RecompesapopularDTO[]>(`${this.url}/populares`)
   }
 }

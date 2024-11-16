@@ -36,6 +36,7 @@ import { ResolucionpreguntaClientComponent } from './components/pregunta/resoluc
 import { CantidadporIEComponent } from './components/reportes/cantidadpor-ie/cantidadpor-ie.component';
 import { CantidadporCategoriaComponent } from './components/reportes/cantidadpor-categoria/cantidadpor-categoria.component';
 import { PageComponent } from './components/landing/page/page.component';
+import { RecompensaspopularesComponent } from './components/reportes/recompensaspopulares/recompensaspopulares.component';
 
 export const routes: Routes = [
     //Login
@@ -200,8 +201,13 @@ export const routes: Routes = [
     {
         path: 'cantcursosxCat', component: CantidadporCategoriaComponent,
         canActivate: [seguridadGuard],
-    }
-    ,{
+    },
+    {
+        path: 'recompensaspopulares', component: RecompensaspopularesComponent,
+        canActivate: [seguridadGuard],
+    },
+    //landing
+    {
         path: 'landing',component: PageComponent
     }
 ]
