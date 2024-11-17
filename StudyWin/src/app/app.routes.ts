@@ -38,6 +38,7 @@ import { CantidadporCategoriaComponent } from './components/reportes/cantidadpor
 import { PageComponent } from './components/landing/page/page.component';
 import { RecompensaspopularesComponent } from './components/reportes/recompensaspopulares/recompensaspopulares.component';
 import { RecompensasxasociadoComponent } from './components/reportes/recompensasxasociado/recompensasxasociado.component';
+import { LeermasComponent } from './components/landing/leermas/leermas.component';
 
 export const routes: Routes = [
     //Login
@@ -214,6 +215,9 @@ export const routes: Routes = [
     //landing
     {
         path: 'landing',component: PageComponent
+    },
+    {
+        path: 'readmore',component: LeermasComponent
     }
 ]
     ;
