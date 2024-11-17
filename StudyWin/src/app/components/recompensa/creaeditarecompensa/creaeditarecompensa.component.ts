@@ -60,7 +60,7 @@ export class CreaeditarecompensaComponent {
     })
   }
 
-  aceptar(){
+  aceptar() {
     const puntos = this.form.value.hpuntos;
     const stock = this.form.value.hstock;
   
@@ -77,33 +77,58 @@ export class CreaeditarecompensaComponent {
       });
       return;
     }
-
-    if(this.form.valid){
-      this.recompensa.id_recompensa=this.form.value.hcodigo;
-      this.recompensa.nombre=this.form.value.hnombre;
-      this.recompensa.descripcion=this.form.value.hdescripcion;
-      this.recompensa.puntos=this.form.value.hpuntos;
-      this.recompensa.stock=this.form.value.hstock;
-      this.recompensa.asociado.id_asociado=this.form.value.hasociado;
-      this.recompensa.tipo_recompensa.idTipoRecompensa=this.form.value.htipo;
-      this.recompensa.imagen=this.form.value.himagen;
-      
-      if(this.edicion){
-        this.rS.update(this.recompensa).subscribe(d=>{
-          this.rS.list().subscribe(d=>{
-            this.rS.setList(d)
-          })
-        })
-      }else{
-        this.rS.insert(this.recompensa).subscribe(d=>{
-          this.rS.list().subscribe(d=>{
-            this.rS.setList(d)
-          });
+  
+    if (this.form.valid) {
+      this.recompensa.id_recompensa = this.form.value.hcodigo;
+      this.recompensa.nombre = this.form.value.hnombre;
+      this.recompensa.descripcion = this.form.value.hdescripcion;
+      this.recompensa.puntos = this.form.value.hpuntos;
+      this.recompensa.stock = this.form.value.hstock;
+      this.recompensa.asociado.id_asociado = this.form.value.hasociado;
+      this.recompensa.tipo_recompensa.idTipoRecompensa = this.form.value.htipo;
+      this.recompensa.imagen = this.form.value.himagen;
+  
+      if (this.edicion) {
+        this.rS.update(this.recompensa).subscribe({
+          next: () => {
+            this.rS.list().subscribe(d => {
+              this.rS.setList(d);
+            });
+            this.router.navigate(['recompensaadmin']);
+          },
+          error: (err) => {
+            this.handleBackendError(err);
+          }
+        });
+      } else {
+        this.rS.insert(this.recompensa).subscribe({
+          next: () => {
+            this.rS.list().subscribe(d => {
+              this.rS.setList(d);
+            });
+            this.router.navigate(['recompensaadmin']);
+          },
+          error: (err) => {
+            this.handleBackendError(err);
+          }
         });
       }
-      this.router.navigate(['recompensaadmin'])
     }
   }
+  handleBackendError(err: any) {
+    if (err.error && err.error.message) {
+      // Mostrar mensaje del backend en el snackBar
+      this.snackBar.open(err.error.message, 'Cerrar', {
+        duration: 3000,
+      });
+    } else {
+      // Mensaje genérico para errores desconocidos
+      this.snackBar.open('El nombre de la recompensa ya fue utilizada', 'Cerrar', {
+        duration: 3000,
+      });
+    }
+  }
+  
 
   init(){
     if(this.edicion){

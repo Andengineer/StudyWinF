@@ -9,6 +9,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TipoRecompensa } from '../../../models/TipoRecompensa';
 import { TipoDeRecompensaService } from '../../../services/tipo-de-recompensa.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creaeditatiporecompensa',
@@ -23,7 +24,7 @@ export class CreaeditatiporecompensaComponent implements OnInit{
   id:number=0;
   edicion:boolean=false
 
-  constructor(private trS:TipoDeRecompensaService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute){}
+  constructor(private trS:TipoDeRecompensaService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute, private snackBar:MatSnackBar){}
 
   ngOnInit(): void {
     this.route.params.subscribe((data:Params)=>{
@@ -38,27 +39,53 @@ export class CreaeditatiporecompensaComponent implements OnInit{
     });
   }
 
-  aceptar(){
-    if(this.form.valid){
-      this.tiporecompensa.idTipoRecompensa=this.form.value.hcodigo;
-      this.tiporecompensa.tipo=this.form.value.htipo;
-      
-      if(this.edicion){
-        this.trS.update(this.tiporecompensa).subscribe(d=>{
-          this.trS.list().subscribe(d=>{
-            this.trS.setList(d)
-          })
-        })
-      }else{
-        this.trS.insert(this.tiporecompensa).subscribe(d=>{
-          this.trS.list().subscribe(d=>{
-            this.trS.setList(d)
-          });
+  aceptar() {
+    if (this.form.valid) {
+      this.tiporecompensa.idTipoRecompensa = this.form.value.hcodigo;
+      this.tiporecompensa.tipo = this.form.value.htipo;
+  
+      if (this.edicion) {
+        this.trS.update(this.tiporecompensa).subscribe({
+          next: () => {
+            this.trS.list().subscribe(d => {
+              this.trS.setList(d);
+            });
+            this.router.navigate(['tiporecompensaadmin']);
+          },
+          error: (err) => {
+            this.handleBackendError(err);
+          }
+        });
+      } else {
+        this.trS.insert(this.tiporecompensa).subscribe({
+          next: () => {
+            this.trS.list().subscribe(d => {
+              this.trS.setList(d);
+            });
+            this.router.navigate(['tiporecompensaadmin']);
+          },
+          error: (err) => {
+            this.handleBackendError(err);
+          }
         });
       }
-      this.router.navigate(['tiporecompensaadmin'])
     }
   }
+  handleBackendError(err: any) {
+    if (err.error && err.error.message) {
+      // Mensaje personalizado desde el backend
+      this.snackBar.open(err.error.message, 'Cerrar', {
+        duration: 3000,
+      });
+    } else {
+      // Mensaje genérico para errores no identificados
+      this.snackBar.open('El nombre de la recompensa ya fue utilizada', 'Cerrar', {
+        duration: 3000,
+      });
+    }
+  }
+  
+  
 
   init(){
     if(this.edicion){
