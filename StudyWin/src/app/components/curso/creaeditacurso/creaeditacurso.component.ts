@@ -9,6 +9,7 @@ import { Curso } from '../../../models/Curso';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CursoService } from '../../../services/curso.service';
 import { CommonModule } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-creaeditacurso',
   standalone: true,
@@ -37,7 +38,7 @@ export class CreaeditacursoComponent {
     { value: 'Comunicación', viewValue: 'Comunicación' },
     { value: 'Psicología', viewValue: 'Psicología' }
   ]
-  constructor(private cS:CursoService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute){}
+  constructor(private cS:CursoService, private formBuilder:FormBuilder,private router:Router,private route:ActivatedRoute,private snackBar: MatSnackBar){}
   ngOnInit(): void {
     this.route.params.subscribe((data:Params)=>{
       this.id=data['id'];
@@ -54,28 +55,55 @@ export class CreaeditacursoComponent {
     });
   }
 
-  aceptar(){
-    if(this.form.valid){
-      this.curso.id_curso=this.form.value.hcodigo;
-      this.curso.nombre=this.form.value.hnombre;
-      this.curso.categoria=this.form.value.hcategoria;
-      this.curso.descripcion=this.form.value.hdescripcion;
-      this.curso.imagen=this.form.value.himagen;
-      
-      if(this.edicion){
-        this.cS.update(this.curso).subscribe(d=>{
-          this.cS.list().subscribe(d=>{
-            this.cS.setList(d)
-          })
-        })
-      }else{
-        this.cS.insert(this.curso).subscribe(d=>{
-          this.cS.list().subscribe(d=>{
-            this.cS.setList(d)
-          });
+  aceptar() {
+    if (this.form.valid) {
+      this.curso.id_curso = this.form.value.hcodigo;
+      this.curso.nombre = this.form.value.hnombre;
+      this.curso.categoria = this.form.value.hcategoria;
+      this.curso.descripcion = this.form.value.hdescripcion;
+      this.curso.imagen = this.form.value.himagen;
+
+      if (this.edicion) {
+        this.cS.update(this.curso).subscribe({
+          next: () => {
+            this.cS.list().subscribe((d) => {
+              this.cS.setList(d);
+            });
+            this.router.navigate(['cursoadmin']);
+          },
+          error: (err) => {
+            if (err.error?.message === 'El curso ya existe') {
+              this.snackBar.open('El nombre del curso ya fue ingresado.', 'Cerrar', {
+                duration: 3000,
+              });
+            } else {
+              this.snackBar.open('Ocurrió un error inesperado.', 'Cerrar', {
+                duration: 3000,
+              });
+            }
+          },
+        });
+      } else {
+        this.cS.insert(this.curso).subscribe({
+          next: () => {
+            this.cS.list().subscribe((d) => {
+              this.cS.setList(d);
+            });
+            this.router.navigate(['cursoadmin']);
+          },
+          error: (err) => {
+            if (err.error?.message === 'El curso ya existe') {
+              this.snackBar.open('El nombre del curso ya fue ingresado.', 'Cerrar', {
+                duration: 3000,
+              });
+            } else {
+              this.snackBar.open('El nombre del curso ya fue ingresado', 'Cerrar', {
+                duration: 3000,
+              });
+            }
+          },
         });
       }
-      this.router.navigate(['cursoadmin'])
     }
   }
   init(){
