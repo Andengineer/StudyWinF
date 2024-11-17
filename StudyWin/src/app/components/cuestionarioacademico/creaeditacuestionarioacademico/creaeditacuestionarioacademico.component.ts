@@ -51,7 +51,7 @@ export class CreaeditacuestionarioacademicoComponent {
     })
   }
 
-  aceptar(){
+  aceptar() {
     const tiempo = this.form.value.htiempo;
   
     if (tiempo < 0) {
@@ -60,31 +60,56 @@ export class CreaeditacuestionarioacademicoComponent {
       });
       return;
     }
-
-    if(this.form.valid){
-      this.cuestionario.id_cuestionario=this.form.value.hcodigo;
-      this.cuestionario.nombres=this.form.value.hnombre;
-      this.cuestionario.descripcion=this.form.value.hdescripcion;
-      this.cuestionario.tiempo_limite=this.form.value.htiempo;
-      this.cuestionario.curso.id_curso=this.form.value.hcurso;
-      this.cuestionario.imagen=this.form.value.himagen;
-      
-      if(this.edicion){
-        this.caS.update(this.cuestionario).subscribe(d=>{
-          this.caS.list().subscribe(d=>{
-            this.caS.setList(d)
-          })
-        })
-      }else{
-        this.caS.insert(this.cuestionario).subscribe(d=>{
-          this.caS.list().subscribe(d=>{
-            this.caS.setList(d)
-          });
+  
+    if (this.form.valid) {
+      this.cuestionario.id_cuestionario = this.form.value.hcodigo;
+      this.cuestionario.nombres = this.form.value.hnombre;
+      this.cuestionario.descripcion = this.form.value.hdescripcion;
+      this.cuestionario.tiempo_limite = this.form.value.htiempo;
+      this.cuestionario.curso.id_curso = this.form.value.hcurso;
+      this.cuestionario.imagen = this.form.value.himagen;
+  
+      if (this.edicion) {
+        this.caS.update(this.cuestionario).subscribe({
+          next: () => {
+            this.caS.list().subscribe(d => {
+              this.caS.setList(d);
+            });
+            this.router.navigate(['cuestionarioacademicoadmin']);
+          },
+          error: (err) => {
+            this.handleBackendError(err);
+          }
+        });
+      } else {
+        this.caS.insert(this.cuestionario).subscribe({
+          next: () => {
+            this.caS.list().subscribe(d => {
+              this.caS.setList(d);
+            });
+            this.router.navigate(['cuestionarioacademicoadmin']);
+          },
+          error: (err) => {
+            this.handleBackendError(err);
+          }
         });
       }
-      this.router.navigate(['cuestionarioacademicoadmin'])
     }
   }
+  handleBackendError(err: any) {
+    if (err.error && err.error.message) {
+      // Mensaje personalizado desde el backend
+      this.snackBar.open(err.error.message, 'Cerrar', {
+        duration: 3000,
+      });
+    } else {
+      // Mensaje genérico para errores no identificados
+      this.snackBar.open('El nombre del cuestionario ya fue utilizado', 'Cerrar', {
+        duration: 3000,
+      });
+    }
+  }
+  
 
   init(){
     if(this.edicion){
